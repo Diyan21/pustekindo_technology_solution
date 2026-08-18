@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+PUSTEKINDO NAVBAR + BRAND UPDATE
 
-# Run and deploy your AI Studio app
+Replace files:
+1. src/components/Navbar.tsx
+2. src/components/Brands.tsx (NEW)
+3. src/pages/Home.tsx
+4. src/data/companyData.ts
 
-This contains everything you need to run your app locally.
+Optional brand logo files:
+public/images/brands/hikvision.png
+public/images/brands/dahua.png
+public/images/brands/hilook.png
+public/images/brands/ezviz.png
+public/images/brands/imou.png
 
-View your app in AI Studio: https://ai.studio/apps/47dc6ab6-f072-4646-a33c-2bbcdf29cafe
+If logo files are not present, the website automatically falls back to text brand names.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+IMPORTANT:
+The original company profile explicitly mentions Hikvision. Dahua, HiLook, EZVIZ, and IMOU were added because the requested reference screenshot shows those brands. Confirm PUSTEKINDO actually offers them before publishing.
