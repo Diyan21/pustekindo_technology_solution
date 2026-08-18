@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import {
   ChevronDown,
   ChevronRight,
@@ -38,13 +39,10 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(
-        window.scrollY > 20
-      );
+      setIsScrolled(window.scrollY > 20);
 
       const sections = NAV_LINKS.map(
-        (link) =>
-          link.href.substring(1)
+        (link) => link.href.substring(1)
       );
 
       const scrollPosition =
@@ -96,13 +94,11 @@ export const Navbar: React.FC = () => {
     setOpenDesktopMenu(null);
     setOpenMobileMenu(null);
 
-    /*
-     * Kalau user klik merek dari dropdown:
-     * Hikvision, Dahua, HiLook, EZVIZ, IMOU
-     */
-    if (
-      href.startsWith('#brand-')
-    ) {
+    // ==========================
+    // BRAND DROPDOWN
+    // ==========================
+
+    if (href.startsWith('#brand-')) {
       const brandId =
         href.replace(
           '#brand-',
@@ -133,9 +129,10 @@ export const Navbar: React.FC = () => {
       return;
     }
 
-    /*
-     * Menu biasa
-     */
+    // ==========================
+    // NORMAL NAVIGATION
+    // ==========================
+
     const target =
       document.querySelector(href);
 
@@ -165,13 +162,25 @@ export const Navbar: React.FC = () => {
         }
       `}
     >
-      {/* Garis accent */}
-      <div className="h-1 bg-gradient-to-r from-[#0a192f] via-[#007bff] to-[#00d4ff]" />
+      {/* Top Accent Line */}
+      <div
+        className="
+          h-1
+          bg-gradient-to-r
+          from-[#0a192f]
+          via-[#007bff]
+          to-[#00d4ff]
+        "
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="h-[74px] flex items-center justify-between">
 
-          {/* Logo */}
+          {/* ==========================
+              LOGO
+          ========================== */}
+
           <a
             href="#beranda"
             onClick={(e) => {
@@ -181,28 +190,69 @@ export const Navbar: React.FC = () => {
                 '#beranda'
               );
             }}
-            className="flex items-center gap-3 shrink-0"
+            className="
+              flex
+              items-center
+              gap-3
+              shrink-0
+            "
           >
-            <div className="w-10 h-10 rounded-xl bg-[#0a192f] flex items-center justify-center shadow-sm">
+            <div
+              className="
+                w-10
+                h-10
+                rounded-xl
+                bg-[#0a192f]
+                flex
+                items-center
+                justify-center
+                shadow-sm
+              "
+            >
               <Video className="w-5 h-5 text-[#00d4ff]" />
             </div>
 
             <div className="leading-none">
-              <div className="text-lg sm:text-xl font-black tracking-tight text-[#0a192f]">
+
+              <div
+                className="
+                  text-lg
+                  sm:text-xl
+                  font-black
+                  tracking-tight
+                  text-[#0a192f]
+                "
+              >
                 {COMPANY_INFO.name}
               </div>
 
-              <div className="mt-1 text-[9px] sm:text-[10px] font-bold tracking-[0.18em] text-[#007bff] uppercase">
+              <div
+                className="
+                  mt-1
+                  text-[9px]
+                  sm:text-[10px]
+                  font-bold
+                  tracking-[0.18em]
+                  text-[#007bff]
+                  uppercase
+                "
+              >
                 {COMPANY_INFO.subName}
               </div>
+
             </div>
+
           </a>
 
-          {/* Desktop Navigation */}
+          {/* ==========================
+              DESKTOP NAVIGATION
+          ========================== */}
+
           <nav
             className="hidden lg:flex items-center h-full"
             aria-label="Main Navigation"
           >
+
             {NAV_LINKS.map(
               (link) => {
                 const children =
@@ -223,7 +273,12 @@ export const Navbar: React.FC = () => {
                 return (
                   <div
                     key={link.name}
-                    className="relative h-full flex items-center"
+                    className="
+                      relative
+                      h-full
+                      flex
+                      items-center
+                    "
                     onMouseEnter={() => {
                       if (
                         hasChildren
@@ -243,6 +298,7 @@ export const Navbar: React.FC = () => {
                       }
                     }}
                   >
+
                     <a
                       href={link.href}
                       onClick={(e) => {
@@ -266,8 +322,8 @@ export const Navbar: React.FC = () => {
                         border-b-2
                         ${
                           isActive
-                            ? 'text-[#007bff] border-[#007bff]'
-                            : 'text-slate-700 border-transparent hover:text-[#007bff]'
+                            ? 'text-[#0a192f] border-[#0a192f]'
+                            : 'text-slate-700 border-transparent hover:text-[#0a192f]'
                         }
                       `}
                     >
@@ -278,10 +334,14 @@ export const Navbar: React.FC = () => {
                       )}
                     </a>
 
-                    {/* Desktop Dropdown */}
+                    {/* ==========================
+                        DESKTOP DROPDOWN
+                    ========================== */}
+
                     {hasChildren &&
                       openDesktopMenu ===
                         link.name && (
+
                         <div
                           className="
                             absolute
@@ -298,10 +358,12 @@ export const Navbar: React.FC = () => {
                             overflow-hidden
                           "
                         >
+
                           {children?.map(
                             (
                               child
                             ) => (
+
                               <a
                                 key={
                                   child.name
@@ -327,29 +389,43 @@ export const Navbar: React.FC = () => {
                                   text-sm
                                   font-medium
                                   text-slate-600
-                                  hover:text-[#007bff]
-                                  hover:bg-blue-50
+                                  hover:text-[#0a192f]
+                                  hover:bg-slate-50
                                   transition-colors
                                 "
                               >
+
                                 <span>
                                   {
                                     child.name
                                   }
                                 </span>
 
-                                <ChevronRight className="w-4 h-4 text-slate-300" />
+                                <ChevronRight
+                                  className="
+                                    w-4
+                                    h-4
+                                    text-slate-300
+                                  "
+                                />
+
                               </a>
+
                             )
                           )}
+
                         </div>
                       )}
+
                   </div>
                 );
               }
             )}
 
-            {/* Search */}
+            {/* ==========================
+                SEARCH
+            ========================== */}
+
             <button
               type="button"
               aria-label="Cari"
@@ -359,9 +435,9 @@ export const Navbar: React.FC = () => {
                 h-10
                 rounded-full
                 bg-slate-100
-                hover:bg-blue-50
+                hover:bg-slate-200
                 text-slate-600
-                hover:text-[#007bff]
+                hover:text-[#0a192f]
                 flex
                 items-center
                 justify-center
@@ -370,10 +446,22 @@ export const Navbar: React.FC = () => {
             >
               <Search className="w-4 h-4" />
             </button>
+
           </nav>
 
-          {/* Desktop WhatsApp */}
-          <div className="hidden xl:flex items-center ml-4">
+          {/* ==========================
+              DESKTOP WHATSAPP
+          ========================== */}
+
+          <div
+            className="
+              hidden
+              xl:flex
+              items-center
+              ml-4
+            "
+          >
+
             <a
               href={
                 COMPANY_INFO.whatsappUrl
@@ -400,10 +488,15 @@ export const Navbar: React.FC = () => {
 
               Konsultasi
             </a>
+
           </div>
 
-          {/* Mobile Actions */}
+          {/* ==========================
+              MOBILE ACTIONS
+          ========================== */}
+
           <div className="lg:hidden flex items-center gap-2">
+
             <a
               href={
                 COMPANY_INFO.whatsappUrl
@@ -437,28 +530,39 @@ export const Navbar: React.FC = () => {
                 h-10
                 rounded-lg
                 bg-slate-100
+                hover:bg-slate-200
                 text-[#0a192f]
                 flex
                 items-center
                 justify-center
+                transition-colors
               "
               aria-expanded={
                 mobileMenuOpen
               }
               aria-label="Buka menu"
             >
+
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
               ) : (
                 <Menu className="w-5 h-5" />
               )}
+
             </button>
+
           </div>
+
         </div>
+
       </div>
 
-      {/* Mobile Menu */}
+      {/* ==========================
+          MOBILE MENU
+      ========================== */}
+
       {mobileMenuOpen && (
+
         <div
           className="
             lg:hidden
@@ -470,7 +574,9 @@ export const Navbar: React.FC = () => {
             overflow-y-auto
           "
         >
+
           <div className="px-4 py-4 space-y-1">
+
             {NAV_LINKS.map(
               (link) => {
                 const children =
@@ -488,11 +594,17 @@ export const Navbar: React.FC = () => {
                   openMobileMenu ===
                   link.name;
 
+                const isActive =
+                  activeSection ===
+                  link.href.substring(1);
+
                 return (
                   <div
                     key={link.name}
                   >
+
                     <div className="flex items-center">
+
                       <a
                         href={
                           link.href
@@ -506,17 +618,20 @@ export const Navbar: React.FC = () => {
                             link.href
                           );
                         }}
-                        className="
+                        className={`
                           flex-1
                           px-3
                           py-3
                           rounded-lg
                           text-sm
                           font-semibold
-                          text-slate-700
-                          hover:bg-blue-50
-                          hover:text-[#007bff]
-                        "
+                          transition-colors
+                          ${
+                            isActive
+                              ? 'text-[#0a192f] bg-slate-100'
+                              : 'text-slate-700 hover:bg-slate-50 hover:text-[#0a192f]'
+                          }
+                        `}
                       >
                         {
                           link.name
@@ -524,6 +639,7 @@ export const Navbar: React.FC = () => {
                       </a>
 
                       {hasChildren && (
+
                         <button
                           type="button"
                           onClick={() =>
@@ -543,6 +659,7 @@ export const Navbar: React.FC = () => {
                           "
                           aria-label={`Buka submenu ${link.name}`}
                         >
+
                           <ChevronDown
                             className={`
                               w-4
@@ -555,18 +672,35 @@ export const Navbar: React.FC = () => {
                               }
                             `}
                           />
+
                         </button>
+
                       )}
+
                     </div>
 
-                    {/* Mobile Submenu */}
+                    {/* ==========================
+                        MOBILE SUBMENU
+                    ========================== */}
+
                     {hasChildren &&
                       expanded && (
-                        <div className="ml-3 pl-3 border-l border-blue-100 mb-2">
+
+                        <div
+                          className="
+                            ml-3
+                            pl-3
+                            border-l
+                            border-slate-200
+                            mb-2
+                          "
+                        >
+
                           {children?.map(
                             (
                               child
                             ) => (
+
                               <a
                                 key={
                                   child.name
@@ -589,24 +723,45 @@ export const Navbar: React.FC = () => {
                                   py-2.5
                                   text-sm
                                   text-slate-500
-                                  hover:text-[#007bff]
+                                  hover:text-[#0a192f]
+                                  hover:bg-slate-50
+                                  rounded-lg
+                                  transition-colors
                                 "
                               >
                                 {
                                   child.name
                                 }
                               </a>
+
                             )
                           )}
+
                         </div>
+
                       )}
+
                   </div>
                 );
               }
             )}
 
-            {/* Mobile Contact */}
-            <div className="pt-4 mt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
+            {/* ==========================
+                MOBILE CONTACT
+            ========================== */}
+
+            <div
+              className="
+                pt-4
+                mt-3
+                border-t
+                border-slate-100
+                grid
+                grid-cols-2
+                gap-2
+              "
+            >
+
               <a
                 href={
                   COMPANY_INFO.whatsappUrl
@@ -620,14 +775,18 @@ export const Navbar: React.FC = () => {
                   py-3
                   rounded-xl
                   bg-[#25D366]
+                  hover:bg-[#20ba5a]
                   text-white
                   text-xs
                   font-bold
+                  transition-colors
                 "
               >
+
                 <MessageSquare className="w-4 h-4 mr-2" />
 
                 WhatsApp
+
               </a>
 
               <a
@@ -642,19 +801,28 @@ export const Navbar: React.FC = () => {
                   py-3
                   rounded-xl
                   bg-slate-100
+                  hover:bg-slate-200
                   text-slate-700
                   text-xs
                   font-bold
+                  transition-colors
                 "
               >
-                <Phone className="w-4 h-4 mr-2 text-[#007bff]" />
+
+                <Phone className="w-4 h-4 mr-2 text-[#0a192f]" />
 
                 Telepon
+
               </a>
+
             </div>
+
           </div>
+
         </div>
+
       )}
+
     </header>
   );
 };
