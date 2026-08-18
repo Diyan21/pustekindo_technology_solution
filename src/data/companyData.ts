@@ -101,13 +101,69 @@ export const COMPANY_INFO: CompanyInfo = {
 
 export const NAV_LINKS = [
   { name: 'Beranda', href: '#beranda' },
-  { name: 'Tentang Kami', href: '#tentang' },
-  { name: 'Keunggulan', href: '#keunggulan' },
-  { name: 'Produk', href: '#produk' },
-  { name: 'Solusi', href: '#solusi' },
-  { name: 'Klien', href: '#klien' },
+  {
+    name: 'Harga Paket',
+    href: '#harga-paket',
+    children: [
+      { name: 'Hikvision', href: '#brand-hikvision' },
+      { name: 'Dahua', href: '#brand-dahua' },
+      { name: 'HiLook', href: '#brand-hilook' },
+      { name: 'EZVIZ', href: '#brand-ezviz' },
+      { name: 'IMOU', href: '#brand-imou' }
+    ]
+  },
+  {
+    name: 'Tentang Kami',
+    href: '#tentang',
+    children: [
+      { name: 'Profil Perusahaan', href: '#tentang' },
+      { name: 'Visi & Misi', href: '#visi-misi' }
+    ]
+  },
   { name: 'Galeri', href: '#galeri' },
+  { name: 'Klien', href: '#klien' },
   { name: 'Kontak', href: '#kontak' }
+];
+
+
+export interface BrandItem {
+  id: string;
+  name: string;
+  logo: string;
+  description: string;
+}
+
+export const BRAND_ITEMS: BrandItem[] = [
+  {
+    id: 'hikvision',
+    name: 'Hikvision',
+    logo: '/images/brands/hikvision.png',
+    description: 'Solusi CCTV & surveillance untuk kebutuhan rumah, bisnis, dan industri.'
+  },
+  {
+    id: 'dahua',
+    name: 'Dahua',
+    logo: '/images/brands/dahua.png',
+    description: 'Pilihan perangkat surveillance untuk berbagai kebutuhan instalasi.'
+  },
+  {
+    id: 'hilook',
+    name: 'HiLook',
+    logo: '/images/brands/hilook.png',
+    description: 'Solusi monitoring praktis untuk kebutuhan keamanan harian.'
+  },
+  {
+    id: 'ezviz',
+    name: 'EZVIZ',
+    logo: '/images/brands/ezviz.png',
+    description: 'Pilihan smart camera untuk kebutuhan rumah dan usaha.'
+  },
+  {
+    id: 'imou',
+    name: 'IMOU',
+    logo: '/images/brands/imou.png',
+    description: 'Smart surveillance yang mudah digunakan untuk pemantauan sehari-hari.'
+  }
 ];
 
 export const TRUST_ITEMS: TrustItem[] = [
@@ -427,7 +483,7 @@ export const VISION_DATA = {
 
 export const MISSION_DATA = {
   title: 'Misi Kami',
-  statement: 'Memberikan kontribusi dan dampak nyata bagi masyarakat pada umumnya dan perusahaan pada khususnya melalui penerapan sistem pemantauan yang baik, efisien, dan didukung teknologi modern untuk membantu meningkatkan keamanan, kinerja, serta menciptakan lingkungan yang lebih kondusif.'
+  statement: 'PUSTEKINDO berkomitmen menghadirkan teknologi pemantauan yang dapat membantu meningkatkan keamanan, efektivitas operasional serta memberikan manfaat nyata bagi perusahaan dan masyarakat.'
 };
 
 export const CLIENT_LIST: ClientItem[] = [
