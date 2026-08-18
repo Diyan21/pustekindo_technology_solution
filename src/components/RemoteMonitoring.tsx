@@ -1,150 +1,485 @@
 import React from 'react';
-import { 
-  Server, 
-  Globe, 
-  Users, 
-  PlayCircle, 
-  Lock, 
-  Grid, 
-  Camera, 
-  HardDrive, 
-  Wifi, 
+import {
+  Camera,
+  HardDrive,
+  Wifi,
   MonitorSmartphone,
-  ArrowRight,
-  ShieldAlert
+  Server,
+  Globe,
+  Users,
+  PlayCircle,
+  Lock,
+  Grid3X3,
+  ArrowRight
 } from 'lucide-react';
-import { REMOTE_MONITORING_FEATURES, WORKFLOW_STEPS } from '../data/companyData';
+
+import {
+  REMOTE_MONITORING_FEATURES,
+  WORKFLOW_STEPS
+} from '../data/companyData';
+
+const iconMap: Record<string, React.ElementType> = {
+  Camera,
+  HardDrive,
+  Wifi,
+  MonitorSmartphone,
+  Server,
+  Globe,
+  Users,
+  PlayCircle,
+  Lock,
+  Grid: Grid3X3
+};
 
 export const RemoteMonitoring: React.FC = () => {
-  const getFeatureIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Server':
-        return <Server className="w-5 h-5 text-[#00d4ff]" />;
-      case 'Globe':
-        return <Globe className="w-5 h-5 text-[#00d4ff]" />;
-      case 'Users':
-        return <Users className="w-5 h-5 text-[#00d4ff]" />;
-      case 'PlayCircle':
-        return <PlayCircle className="w-5 h-5 text-[#00d4ff]" />;
-      case 'Lock':
-        return <Lock className="w-5 h-5 text-[#00d4ff]" />;
-      case 'Grid':
-        return <Grid className="w-5 h-5 text-[#00d4ff]" />;
-      default:
-        return <Globe className="w-5 h-5 text-[#00d4ff]" />;
-    }
-  };
-
-  const getWorkflowIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Camera':
-        return <Camera className="w-6 h-6 text-[#00d4ff]" />;
-      case 'HardDrive':
-        return <HardDrive className="w-6 h-6 text-[#00d4ff]" />;
-      case 'Wifi':
-        return <Wifi className="w-6 h-6 text-[#00d4ff]" />;
-      case 'MonitorSmartphone':
-        return <MonitorSmartphone className="w-6 h-6 text-[#00d4ff]" />;
-      default:
-        return <Camera className="w-6 h-6 text-[#00d4ff]" />;
-    }
-  };
-
   return (
-    <section id="remote-monitoring" className="py-20 lg:py-24 bg-[#0a192f] text-white relative overflow-hidden">
-      {/* Visual background ambient glow */}
-      <div className="absolute top-1/2 -left-20 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-10 right-0 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+    <section
+      id="remote-monitoring"
+      className="
+        relative
+        py-20
+        lg:py-24
+        overflow-hidden
+        text-white
+        bg-gradient-to-br
+        from-[#06162b]
+        via-[#0a2947]
+        to-[#155e75]
+      "
+    >
+      {/* =========================================
+          BACKGROUND ATMOSPHERIC GLOW
+      ========================================== */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[#00d4ff] text-xs font-bold tracking-wider uppercase">
-            <Wifi className="w-3.5 h-3.5 text-[#00d4ff]" />
-            <span>IT & Remote Surveillance</span>
+      {/* Glow kanan atas */}
+      <div
+        className="
+          absolute
+          -top-56
+          -right-48
+          w-[750px]
+          h-[750px]
+          rounded-full
+          bg-sky-300/10
+          blur-[150px]
+          pointer-events-none
+        "
+      />
+
+      {/* Glow kiri bawah */}
+      <div
+        className="
+          absolute
+          -bottom-64
+          -left-52
+          w-[700px]
+          h-[700px]
+          rounded-full
+          bg-blue-400/10
+          blur-[160px]
+          pointer-events-none
+        "
+      />
+
+      {/* Glow cyan tengah */}
+      <div
+        className="
+          absolute
+          top-1/3
+          left-1/2
+          -translate-x-1/2
+          w-[600px]
+          h-[400px]
+          rounded-full
+          bg-cyan-300/[0.04]
+          blur-[130px]
+          pointer-events-none
+        "
+      />
+
+      {/* Grid technology halus */}
+      <div
+        className="
+          absolute
+          inset-0
+          opacity-[0.05]
+          pointer-events-none
+          bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)]
+          [background-size:42px_42px]
+        "
+      />
+
+      {/* Vignette */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-[#06162b]/30
+          via-transparent
+          to-[#06162b]/40
+          pointer-events-none
+        "
+      />
+
+      {/* =========================================
+          CONTENT
+      ========================================== */}
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* HEADER */}
+        <div className="max-w-3xl mx-auto text-center">
+
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-2
+              px-3.5
+              py-1.5
+              rounded-full
+              bg-white/[0.06]
+              backdrop-blur-md
+              border
+              border-cyan-300/20
+              text-[#57e6ff]
+              text-[10px]
+              sm:text-xs
+              font-bold
+              uppercase
+              tracking-[0.14em]
+              shadow-sm
+            "
+          >
+            <Wifi className="w-3.5 h-3.5" />
+
+            IT & Remote Surveillance
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2
+            className="
+              mt-5
+              text-3xl
+              sm:text-4xl
+              lg:text-5xl
+              font-extrabold
+              tracking-tight
+              text-white
+              leading-[1.1]
+            "
+          >
             Pantau Lokasi Anda dari Mana Saja
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Solusi surveillance PUSTEKINDO dirancang untuk kebutuhan monitoring fleksibel, baik melalui jaringan lokal (LAN) maupun internet publik sesuai dengan infrastruktur yang diterapkan di lokasi Anda.
+          <p
+            className="
+              mt-4
+              text-sm
+              sm:text-base
+              text-slate-200/90
+              leading-relaxed
+              max-w-3xl
+              mx-auto
+            "
+          >
+            Solusi surveillance PUSTEKINDO dirancang untuk kebutuhan
+            monitoring fleksibel, baik melalui jaringan lokal (LAN)
+            maupun internet publik sesuai dengan infrastruktur yang
+            diterapkan di lokasi Anda.
           </p>
+
         </div>
 
-        {/* Concept Architecture Flow: Camera → Recorder / System → Network → Smartphone / PC */}
-        <div className="mb-14 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl">
-          <div className="text-center mb-8">
-            <h3 className="text-xs font-mono text-[#00d4ff] uppercase tracking-widest font-bold">
+        {/* =========================================
+            SYSTEM FLOW
+        ========================================== */}
+
+        <div
+          className="
+            mt-12
+            lg:mt-14
+            rounded-3xl
+            border
+            border-white/10
+            bg-[#07182e]/45
+            backdrop-blur-xl
+            shadow-2xl
+            shadow-blue-950/20
+            p-5
+            sm:p-7
+            lg:p-8
+          "
+        >
+          {/* Flow Header */}
+          <div className="text-center mb-7">
+
+            <p
+              className="
+                text-[10px]
+                sm:text-xs
+                font-mono
+                font-bold
+                uppercase
+                tracking-[0.16em]
+                text-[#38ddff]
+              "
+            >
               Arsitektur Alur Sistem Monitoring
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Integrasi end-to-end dari perangkat tangkap optik hingga ke layar kendali pengguna
             </p>
+
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-300">
+              Integrasi end-to-end dari perangkat tangkap optik hingga
+              ke layar kendali pengguna.
+            </p>
+
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 relative">
-            {WORKFLOW_STEPS.map((step, idx) => (
-              <div key={step.step} className="relative flex flex-col items-center text-center group">
-                {/* Step Card */}
-                <div className="w-full bg-[#0a192f]/90 border border-slate-800 rounded-xl p-5 hover:border-[#00d4ff]/50 transition-all duration-300 flex flex-col items-center h-full">
-                  
-                  {/* Step number badge */}
-                  <span className="font-mono text-[10px] font-bold text-[#00d4ff] mb-3 bg-blue-950/60 px-2 py-0.5 rounded border border-blue-800/40">
-                    STEP {step.step}
-                  </span>
+          {/* Workflow */}
+          <div
+            className="
+              grid
+              grid-cols-1
+              md:grid-cols-2
+              xl:grid-cols-4
+              gap-4
+            "
+          >
+            {WORKFLOW_STEPS.map((step, index) => {
+              const Icon = iconMap[step.iconName] || Camera;
 
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center mb-3.5 group-hover:border-[#00d4ff]/50 transition-all">
-                    {getWorkflowIcon(step.iconName)}
+              return (
+                <div
+                  key={step.step}
+                  className="relative group"
+                >
+                  <div
+                    className="
+                      h-full
+                      rounded-2xl
+                      border
+                      border-white/10
+                      bg-[#07182e]/65
+                      hover:bg-[#0a223d]/80
+                      hover:border-cyan-300/40
+                      transition-all
+                      duration-300
+                      p-5
+                      text-center
+                      shadow-sm
+                    "
+                  >
+                    {/* Step Badge */}
+                    <div
+                      className="
+                        inline-flex
+                        px-2
+                        py-1
+                        rounded
+                        bg-[#007bff]/20
+                        border
+                        border-[#00d4ff]/20
+                        text-[9px]
+                        font-mono
+                        font-bold
+                        text-[#38ddff]
+                        uppercase
+                      "
+                    >
+                      Step {step.step}
+                    </div>
+
+                    {/* Icon */}
+                    <div
+                      className="
+                        mt-4
+                        mx-auto
+                        w-11
+                        h-11
+                        rounded-xl
+                        border
+                        border-cyan-300/15
+                        bg-[#06162b]/70
+                        flex
+                        items-center
+                        justify-center
+                        text-[#38ddff]
+                        group-hover:scale-105
+                        transition-transform
+                      "
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                      className={`
+                        mt-4
+                        text-sm
+                        sm:text-base
+                        font-bold
+                        ${
+                          index === 1
+                            ? 'text-[#38ddff]'
+                            : 'text-white'
+                        }
+                      `}
+                    >
+                      {step.title}
+                    </h3>
+
+                    {/* Desc */}
+                    <p
+                      className="
+                        mt-2
+                        text-[11px]
+                        sm:text-xs
+                        text-slate-300
+                        leading-relaxed
+                      "
+                    >
+                      {step.desc}
+                    </p>
                   </div>
 
-                  {/* Title */}
-                  <h4 className="text-sm sm:text-base font-bold text-white mb-1.5 group-hover:text-[#00d4ff] transition-colors">
-                    {step.title}
-                  </h4>
+                  {/* Arrow desktop */}
+                  {index < WORKFLOW_STEPS.length - 1 && (
+                    <div
+                      className="
+                        hidden
+                        xl:flex
+                        absolute
+                        top-1/2
+                        -right-[14px]
+                        -translate-y-1/2
+                        z-20
+                        w-7
+                        h-7
+                        rounded-full
+                        bg-[#0a2947]
+                        border
+                        border-cyan-300/20
+                        items-center
+                        justify-center
+                        text-[#38ddff]
+                      "
+                    >
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
-                  {/* Description */}
-                  <p className="text-xs text-slate-400 leading-relaxed mt-auto">
-                    {step.desc}
-                  </p>
+        {/* =========================================
+            FEATURES
+        ========================================== */}
+
+        <div
+          className="
+            mt-10
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-4
+          "
+        >
+          {REMOTE_MONITORING_FEATURES.map((feature) => {
+            const Icon =
+              iconMap[feature.iconName] || Server;
+
+            return (
+              <article
+                key={feature.id}
+                className="
+                  group
+                  rounded-2xl
+                  border
+                  border-white/10
+                  bg-[#07182e]/45
+                  backdrop-blur-md
+                  p-5
+                  sm:p-6
+                  hover:border-cyan-300/30
+                  hover:bg-[#0a2947]/55
+                  hover:-translate-y-1
+                  transition-all
+                  duration-300
+                  shadow-sm
+                "
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    w-10
+                    h-10
+                    rounded-xl
+                    bg-[#07182e]/80
+                    border
+                    border-cyan-300/15
+                    flex
+                    items-center
+                    justify-center
+                    text-[#38ddff]
+                    group-hover:bg-cyan-300/10
+                    group-hover:border-cyan-300/30
+                    transition-colors
+                  "
+                >
+                  <Icon className="w-4.5 h-4.5" />
                 </div>
 
-                {/* Arrow connector for desktop */}
-                {idx < WORKFLOW_STEPS.length - 1 && (
-                  <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-[#00d4ff]/60 pointer-events-none">
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                {/* Title */}
+                <h3
+                  className="
+                    mt-4
+                    text-sm
+                    sm:text-base
+                    font-bold
+                    text-white
+                  "
+                >
+                  {feature.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="
+                    mt-2
+                    text-xs
+                    sm:text-sm
+                    leading-relaxed
+                    text-slate-300
+                  "
+                >
+                  {feature.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
 
-        {/* 6 Remote Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REMOTE_MONITORING_FEATURES.map((feat) => (
-            <div
-              key={feat.id}
-              className="bg-slate-900/60 rounded-2xl p-5 sm:p-6 border border-slate-800 hover:border-[#00d4ff]/40 transition-all duration-200 group"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#0a192f] border border-slate-800 flex items-center justify-center mb-3.5 group-hover:border-[#00d4ff]/40 transition-colors">
-                {getFeatureIcon(feat.iconName)}
-              </div>
-              <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-[#00d4ff] transition-colors">
-                {feat.title}
-              </h4>
-              <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                {feat.description}
-              </p>
-            </div>
-          ))}
+        {/* =========================================
+            BOTTOM ACCENT
+        ========================================== */}
+
+        <div className="mt-12 flex justify-center">
+          <div
+            className="
+              w-40
+              h-px
+              bg-gradient-to-r
+              from-transparent
+              via-cyan-300/50
+              to-transparent
+            "
+          />
         </div>
 
       </div>
     </section>
   );
 };
-
