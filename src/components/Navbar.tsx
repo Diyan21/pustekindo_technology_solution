@@ -133,33 +133,30 @@ export const Navbar: React.FC = () => {
     // NORMAL NAVIGATION
     // ==========================
 
-    const target =
-      document.querySelector(href);
+   const target =
+  document.querySelector(href);
 
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+if (target) {
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+
+  return;
+}
+
+/*
+ * Kalau section belum dirender di homepage,
+ * minta Home.tsx untuk munculin dulu
+ */
+window.dispatchEvent(
+  new CustomEvent(
+    'open-extra-section',
+    {
+      detail: href
     }
-  };
-
-  return (
-    <header
-      id="header-nav"
-      className={`
-        fixed
-        top-0
-        left-0
-        right-0
-        z-50
-        transition-all
-        duration-300
-        ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200/80'
-            : 'bg-white border-b border-slate-200'
-        }
+  )
+);
       `}
     >
       {/* Top Accent Line */}
