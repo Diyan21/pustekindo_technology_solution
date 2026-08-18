@@ -16,16 +16,23 @@ export const VideoIntro: React.FC = () => {
   return (
     <section
       id="video-intro"
-      className="relative w-full h-screen min-h-[600px] overflow-hidden bg-[#020817]"
+      className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-[#020817]"
     >
-      {/* Background Video */}
+      {/* =========================
+          DESKTOP / TABLET VIDEO
+         ========================= */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="
+          hidden md:block
+          absolute inset-0
+          w-full h-full
+          object-cover
+        "
       >
         <source
           src="/videos/pustekindo-hero.mp4"
@@ -33,25 +40,61 @@ export const VideoIntro: React.FC = () => {
         />
       </video>
 
-      {/* Dark Overlay supaya video lebih premium */}
-      <div className="absolute inset-0 bg-[#020817]/15" />
+      {/* =========================
+          MOBILE / PORTRAIT VIDEO
+         ========================= */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="
+          block md:hidden
+          absolute inset-0
+          w-full h-full
+          object-cover
+        "
+      >
+        <source
+          src="/videos/pustekindo-hero-potret.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Soft Gradient bagian bawah */}
-      <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/20 to-transparent" />
+      {/* Subtle Dark Overlay */}
+      <div className="absolute inset-0 bg-[#020817]/10 pointer-events-none" />
 
-      {/* Scroll Indicator */}
+      {/* Bottom Gradient
+          Membuat transisi video ke Hero lebih halus
+      */}
+      <div
+        className="
+          absolute
+          inset-x-0 bottom-0
+          h-40 sm:h-52
+          bg-gradient-to-t
+          from-[#f8fafc]
+          via-[#f8fafc]/20
+          to-transparent
+          pointer-events-none
+        "
+      />
+
+      {/* =========================
+          SCROLL INDICATOR
+         ========================= */}
       <button
         type="button"
         onClick={scrollToHero}
         aria-label="Lihat selengkapnya"
         className="
           absolute
-          bottom-8
+          bottom-7 sm:bottom-8
           left-1/2
           -translate-x-1/2
           z-20
-          flex
-          flex-col
+          flex flex-col
           items-center
           gap-2
           text-white
@@ -60,11 +103,31 @@ export const VideoIntro: React.FC = () => {
           hover:-translate-y-1
         "
       >
-        <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] drop-shadow-md">
+        <span
+          className="
+            text-[10px] sm:text-xs
+            font-semibold
+            uppercase
+            tracking-[0.25em]
+            drop-shadow-md
+          "
+        >
           Explore
         </span>
 
-        <div className="w-10 h-10 rounded-full border border-white/30 bg-black/20 backdrop-blur-md flex items-center justify-center shadow-lg">
+        <div
+          className="
+            w-10 h-10
+            rounded-full
+            border border-white/30
+            bg-black/20
+            backdrop-blur-md
+            flex
+            items-center
+            justify-center
+            shadow-lg
+          "
+        >
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </div>
       </button>
