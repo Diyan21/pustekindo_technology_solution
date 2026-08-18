@@ -48,12 +48,71 @@ export const Products: React.FC = () => {
 
         {/* 4 Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PRODUCT_CATEGORIES.map((prod) => (
-            <div
-              key={prod.id}
-              className="bg-[#f8fafc] rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
-            >
-              {/* Product Visual Container */}
+         export const PRODUCT_CATEGORIES: ProductCategory[] = [
+  {
+    id: 'fixed-indoor',
+    title: 'Fixed Indoor Camera',
+    category: 'Indoor Surveillance',
+    badge: 'Hikvision Official Standard',
+    description:
+      'CCTV untuk kebutuhan pemantauan area indoor dengan desain elegan, lensa tajam, dan sudut pandang optimal untuk ruangan kantor, toko, atau hunian.',
+    features: [
+      'Desain ringkas dan estetis untuk interior',
+      'Sudut pandang luas (Wide Angle View)',
+      'Smart IR Night Vision untuk kondisi minim cahaya',
+      'Kompatibel dengan NVR & DVR Hikvision'
+    ],
+    image: '/images/products/fixed-indoor-camera.jpg'
+  },
+
+  {
+    id: 'fixed-outdoor',
+    title: 'Fixed Outdoor Camera',
+    category: 'Outdoor Surveillance',
+    badge: 'Weatherproof Enclosure',
+    description:
+      'Kamera untuk kebutuhan area luar ruangan dengan perlindungan terhadap debu, hujan, dan perubahan cuaca untuk mengawasi perimeter bangunan.',
+    features: [
+      'Proteksi tahan cuaca IP66 / IP67',
+      'Infrared jarak jauh untuk malam hari',
+      'Bodi kokoh untuk penggunaan outdoor',
+      'Deteksi gerakan di area terbuka'
+    ],
+    image: '/images/products/fixed-outdoor-camera.jpg'
+  },
+
+  {
+    id: 'heavy-duty',
+    title: 'Heavy Duty Weatherproof Camera',
+    category: 'Industrial / Extreme Env',
+    badge: 'High Durability Standard',
+    description:
+      'Solusi kamera untuk penggunaan pada lingkungan yang membutuhkan perangkat lebih tahan terhadap kondisi luar, area industri, debu pekat, atau panas ekstrem.',
+    features: [
+      'Housing industri logam berkekuatan tinggi',
+      'Toleransi suhu dan kelembaban ekstrem',
+      'Perlindungan optimal untuk area pabrik & industri',
+      'Jangkauan visual perimeter jarak jauh'
+    ],
+    image: '/images/products/heavy-duty-weatherproof-camera.jpg'
+  },
+
+  {
+    id: 'ptz-speed-dome',
+    title: 'PTZ / Speed Dome Camera',
+    category: 'Wide Area Monitoring',
+    badge: 'Pan-Tilt-Zoom Active Control',
+    description:
+      'Pan Tilt Zoom Camera untuk kebutuhan monitoring area luas dengan kemampuan rotasi fleksibel dan pembesaran optik untuk membantu pemantauan objek jarak jauh.',
+    features: [
+      'Rotasi Pan & Tilt untuk cakupan area luas',
+      'Optical Zoom untuk melihat objek jarak jauh',
+      'Preset tour & patrol positioning',
+      'Ideal untuk area parkir, gedung, pabrik, dan perimeter'
+    ],
+    image: '/images/products/ptz-speed-dome-camera.jpg'
+  }
+];
               <div className="p-3.5 bg-slate-100/60">
                 <ImagePlaceholder
                   src={prod.image}
