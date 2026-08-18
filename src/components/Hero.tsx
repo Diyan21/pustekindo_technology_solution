@@ -26,9 +26,9 @@ export const Hero: React.FC = () => {
 
   return (
     <section
-      id="beranda"
-      className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-[#f8fafc] text-slate-800 overflow-hidden"
-    >
+  id="beranda"
+  className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-[#f8fafc] text-slate-800 overflow-hidden"
+>
       {/* Background Subtle Tech Geometry */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 right-10 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl" />
