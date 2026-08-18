@@ -7,6 +7,7 @@ import { About } from '../components/About';
 import { VisionMission } from '../components/VisionMission';
 import { Clients } from '../components/Clients';
 import { Gallery } from '../components/Gallery';
+import { Features } from '../components/Features';
 import { Contact } from '../components/Contact';
 import { CTA } from '../components/CTA';
 
@@ -60,7 +61,7 @@ export const Home: React.FC = () => {
       {/* 2. Hero */}
       <Hero />
 
-      {/* 3. Harga Paket */}
+      {/* 3. Harga Paket / Produk */}
       <Brands />
 
 
@@ -78,6 +79,11 @@ export const Home: React.FC = () => {
 
       {activeExtraSection === '#visi-misi' && (
         <VisionMission />
+      )}
+
+      {/* Dokumentasi Pemasangan */}
+      {activeExtraSection === '#keunggulan' && (
+        <Features />
       )}
 
       {activeExtraSection === '#galeri' && (
