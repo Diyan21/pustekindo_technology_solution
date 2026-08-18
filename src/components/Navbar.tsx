@@ -40,13 +40,50 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
-    setMobileMenuOpen(false);
-    setOpenDesktopMenu(null);
+  setMobileMenuOpen(false);
+  setOpenDesktopMenu(null);
 
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Kalau klik brand dari dropdown Harga Paket
+  if (href.startsWith('#brand-')) {
+    const brandId = href.replace(
+      '#brand-',
+      ''
+    );
+
+    window.dispatchEvent(
+      new CustomEvent(
+        'select-cctv-brand',
+        {
+          detail: brandId
+        }
+      )
+    );
+
+    const priceSection =
+      document.querySelector(
+        '#harga-paket'
+      );
+
+    if (priceSection) {
+      priceSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
+
+    return;
+  }
+
+  const target =
+    document.querySelector(href);
+
+  if (target) {
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
   };
 
   return (
