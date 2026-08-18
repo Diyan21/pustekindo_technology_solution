@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { VideoIntro } from '../components/VideoIntro';
 import { Hero } from '../components/Hero';
 import { Brands } from '../components/Brands';
 import { TrustStats } from '../components/TrustStats';
@@ -17,6 +19,10 @@ import { Contact } from '../components/Contact';
 export const Home: React.FC = () => {
   return (
     <main className="min-h-screen">
+
+      {/* 0. Full Screen Video Intro */}
+      <VideoIntro />
+
       {/* 1. Hero Section */}
       <Hero />
 
@@ -26,38 +32,39 @@ export const Home: React.FC = () => {
       {/* 3. Trust Indicators */}
       <TrustStats />
 
-      {/* 3. Keunggulan (Mengapa Memilih PUSTEKINDO?) */}
+      {/* 4. Keunggulan - Mengapa Memilih PUSTEKINDO? */}
       <Features />
 
-      {/* 4. Tentang Kami (Lebih dari Sekadar Menjual CCTV) */}
+      {/* 5. Tentang Kami - Lebih dari Sekadar Menjual CCTV */}
       <About />
 
-      {/* 5. Tujuan Sistem (Sistem Keamanan yang Memberikan Manfaat Nyata) */}
+      {/* 6. Tujuan Sistem */}
       <SystemGoals />
 
-      {/* 6. Produk (Hikvision Categories) */}
+      {/* 7. Produk - Hikvision Categories */}
       <Products />
 
-      {/* 7. Remote Monitoring (Dark Navy Section with Diagram) */}
+      {/* 8. Remote Monitoring */}
       <RemoteMonitoring />
 
-      {/* 8. Solusi Berdasarkan Kebutuhan (10 Sectors & 7 Use Cases) */}
+      {/* 9. Solusi Berdasarkan Kebutuhan */}
       <Solutions />
 
-      {/* 9. Visi & Misi */}
+      {/* 10. Visi & Misi */}
       <VisionMission />
 
-      {/* 10. Klien (17 Verified Enterprise Clients) */}
+      {/* 11. Klien */}
       <Clients />
 
-      {/* 11. Galeri Dokumentasi Proyek */}
+      {/* 12. Galeri Dokumentasi Proyek */}
       <Gallery />
 
-      {/* 12. Big CTA Banner */}
+      {/* 13. Big CTA Banner */}
       <CTA />
 
-      {/* 13. Kontak & Formulir WhatsApp */}
+      {/* 14. Kontak & Formulir WhatsApp */}
       <Contact />
+
     </main>
   );
 };
