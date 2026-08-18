@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, BadgeDollarSign } from 'lucide-react';
-import { BRAND_ITEMS, COMPANY_INFO, BrandItem } from '../data/companyData';
+import { BRAND_ITEMS, COMPANY_INFO } from '../data/companyData';
+import type { BrandItem } from '../data/companyData';
 
 const BrandLogo: React.FC<{ brand: BrandItem }> = ({ brand }) => {
   const [failed, setFailed] = useState(false);
@@ -27,6 +28,7 @@ const BrandLogo: React.FC<{ brand: BrandItem }> = ({ brand }) => {
 export const Brands: React.FC = () => {
   const buildWhatsAppUrl = (brandName: string) => {
     const message = `Halo PUSTEKINDO, saya ingin melihat harga paket CCTV ${brandName}.`;
+
     return `https://wa.me/6281212612006?text=${encodeURIComponent(message)}`;
   };
 
@@ -36,17 +38,22 @@ export const Brands: React.FC = () => {
       className="scroll-mt-28 py-14 lg:py-16 bg-white border-y border-slate-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#007bff]">
               <BadgeDollarSign className="w-4 h-4" />
               Harga Paket CCTV
             </div>
+
             <h2 className="mt-2 text-2xl sm:text-3xl font-black text-[#0a192f] tracking-tight">
               Pilih Merek Sesuai Kebutuhan Anda
             </h2>
+
             <p className="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl">
-              Klik merek untuk konsultasi paket dan harga sesuai jumlah kamera, lokasi, serta kebutuhan instalasi.
+              Klik merek untuk konsultasi paket dan harga sesuai jumlah kamera,
+              lokasi, serta kebutuhan instalasi.
             </p>
           </div>
 
@@ -61,6 +68,7 @@ export const Brands: React.FC = () => {
           </a>
         </div>
 
+        {/* Brand Cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {BRAND_ITEMS.map((brand) => (
             <article
@@ -89,8 +97,10 @@ export const Brands: React.FC = () => {
         </div>
 
         <p className="mt-5 text-[11px] text-slate-400">
-          *Harga menyesuaikan spesifikasi perangkat, jumlah titik kamera, panjang kabel, dan kondisi lokasi instalasi.
+          *Harga menyesuaikan spesifikasi perangkat, jumlah titik kamera,
+          panjang kabel, dan kondisi lokasi instalasi.
         </p>
+
       </div>
     </section>
   );
