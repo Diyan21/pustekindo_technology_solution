@@ -1,19 +1,26 @@
-PUSTEKINDO NAVBAR + BRAND UPDATE
+PUSTEKINDO - CLICKABLE CLIENT CARDS
 
-Replace files:
-1. src/components/Navbar.tsx
-2. src/components/Brands.tsx (NEW)
-3. src/pages/Home.tsx
-4. src/data/companyData.ts
+Replace:
+- src/components/Clients.tsx
+- src/data/companyData.ts
 
-Optional brand logo files:
-public/images/brands/hikvision.png
-public/images/brands/dahua.png
-public/images/brands/hilook.png
-public/images/brands/ezviz.png
-public/images/brands/imou.png
+Website verified/added:
+PT Hilon Indonesia
+PT GEA Westfalia Separator
+PT Setia Guna Sejati
+PT Lamp Bond Indonesia
+Showroom Daihatsu
+PT Atamora Tehnik Makmur
+PT Super Steel Karawang
+PT Alfa Valves Indonesia
+PT Lion Mentari Airlines
+PT Wishima Jaya Tehnik
+RSUD Besemah
 
-If logo files are not present, the website automatically falls back to text brand names.
-
-IMPORTANT:
-The original company profile explicitly mentions Hikvision. Dahua, HiLook, EZVIZ, and IMOU were added because the requested reference screenshot shows those brands. Confirm PUSTEKINDO actually offers them before publishing.
+Not linked yet because an official company site could not be confidently verified:
+PT Sinar Cemerlang Lestari
+PT Kharisa Pramudita
+PT Karya Anugerah Cemerlang
+PT Indonesia Hijau Sarana
+PT Indonesia Hijau Papan
+PT Kawan Tehnik
