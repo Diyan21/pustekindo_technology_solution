@@ -4,7 +4,7 @@ import { VISION_DATA, MISSION_DATA } from '../data/companyData';
 
 export const VisionMission: React.FC = () => {
   return (
-    <section id="visi-misi" className="py-20 lg:py-24 bg-white relative">
+    <section id="visi-misi" className="scroll-mt-32 pt-4 pb-20 lg:pt-6 lg:pb-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Quote Banner */}

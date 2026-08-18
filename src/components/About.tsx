@@ -5,7 +5,7 @@ import { ImagePlaceholder } from './ImagePlaceholder';
 
 export const About: React.FC = () => {
   return (
-    <section id="tentang" className="py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section id="tentang" className="scroll-mt-32 py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Background soft ambient */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-blue-50/60 rounded-full blur-3xl pointer-events-none" />
 
