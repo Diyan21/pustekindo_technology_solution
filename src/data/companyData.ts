@@ -68,6 +68,7 @@ export interface ClientItem {
   name: string;
   category: string;
   initials: string;
+  website?: string;
 }
 
 export interface ProjectItem {
@@ -101,69 +102,13 @@ export const COMPANY_INFO: CompanyInfo = {
 
 export const NAV_LINKS = [
   { name: 'Beranda', href: '#beranda' },
-  {
-    name: 'Harga Paket',
-    href: '#harga-paket',
-    children: [
-      { name: 'Hikvision', href: '#brand-hikvision' },
-      { name: 'Dahua', href: '#brand-dahua' },
-      { name: 'HiLook', href: '#brand-hilook' },
-      { name: 'EZVIZ', href: '#brand-ezviz' },
-      { name: 'IMOU', href: '#brand-imou' }
-    ]
-  },
-  {
-    name: 'Tentang Kami',
-    href: '#tentang',
-    children: [
-      { name: 'Profil Perusahaan', href: '#tentang' },
-      { name: 'Visi & Misi', href: '#visi-misi' }
-    ]
-  },
-  { name: 'Galeri', href: '#galeri' },
+  { name: 'Tentang Kami', href: '#tentang' },
+  { name: 'Keunggulan', href: '#keunggulan' },
+  { name: 'Produk', href: '#produk' },
+  { name: 'Solusi', href: '#solusi' },
   { name: 'Klien', href: '#klien' },
+  { name: 'Galeri', href: '#galeri' },
   { name: 'Kontak', href: '#kontak' }
-];
-
-
-export interface BrandItem {
-  id: string;
-  name: string;
-  logo: string;
-  description: string;
-}
-
-export const BRAND_ITEMS: BrandItem[] = [
-  {
-    id: 'hikvision',
-    name: 'Hikvision',
-    logo: '/images/brands/hikvision.png',
-    description: 'Solusi CCTV & surveillance untuk kebutuhan rumah, bisnis, dan industri.'
-  },
-  {
-    id: 'dahua',
-    name: 'Dahua',
-    logo: '/images/brands/dahua.png',
-    description: 'Pilihan perangkat surveillance untuk berbagai kebutuhan instalasi.'
-  },
-  {
-    id: 'hilook',
-    name: 'HiLook',
-    logo: '/images/brands/hilook.png',
-    description: 'Solusi monitoring praktis untuk kebutuhan keamanan harian.'
-  },
-  {
-    id: 'ezviz',
-    name: 'EZVIZ',
-    logo: '/images/brands/ezviz.png',
-    description: 'Pilihan smart camera untuk kebutuhan rumah dan usaha.'
-  },
-  {
-    id: 'imou',
-    name: 'IMOU',
-    logo: '/images/brands/imou.png',
-    description: 'Smart surveillance yang mudah digunakan untuk pemantauan sehari-hari.'
-  }
 ];
 
 export const TRUST_ITEMS: TrustItem[] = [
@@ -487,23 +432,23 @@ export const MISSION_DATA = {
 };
 
 export const CLIENT_LIST: ClientItem[] = [
-  { id: 'c1', name: 'PT Hilon Indonesia', category: 'Manufaktur & Tekstil', initials: 'HI' },
-  { id: 'c2', name: 'PT GEA Westfalia Separator', category: 'Industrial Engineering', initials: 'GEA' },
+  { id: 'c1', name: 'PT Hilon Indonesia', category: 'Manufaktur & Tekstil', initials: 'HI', website: 'https://hilon.co.id/' },
+  { id: 'c2', name: 'PT GEA Westfalia Separator', category: 'Industrial Engineering', initials: 'GEA', website: 'https://www.gea.com/' },
   { id: 'c3', name: 'PT Sinar Cemerlang Lestari', category: 'Distribusi & Perdagangan', initials: 'SCL' },
-  { id: 'c4', name: 'PT Setia Guna Sejati', category: 'Otomotif & Manufaktur', initials: 'SGS' },
-  { id: 'c5', name: 'PT Lamp Bond Indonesia', category: 'Elektronik & Lighting', initials: 'LBI' },
-  { id: 'c6', name: 'Showroom Daihatsu', category: 'Otomotif & Showroom', initials: 'DH' },
+  { id: 'c4', name: 'PT Setia Guna Sejati', category: 'Otomotif & Manufaktur', initials: 'SGS', website: 'https://ptsgs.com/' },
+  { id: 'c5', name: 'PT Lamp Bond Indonesia', category: 'Elektronik & Lighting', initials: 'LBI', website: 'http://www.lampbond.com/' },
+  { id: 'c6', name: 'Showroom Daihatsu', category: 'Otomotif & Showroom', initials: 'DH', website: 'https://www.astra-daihatsu.id/' },
   { id: 'c7', name: 'PT Kharisa Pramudita', category: 'Konstruksi & Jasa', initials: 'KP' },
-  { id: 'c8', name: 'PT Atamora Tehnik Makmur', category: 'Teknik & Fabrikasi', initials: 'ATM' },
-  { id: 'c9', name: 'PT Super Steel Karawang', category: 'Industri Baja & Logam', initials: 'SSK' },
+  { id: 'c8', name: 'PT Atamora Tehnik Makmur', category: 'Teknik & Fabrikasi', initials: 'ATM', website: 'https://www.atamora.co.id/' },
+  { id: 'c9', name: 'PT Super Steel Karawang', category: 'Industri Baja & Logam', initials: 'SSK', website: 'https://ptssk.toyotatsusho.co.id/' },
   { id: 'c10', name: 'PT Karya Anugerah Cemerlang', category: 'Komersial & Distribusi', initials: 'KAC' },
   { id: 'c11', name: 'PT Indonesia Hijau Sarana', category: 'Agribisnis & Energi', initials: 'IHS' },
   { id: 'c12', name: 'PT Indonesia Hijau Papan', category: 'Manufaktur Papan & Kayu', initials: 'IHP' },
-  { id: 'c13', name: 'PT Alfa Valves Indonesia', category: 'Industrial Valves', initials: 'AVI' },
-  { id: 'c14', name: 'PT Lion Mentari Airlines', category: 'Aviation & Perhubungan', initials: 'LMA' },
-  { id: 'c15', name: 'PT Wishima Jaya Tehnik', category: 'Engineering & Services', initials: 'WJT' },
+  { id: 'c13', name: 'PT Alfa Valves Indonesia', category: 'Industrial Valves', initials: 'AVI', website: 'https://alfa-valves.id/' },
+  { id: 'c14', name: 'PT Lion Mentari Airlines', category: 'Aviation & Perhubungan', initials: 'LMA', website: 'https://www.lionair.co.id/' },
+  { id: 'c15', name: 'PT Wishima Jaya Tehnik', category: 'Engineering & Services', initials: 'WJT', website: 'https://www.wishima.co.id/' },
   { id: 'c16', name: 'PT Kawan Tehnik', category: 'Mechanical & Electrical', initials: 'KT' },
-  { id: 'c17', name: 'RSUD Besemah', category: 'Fasilitas Kesehatan / Rumah Sakit', initials: 'RSB' }
+  { id: 'c17', name: 'RSUD Besemah', category: 'Fasilitas Kesehatan / Rumah Sakit', initials: 'RSB', website: 'https://rsudbesemah.pagaralamkota.go.id/' }
 ];
 
 export const GALLERY_PROJECTS: ProjectItem[] = [
