@@ -40,85 +40,53 @@ export const RemoteMonitoring: React.FC = () => {
         py-20
         lg:py-24
         overflow-hidden
-        text-white
-        bg-gradient-to-br
-        from-[#06162b]
-        via-[#0a2947]
-        to-[#155e75]
+        bg-white
+        text-[#0a192f]
       "
     >
       {/* =========================================
-          BACKGROUND ATMOSPHERIC GLOW
+          BACKGROUND DECORATION
       ========================================== */}
 
-      {/* Glow kanan atas */}
+      {/* Soft blue glow kanan atas */}
       <div
         className="
           absolute
-          -top-56
-          -right-48
-          w-[750px]
-          h-[750px]
+          -top-64
+          -right-52
+          w-[700px]
+          h-[700px]
           rounded-full
-          bg-sky-300/10
+          bg-sky-100/60
           blur-[150px]
           pointer-events-none
         "
       />
 
-      {/* Glow kiri bawah */}
+      {/* Soft cyan glow kiri bawah */}
       <div
         className="
           absolute
           -bottom-64
           -left-52
-          w-[700px]
-          h-[700px]
+          w-[650px]
+          h-[650px]
           rounded-full
-          bg-blue-400/10
-          blur-[160px]
+          bg-cyan-50/70
+          blur-[150px]
           pointer-events-none
         "
       />
 
-      {/* Glow cyan tengah */}
-      <div
-        className="
-          absolute
-          top-1/3
-          left-1/2
-          -translate-x-1/2
-          w-[600px]
-          h-[400px]
-          rounded-full
-          bg-cyan-300/[0.04]
-          blur-[130px]
-          pointer-events-none
-        "
-      />
-
-      {/* Grid technology halus */}
+      {/* Grid pattern sangat halus */}
       <div
         className="
           absolute
           inset-0
-          opacity-[0.05]
+          opacity-[0.025]
           pointer-events-none
-          bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)]
+          bg-[linear-gradient(#0a192f_1px,transparent_1px),linear-gradient(90deg,#0a192f_1px,transparent_1px)]
           [background-size:42px_42px]
-        "
-      />
-
-      {/* Vignette */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-[#06162b]/30
-          via-transparent
-          to-[#06162b]/40
-          pointer-events-none
         "
       />
 
@@ -128,9 +96,13 @@ export const RemoteMonitoring: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* HEADER */}
+        {/* =========================================
+            HEADER
+        ========================================== */}
+
         <div className="max-w-3xl mx-auto text-center">
 
+          {/* Badge */}
           <div
             className="
               inline-flex
@@ -139,17 +111,15 @@ export const RemoteMonitoring: React.FC = () => {
               px-3.5
               py-1.5
               rounded-full
-              bg-white/[0.06]
-              backdrop-blur-md
+              bg-blue-50
               border
-              border-cyan-300/20
-              text-[#57e6ff]
+              border-blue-100
+              text-[#007bff]
               text-[10px]
               sm:text-xs
               font-bold
               uppercase
               tracking-[0.14em]
-              shadow-sm
             "
           >
             <Wifi className="w-3.5 h-3.5" />
@@ -157,6 +127,7 @@ export const RemoteMonitoring: React.FC = () => {
             IT & Remote Surveillance
           </div>
 
+          {/* Main Heading */}
           <h2
             className="
               mt-5
@@ -165,19 +136,20 @@ export const RemoteMonitoring: React.FC = () => {
               lg:text-5xl
               font-extrabold
               tracking-tight
-              text-white
+              text-[#0a192f]
               leading-[1.1]
             "
           >
             Pantau Lokasi Anda dari Mana Saja
           </h2>
 
+          {/* Description */}
           <p
             className="
               mt-4
               text-sm
               sm:text-base
-              text-slate-200/90
+              text-slate-500
               leading-relaxed
               max-w-3xl
               mx-auto
@@ -192,7 +164,7 @@ export const RemoteMonitoring: React.FC = () => {
         </div>
 
         {/* =========================================
-            SYSTEM FLOW
+            SYSTEM FLOW CONTAINER
         ========================================== */}
 
         <div
@@ -201,16 +173,15 @@ export const RemoteMonitoring: React.FC = () => {
             lg:mt-14
             rounded-3xl
             border
-            border-white/10
-            bg-[#07182e]/45
-            backdrop-blur-xl
-            shadow-2xl
-            shadow-blue-950/20
+            border-slate-200
+            bg-[#f8fafc]
+            shadow-sm
             p-5
             sm:p-7
             lg:p-8
           "
         >
+
           {/* Flow Header */}
           <div className="text-center mb-7">
 
@@ -222,20 +193,30 @@ export const RemoteMonitoring: React.FC = () => {
                 font-bold
                 uppercase
                 tracking-[0.16em]
-                text-[#38ddff]
+                text-[#007bff]
               "
             >
               Arsitektur Alur Sistem Monitoring
             </p>
 
-            <p className="mt-1.5 text-xs sm:text-sm text-slate-300">
+            <p
+              className="
+                mt-1.5
+                text-xs
+                sm:text-sm
+                text-slate-500
+              "
+            >
               Integrasi end-to-end dari perangkat tangkap optik hingga
               ke layar kendali pengguna.
             </p>
 
           </div>
 
-          {/* Workflow */}
+          {/* =========================================
+              WORKFLOW
+          ========================================== */}
+
           <div
             className="
               grid
@@ -245,44 +226,49 @@ export const RemoteMonitoring: React.FC = () => {
               gap-4
             "
           >
+
             {WORKFLOW_STEPS.map((step, index) => {
-              const Icon = iconMap[step.iconName] || Camera;
+              const Icon =
+                iconMap[step.iconName] || Camera;
 
               return (
                 <div
                   key={step.step}
                   className="relative group"
                 >
+
+                  {/* Workflow Card */}
                   <div
                     className="
                       h-full
                       rounded-2xl
                       border
-                      border-white/10
-                      bg-[#07182e]/65
-                      hover:bg-[#0a223d]/80
-                      hover:border-cyan-300/40
+                      border-slate-200
+                      bg-white
+                      hover:border-blue-200
+                      hover:shadow-md
+                      hover:-translate-y-1
                       transition-all
                       duration-300
                       p-5
                       text-center
-                      shadow-sm
                     "
                   >
+
                     {/* Step Badge */}
                     <div
                       className="
                         inline-flex
                         px-2
                         py-1
-                        rounded
-                        bg-[#007bff]/20
+                        rounded-md
+                        bg-blue-50
                         border
-                        border-[#00d4ff]/20
+                        border-blue-100
                         text-[9px]
                         font-mono
                         font-bold
-                        text-[#38ddff]
+                        text-[#007bff]
                         uppercase
                       "
                     >
@@ -298,14 +284,18 @@ export const RemoteMonitoring: React.FC = () => {
                         h-11
                         rounded-xl
                         border
-                        border-cyan-300/15
-                        bg-[#06162b]/70
+                        border-blue-100
+                        bg-blue-50/60
                         flex
                         items-center
                         justify-center
-                        text-[#38ddff]
+                        text-[#007bff]
+                        group-hover:bg-[#007bff]
+                        group-hover:text-white
+                        group-hover:border-[#007bff]
                         group-hover:scale-105
-                        transition-transform
+                        transition-all
+                        duration-300
                       "
                     >
                       <Icon className="w-5 h-5" />
@@ -313,36 +303,35 @@ export const RemoteMonitoring: React.FC = () => {
 
                     {/* Title */}
                     <h3
-                      className={`
+                      className="
                         mt-4
                         text-sm
                         sm:text-base
                         font-bold
-                        ${
-                          index === 1
-                            ? 'text-[#38ddff]'
-                            : 'text-white'
-                        }
-                      `}
+                        text-[#0a192f]
+                        group-hover:text-[#007bff]
+                        transition-colors
+                      "
                     >
                       {step.title}
                     </h3>
 
-                    {/* Desc */}
+                    {/* Description */}
                     <p
                       className="
                         mt-2
                         text-[11px]
                         sm:text-xs
-                        text-slate-300
+                        text-slate-500
                         leading-relaxed
                       "
                     >
                       {step.desc}
                     </p>
+
                   </div>
 
-                  {/* Arrow desktop */}
+                  {/* Arrow Desktop */}
                   {index < WORKFLOW_STEPS.length - 1 && (
                     <div
                       className="
@@ -356,25 +345,29 @@ export const RemoteMonitoring: React.FC = () => {
                         w-7
                         h-7
                         rounded-full
-                        bg-[#0a2947]
+                        bg-white
                         border
-                        border-cyan-300/20
+                        border-blue-200
+                        shadow-sm
                         items-center
                         justify-center
-                        text-[#38ddff]
+                        text-[#007bff]
                       "
                     >
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   )}
+
                 </div>
               );
             })}
+
           </div>
+
         </div>
 
         {/* =========================================
-            FEATURES
+            REMOTE MONITORING FEATURES
         ========================================== */}
 
         <div
@@ -387,6 +380,7 @@ export const RemoteMonitoring: React.FC = () => {
             gap-4
           "
         >
+
           {REMOTE_MONITORING_FEATURES.map((feature) => {
             const Icon =
               iconMap[feature.iconName] || Server;
@@ -398,38 +392,39 @@ export const RemoteMonitoring: React.FC = () => {
                   group
                   rounded-2xl
                   border
-                  border-white/10
-                  bg-[#07182e]/45
-                  backdrop-blur-md
+                  border-slate-200
+                  bg-white
                   p-5
                   sm:p-6
-                  hover:border-cyan-300/30
-                  hover:bg-[#0a2947]/55
+                  hover:border-blue-200
+                  hover:shadow-md
                   hover:-translate-y-1
                   transition-all
                   duration-300
-                  shadow-sm
                 "
               >
+
                 {/* Icon */}
                 <div
                   className="
                     w-10
                     h-10
                     rounded-xl
-                    bg-[#07182e]/80
+                    bg-blue-50
                     border
-                    border-cyan-300/15
+                    border-blue-100
                     flex
                     items-center
                     justify-center
-                    text-[#38ddff]
-                    group-hover:bg-cyan-300/10
-                    group-hover:border-cyan-300/30
-                    transition-colors
+                    text-[#007bff]
+                    group-hover:bg-[#007bff]
+                    group-hover:text-white
+                    group-hover:border-[#007bff]
+                    transition-all
+                    duration-300
                   "
                 >
-                  <Icon className="w-4.5 h-4.5" />
+                  <Icon className="w-4 h-4" />
                 </div>
 
                 {/* Title */}
@@ -439,7 +434,9 @@ export const RemoteMonitoring: React.FC = () => {
                     text-sm
                     sm:text-base
                     font-bold
-                    text-white
+                    text-[#0a192f]
+                    group-hover:text-[#007bff]
+                    transition-colors
                   "
                 >
                   {feature.title}
@@ -452,31 +449,67 @@ export const RemoteMonitoring: React.FC = () => {
                     text-xs
                     sm:text-sm
                     leading-relaxed
-                    text-slate-300
+                    text-slate-500
                   "
                 >
                   {feature.description}
                 </p>
+
               </article>
             );
           })}
+
         </div>
 
         {/* =========================================
-            BOTTOM ACCENT
+            BOTTOM INFO
         ========================================== */}
 
-        <div className="mt-12 flex justify-center">
+        <div
+          className="
+            mt-10
+            max-w-3xl
+            mx-auto
+            text-center
+          "
+        >
+
+          <div
+            className="
+              inline-flex
+              items-center
+              justify-center
+              px-5
+              py-2.5
+              rounded-full
+              bg-blue-50/70
+              border
+              border-blue-100
+              text-xs
+              sm:text-sm
+              text-slate-600
+            "
+          >
+            Sistem monitoring dapat disesuaikan dengan kebutuhan
+            jaringan, jumlah kamera, lokasi, dan hak akses pengguna.
+          </div>
+
+        </div>
+
+        {/* Bottom Accent */}
+        <div className="mt-10 flex justify-center">
+
           <div
             className="
               w-40
               h-px
               bg-gradient-to-r
               from-transparent
-              via-cyan-300/50
+              via-[#007bff]/30
               to-transparent
             "
           />
+
         </div>
 
       </div>
