@@ -638,8 +638,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'Surveillance System Perimeter Pabrik',
     category: 'Industrial',
     location: 'Kawasan Industri Karawang',
-    description: 'Instalasi Heavy Duty Weatherproof Camera & PTZ Speed Dome untuk pemantauan area pagar luar dan jalur loading truk.',
-    image: '/images/project/project-1.jpg',
+    description:
+      'Instalasi Heavy Duty Weatherproof Camera & PTZ Speed Dome untuk pemantauan area pagar luar dan jalur loading truk.',
+    image: '/images/surveillance-system-perimeter-pabrik.jpg',
     cameraSpecs: '16x IP Cameras • 4K NVR • Fiber Optic Link'
   },
   {
@@ -647,8 +648,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'Indoor Office & Server Room Monitoring',
     category: 'Indoor',
     location: 'Gedung Perkantoran Jakarta Barat',
-    description: 'Pemasangan Fixed Indoor Camera dengan integrasi Local LAN & Remote Mobile App untuk manajemen eksekutif.',
-    image: '/images/project/project-2.jpg',
+    description:
+      'Pemasangan Fixed Indoor Camera dengan integrasi Local LAN & Remote Mobile App untuk manajemen eksekutif.',
+    image: '/images/indoor-office-server-room-monitoring.jpg',
     cameraSpecs: '8x Dome Cameras • Audio Recording • Smart IR'
   },
   {
@@ -656,8 +658,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'CCTV Installation Warehouse & Racking Area',
     category: 'Commercial',
     location: 'Sentra Logistik Cengkareng',
-    description: 'Pemantauan lorong rak penyimpanan barang berat dan area keluar masuk inventaris dengan kabel conduit rapi.',
-    image: '/images/project/project-3.jpg',
+    description:
+      'Pemantauan lorong rak penyimpanan barang berat dan area keluar masuk inventaris dengan kabel conduit rapi.',
+    image: '/images/cctv-installation-warehouse-racking-area.jpg',
     cameraSpecs: '12x Full HD Cameras • 30 Days Retention'
   },
   {
@@ -665,8 +668,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'Outdoor Perimeter & Gate Security',
     category: 'Outdoor',
     location: 'Pabrik & Workshop Manufaktur',
-    description: 'Pengawasan gerbang utama, pos security, dan perimeter pagar dengan night vision inframerah jarak jauh.',
-    image: '/images/project/project-4.jpg',
+    description:
+      'Pengawasan gerbang utama, pos security, dan perimeter pagar dengan night vision inframerah jarak jauh.',
+    image: '/images/outdoor-perimeter-gate-security.jpg',
     cameraSpecs: 'Weatherproof IP67 • Ultra Low-Light Sensor'
   },
   {
@@ -674,8 +678,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'Multi-Location CCTV Integration',
     category: 'Commercial',
     location: 'Showroom Otomotif & Cabang',
-    description: 'Sentralisasi tampilan visual dari beberapa cabang showroom ke layar monitor di kantor direksi.',
-    image: '/images/project/project-5.jpg',
+    description:
+      'Sentralisasi tampilan visual dari beberapa cabang showroom ke layar monitor di kantor direksi.',
+    image: '/images/multi-location-cctv-integration.jpg',
     cameraSpecs: 'Centralized CMS • Multi-User Permission'
   },
   {
@@ -683,8 +688,9 @@ export const GALLERY_PROJECTS: ProjectItem[] = [
     title: 'Heavy Duty Industrial Plant Monitoring',
     category: 'CCTV Installation',
     location: 'Fasilitas Pengolahan & Pabrik Baja',
-    description: 'Instalasi perangkat surveillance pada lingkungan bertemperatur tinggi dengan casing pelindung heavy-duty.',
-    image: '/images/project/project-6.jpg',
+    description:
+      'Instalasi perangkat surveillance pada lingkungan bertemperatur tinggi dengan casing pelindung heavy-duty.',
+    image: '/images/heavy-duty-industrial-plant-monitoring.jpg',
     cameraSpecs: 'Industrial Grade • High Heat Shield • 24/7 REC'
   }
 ];
