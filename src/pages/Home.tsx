@@ -28,20 +28,20 @@ export const Home: React.FC = () => {
       {/* 4. Tentang Kami (Lebih dari Sekadar Menjual CCTV) */}
       <About />
 
-      {/* 5. Tujuan Sistem (Sistem Keamanan yang Memberikan Manfaat Nyata) */}
+      {/* 5. Visi & Misi - dibuat menyatu dengan bagian Tentang Kami */}
+      <VisionMission />
+
+      {/* 6. Tujuan Sistem (Sistem Keamanan yang Memberikan Manfaat Nyata) */}
       <SystemGoals />
 
-      {/* 6. Produk (Hikvision Categories) */}
+      {/* 7. Produk (Hikvision Categories) */}
       <Products />
 
-      {/* 7. Remote Monitoring (Dark Navy Section with Diagram) */}
+      {/* 8. Remote Monitoring (Dark Navy Section with Diagram) */}
       <RemoteMonitoring />
 
-      {/* 8. Solusi Berdasarkan Kebutuhan (10 Sectors & 7 Use Cases) */}
+      {/* 9. Solusi Berdasarkan Kebutuhan (10 Sectors & 7 Use Cases) */}
       <Solutions />
-
-      {/* 9. Visi & Misi */}
-      <VisionMission />
 
       {/* 10. Klien (17 Verified Enterprise Clients) */}
       <Clients />
