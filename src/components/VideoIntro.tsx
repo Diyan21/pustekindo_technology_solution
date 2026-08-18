@@ -65,21 +65,6 @@ export const VideoIntro: React.FC = () => {
       {/* Subtle Dark Overlay */}
       <div className="absolute inset-0 bg-[#020817]/10 pointer-events-none" />
 
-      {/* Bottom Gradient
-          Membuat transisi video ke Hero lebih halus
-      */}
-      <div
-        className="
-          absolute
-          inset-x-0 bottom-0
-          h-40 sm:h-52
-          bg-gradient-to-t
-          from-[#f8fafc]
-          via-[#f8fafc]/20
-          to-transparent
-          pointer-events-none
-        "
-      />
 
       {/* =========================
           SCROLL INDICATOR
