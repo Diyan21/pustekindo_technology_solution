@@ -427,7 +427,7 @@ export const VISION_DATA = {
 
 export const MISSION_DATA = {
   title: 'Misi Kami',
-  statement: 'PUSTEKINDO berkomitmen menghadirkan teknologi pemantauan yang dapat membantu meningkatkan keamanan, efektivitas operasional serta memberikan manfaat nyata bagi perusahaan dan masyarakat.'
+  statement: 'Memberikan kontribusi dan dampak nyata bagi masyarakat pada umumnya dan perusahaan pada khususnya melalui penerapan sistem pemantauan yang baik, efisien, dan didukung teknologi modern untuk membantu meningkatkan keamanan, kinerja, serta menciptakan lingkungan yang lebih kondusif.'
 };
 
 export const CLIENT_LIST: ClientItem[] = [
