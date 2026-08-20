@@ -20,18 +20,27 @@ export const Home: React.FC = () => {
     useState<string | null>(null);
 
   useEffect(() => {
-    const handleOpenSection = (event: Event) => {
+    const handleOpenSection = (
+      event: Event
+    ) => {
       const customEvent =
         event as CustomEvent<string>;
 
+      const section =
+        customEvent.detail;
+
       setActiveExtraSection(
-        customEvent.detail
+        section
       );
 
+      /*
+       * Tunggu React render section
+       * lalu scroll ke section tersebut.
+       */
       setTimeout(() => {
         const target =
           document.querySelector(
-            customEvent.detail
+            section
           );
 
         if (target) {
@@ -40,7 +49,7 @@ export const Home: React.FC = () => {
             block: 'start'
           });
         }
-      }, 100);
+      }, 200);
     };
 
     window.addEventListener(
@@ -63,60 +72,112 @@ export const Home: React.FC = () => {
           HOMEPAGE UTAMA
       ========================================== */}
 
-      {/* 1. Video Intro */}
       <VideoIntro />
 
-      {/* 2. Hero */}
       <Hero />
 
-      {/* 3. Galeri */}
       <Gallery />
 
-      {/* 4. CTA + Running Logo Project */}
       <CTA />
 
 
       {/* =========================================
-          SECTION TAMBAHAN
-          MUNCUL SAAT MENU DIKLIK
+          HARGA PAKET
+          HANYA MUNCUL KETIKA NAVBAR DIKLIK
       ========================================== */}
 
-      {/* Harga Paket / Produk */}
       {activeExtraSection === '#harga-paket' && (
-        <Brands />
+        <section
+          id="harga-paket"
+          className="scroll-mt-24"
+        >
+          <Brands />
+        </section>
       )}
 
-      {/* Tentang Kami */}
+
+      {/* =========================================
+          TENTANG KAMI
+      ========================================== */}
+
       {activeExtraSection === '#tentang' && (
-        <>
+        <section
+          id="tentang"
+          className="scroll-mt-24"
+        >
           <About />
           <VisionMission />
-        </>
+        </section>
       )}
 
-      {/* Visi & Misi */}
+
+      {/* =========================================
+          VISI MISI
+      ========================================== */}
+
       {activeExtraSection === '#visi-misi' && (
-        <VisionMission />
+        <section
+          id="visi-misi"
+          className="scroll-mt-24"
+        >
+          <VisionMission />
+        </section>
       )}
 
-      {/* Layanan Kami */}
+
+      {/* =========================================
+          LAYANAN
+      ========================================== */}
+
       {activeExtraSection === '#layanan' && (
-        <Services />
+        <section
+          id="layanan"
+          className="scroll-mt-24"
+        >
+          <Services />
+        </section>
       )}
 
-      {/* Dokumentasi Pemasangan */}
+
+      {/* =========================================
+          DOKUMENTASI
+      ========================================== */}
+
       {activeExtraSection === '#keunggulan' && (
-        <Features />
+        <section
+          id="keunggulan"
+          className="scroll-mt-24"
+        >
+          <Features />
+        </section>
       )}
 
-      {/* Klien */}
+
+      {/* =========================================
+          KLIEN
+      ========================================== */}
+
       {activeExtraSection === '#klien' && (
-        <Clients />
+        <section
+          id="klien"
+          className="scroll-mt-24"
+        >
+          <Clients />
+        </section>
       )}
 
-      {/* Kontak */}
+
+      {/* =========================================
+          KONTAK
+      ========================================== */}
+
       {activeExtraSection === '#kontak' && (
-        <Contact />
+        <section
+          id="kontak"
+          className="scroll-mt-24"
+        >
+          <Contact />
+        </section>
       )}
 
     </main>
