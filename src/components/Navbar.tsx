@@ -103,6 +103,11 @@ const SEARCH_ITEMS = [
 
 
 export const Navbar: React.FC = () => {
+
+  /* =====================================================
+     STATE
+  ===================================================== */
+
   const [isScrolled, setIsScrolled] =
     useState(false);
 
@@ -131,7 +136,9 @@ export const Navbar: React.FC = () => {
 
   const searchResults = useMemo(() => {
     const query =
-      searchQuery.trim().toLowerCase();
+      searchQuery
+        .trim()
+        .toLowerCase();
 
     if (!query) {
       return [];
@@ -148,7 +155,7 @@ export const Navbar: React.FC = () => {
 
 
   /* =====================================================
-     SCROLL DETECTION
+     SCROLL
   ===================================================== */
 
   useEffect(() => {
@@ -164,7 +171,7 @@ export const Navbar: React.FC = () => {
         );
 
       const scrollPosition =
-        window.scrollY + 160;
+        window.scrollY + 150;
 
       for (
         let i = sections.length - 1;
@@ -236,7 +243,7 @@ export const Navbar: React.FC = () => {
 
 
   /* =====================================================
-     BODY LOCK
+     LOCK BODY
   ===================================================== */
 
   useEffect(() => {
@@ -266,7 +273,9 @@ export const Navbar: React.FC = () => {
 
     /* CCTV BRAND */
 
-    if (href.startsWith('#brand-')) {
+    if (
+      href.startsWith('#brand-')
+    ) {
       const brandId =
         href.replace(
           '#brand-',
@@ -298,7 +307,7 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* NORMAL SECTION */
+    /* EXISTING SECTION */
 
     const target =
       document.querySelector(
@@ -446,25 +455,26 @@ export const Navbar: React.FC = () => {
           ${
             isScrolled
               ? `
-                  bg-white/88
+                  bg-white/78
                   backdrop-blur-2xl
-                  border-emerald-100/80
-                  shadow-[0_10px_40px_rgba(15,23,42,0.07)]
+                  border-white/60
+                  shadow-[0_10px_35px_rgba(15,23,42,0.08)]
                 `
               : `
-                  bg-white/70
-                  backdrop-blur-xl
-                  border-white/50
+                  bg-white/10
+                  backdrop-blur-md
+                  border-white/20
                 `
           }
         `}
       >
 
-        {/* TOP ACCENT */}
+        {/* GREEN ACCENT */}
 
         <div
           className="
             h-[2px]
+
             bg-gradient-to-r
             from-transparent
             via-emerald-500
@@ -477,8 +487,9 @@ export const Navbar: React.FC = () => {
 
         <div
           className="
-            max-w-[1440px]
+            max-w-[1400px]
             mx-auto
+
             px-4
             sm:px-6
             lg:px-8
@@ -486,14 +497,14 @@ export const Navbar: React.FC = () => {
         >
           <div
             className="
-              h-[82px]
-              lg:h-[88px]
+              h-[76px]
+              lg:h-[80px]
 
               flex
               items-center
-              justify-between
 
               gap-4
+              lg:gap-5
             "
           >
 
@@ -511,40 +522,60 @@ export const Navbar: React.FC = () => {
                 );
               }}
               className="
+                relative
+
                 flex
                 items-center
 
                 shrink-0
 
+                w-[150px]
+                sm:w-[165px]
+                lg:w-[190px]
+                xl:w-[200px]
+
                 h-full
+
+                overflow-hidden
               "
             >
               <img
                 src="/images/logo-pustekindo.png"
                 alt="PUSTEKINDO Technology Solution"
                 className="
-                  w-[200px]
-                  sm:w-[230px]
-                  lg:w-[280px]
-                  xl:w-[310px]
+                  absolute
+
+                  left-1/2
+                  top-1/2
+
+                  -translate-x-1/2
+                  -translate-y-1/2
+
+                  w-[285px]
+                  sm:w-[310px]
+                  lg:w-[355px]
+                  xl:w-[380px]
 
                   h-auto
-                  max-h-[76px]
+
+                  max-w-none
 
                   object-contain
-                  object-left
+
+                  scale-[1.28]
+                  lg:scale-[1.38]
 
                   transition-transform
                   duration-300
 
-                  hover:scale-[1.02]
+                  hover:scale-[1.42]
                 "
               />
             </a>
 
 
             {/* =========================================
-                DESKTOP NAVIGATION
+                DESKTOP NAV
             ========================================== */}
 
             <nav
@@ -553,10 +584,11 @@ export const Navbar: React.FC = () => {
                 lg:flex
 
                 items-center
+                justify-center
+
+                flex-1
 
                 h-full
-
-                ml-auto
               "
             >
               {NAV_LINKS.map((link) => {
@@ -570,7 +602,8 @@ export const Navbar: React.FC = () => {
                   children.length > 0;
 
                 const isService =
-                  link.name === 'Layanan';
+                  link.name ===
+                  'Layanan';
 
                 const hasChildren =
                   normalChildren ||
@@ -585,10 +618,11 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     className="
                       relative
-                      h-full
 
                       flex
                       items-center
+
+                      h-full
                     "
                     onMouseEnter={() => {
                       if (hasChildren) {
@@ -624,6 +658,7 @@ export const Navbar: React.FC = () => {
 
                         flex
                         items-center
+
                         gap-1.5
 
                         text-[12px]
@@ -642,7 +677,7 @@ export const Navbar: React.FC = () => {
                                 text-emerald-700
                               `
                             : `
-                                text-slate-700
+                                text-slate-800
                                 hover:text-emerald-700
                               `
                         }
@@ -673,6 +708,7 @@ export const Navbar: React.FC = () => {
                         <span
                           className="
                             absolute
+
                             left-2.5
                             right-2.5
                             bottom-0
@@ -699,7 +735,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[86px]
+                            top-[78px]
                             left-1/2
                             -translate-x-1/2
 
@@ -760,8 +796,8 @@ export const Navbar: React.FC = () => {
                                       pb-2
 
                                       text-[11px]
-                                      uppercase
 
+                                      uppercase
                                       tracking-[0.12em]
 
                                       font-extrabold
@@ -775,7 +811,11 @@ export const Navbar: React.FC = () => {
                                     {group.title}
                                   </div>
 
-                                  <div className="space-y-1">
+                                  <div
+                                    className="
+                                      space-y-1
+                                    "
+                                  >
                                     {group.items.map(
                                       (service) => (
                                         <button
@@ -811,7 +851,6 @@ export const Navbar: React.FC = () => {
                                             hover:text-emerald-800
 
                                             transition-all
-                                            duration-200
                                           "
                                         >
                                           <span>
@@ -861,8 +900,6 @@ export const Navbar: React.FC = () => {
                               text-emerald-700
 
                               hover:bg-emerald-100
-
-                              transition-colors
                             "
                           >
                             Lihat Semua Layanan PUSTEKINDO
@@ -883,7 +920,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[86px]
+                            top-[78px]
                             left-1/2
                             -translate-x-1/2
 
@@ -943,6 +980,7 @@ export const Navbar: React.FC = () => {
                                   className="
                                     w-4
                                     h-4
+
                                     text-slate-300
                                   "
                                 />
@@ -956,9 +994,7 @@ export const Navbar: React.FC = () => {
               })}
 
 
-              {/* =========================================
-                  SEARCH BUTTON
-              ========================================== */}
+              {/* SEARCH */}
 
               <button
                 type="button"
@@ -976,13 +1012,13 @@ export const Navbar: React.FC = () => {
 
                   rounded-full
 
-                  bg-white/70
+                  bg-white/65
                   backdrop-blur-md
 
                   border
-                  border-emerald-100
+                  border-white/60
 
-                  text-slate-600
+                  text-slate-700
 
                   hover:bg-emerald-50
                   hover:text-emerald-700
@@ -996,13 +1032,18 @@ export const Navbar: React.FC = () => {
                   transition-all
                 "
               >
-                <Search className="w-4 h-4" />
+                <Search
+                  className="
+                    w-4
+                    h-4
+                  "
+                />
               </button>
             </nav>
 
 
             {/* =========================================
-                DESKTOP WHATSAPP
+                WHATSAPP DESKTOP
             ========================================== */}
 
             <div
@@ -1011,8 +1052,6 @@ export const Navbar: React.FC = () => {
                 xl:flex
 
                 items-center
-
-                ml-3
 
                 shrink-0
               "
@@ -1042,7 +1081,7 @@ export const Navbar: React.FC = () => {
                   font-extrabold
 
                   shadow-md
-                  shadow-emerald-900/10
+                  shadow-emerald-900/15
 
                   hover:-translate-y-0.5
 
@@ -1054,6 +1093,7 @@ export const Navbar: React.FC = () => {
                   className="
                     w-4
                     h-4
+
                     mr-2
                   "
                 />
@@ -1071,12 +1111,12 @@ export const Navbar: React.FC = () => {
               className="
                 lg:hidden
 
+                ml-auto
+
                 flex
                 items-center
 
                 gap-2
-
-                ml-auto
               "
             >
               <button
@@ -1091,11 +1131,11 @@ export const Navbar: React.FC = () => {
 
                   rounded-full
 
-                  bg-white/70
+                  bg-white/65
                   backdrop-blur-md
 
                   border
-                  border-emerald-100
+                  border-white/60
 
                   text-[#102a20]
 
@@ -1104,7 +1144,12 @@ export const Navbar: React.FC = () => {
                   justify-center
                 "
               >
-                <Search className="w-4 h-4" />
+                <Search
+                  className="
+                    w-4
+                    h-4
+                  "
+                />
               </button>
 
               <a
@@ -1129,7 +1174,12 @@ export const Navbar: React.FC = () => {
                   justify-center
                 "
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare
+                  className="
+                    w-4
+                    h-4
+                  "
+                />
               </a>
 
               <button
@@ -1146,11 +1196,11 @@ export const Navbar: React.FC = () => {
 
                   rounded-xl
 
-                  bg-white/70
+                  bg-white/65
                   backdrop-blur-md
 
                   border
-                  border-emerald-100
+                  border-white/60
 
                   text-[#102a20]
 
@@ -1160,9 +1210,19 @@ export const Navbar: React.FC = () => {
                 "
               >
                 {mobileMenuOpen ? (
-                  <X className="w-5 h-5" />
+                  <X
+                    className="
+                      w-5
+                      h-5
+                    "
+                  />
                 ) : (
-                  <Menu className="w-5 h-5" />
+                  <Menu
+                    className="
+                      w-5
+                      h-5
+                    "
+                  />
                 )}
               </button>
             </div>
@@ -1187,7 +1247,7 @@ export const Navbar: React.FC = () => {
 
               shadow-xl
 
-              max-h-[calc(100vh-84px)]
+              max-h-[calc(100vh-80px)]
 
               overflow-y-auto
             "
@@ -1351,8 +1411,8 @@ export const Navbar: React.FC = () => {
                                     mb-2
 
                                     text-[11px]
-                                    uppercase
 
+                                    uppercase
                                     tracking-wider
 
                                     font-extrabold
@@ -1420,7 +1480,7 @@ export const Navbar: React.FC = () => {
                       )}
 
 
-                    {/* MOBILE NORMAL CHILDREN */}
+                    {/* MOBILE NORMAL SUBMENU */}
 
                     {!isService &&
                       normalChildren &&
@@ -1429,6 +1489,7 @@ export const Navbar: React.FC = () => {
                           className="
                             ml-3
                             pl-3
+
                             mb-2
 
                             border-l
@@ -1463,8 +1524,8 @@ export const Navbar: React.FC = () => {
 
                                   text-slate-500
 
-                                  hover:text-emerald-700
                                   hover:bg-emerald-50
+                                  hover:text-emerald-700
                                 "
                               >
                                 {child.name}
@@ -1697,7 +1758,12 @@ export const Navbar: React.FC = () => {
                   justify-center
                 "
               >
-                <X className="w-4 h-4" />
+                <X
+                  className="
+                    w-4
+                    h-4
+                  "
+                />
               </button>
             </div>
 
@@ -1798,7 +1864,6 @@ export const Navbar: React.FC = () => {
                           text-[10px]
 
                           uppercase
-
                           tracking-wider
 
                           font-semibold
