@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState
+} from 'react';
 
 import { VideoIntro } from '../components/VideoIntro';
 import { Hero } from '../components/Hero';
@@ -18,14 +21,18 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     const handleOpenSection = (event: Event) => {
-      const customEvent = event as CustomEvent<string>;
+      const customEvent =
+        event as CustomEvent<string>;
 
-      setActiveExtraSection(customEvent.detail);
+      setActiveExtraSection(
+        customEvent.detail
+      );
 
       setTimeout(() => {
-        const target = document.querySelector(
-          customEvent.detail
-        );
+        const target =
+          document.querySelector(
+            customEvent.detail
+          );
 
         if (target) {
           target.scrollIntoView({
@@ -52,28 +59,30 @@ export const Home: React.FC = () => {
   return (
     <main className="min-h-screen">
 
-      {/* =========================
-          {/* =========================
-    HOMEPAGE UTAMA
-========================== */}
+      {/* =========================================
+          HOMEPAGE UTAMA
+      ========================================== */}
 
-{/* 1. Video Intro */}
-<VideoIntro />
+      {/* 1. Video Intro */}
+      <VideoIntro />
 
-{/* 2. Hero */}
-<Hero />
+      {/* 2. Hero */}
+      <Hero />
 
-{/* 3. Harga Paket / Produk */}
-<Brands />
+      {/* 3. Harga Paket / Produk */}
+      <Brands />
 
-{/* 4. Galeri */}
-<Gallery />
+      {/* 4. Galeri */}
+      <Gallery />
+
+      {/* 5. CTA + Running Logo Project */}
+      <CTA />
 
 
-      {/* =========================
+      {/* =========================================
           SECTION TAMBAHAN
-          HANYA MUNCUL SAAT MENU DIKLIK
-      ========================== */}
+          MUNCUL SAAT MENU DIKLIK
+      ========================================== */}
 
       {/* Tentang Kami */}
       {activeExtraSection === '#tentang' && (
@@ -98,7 +107,6 @@ export const Home: React.FC = () => {
         <Features />
       )}
 
-
       {/* Klien */}
       {activeExtraSection === '#klien' && (
         <Clients />
@@ -106,10 +114,7 @@ export const Home: React.FC = () => {
 
       {/* Kontak */}
       {activeExtraSection === '#kontak' && (
-        <>
-          <CTA />
-          <Contact />
-        </>
+        <Contact />
       )}
 
     </main>
