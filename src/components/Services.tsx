@@ -96,17 +96,17 @@ const SERVICES: ServiceItem[] = [
 
 export const Services: React.FC = () => {
   return (
-    <section
-      id="layanan"
-      className="
-        scroll-mt-28
-        py-20
-        lg:py-24
-        bg-[#f8fafc]
-        relative
-        overflow-hidden
-      "
-    >
+   <section
+  id="layanan"
+  className="
+    scroll-mt-28
+    py-20
+    lg:py-24
+    bg-[#ecfdf5]
+    relative
+    overflow-hidden
+  "
+>
       {/* Background Accent */}
       <div
         className="
