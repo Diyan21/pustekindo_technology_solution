@@ -19,6 +19,10 @@ export const CTA: React.FC = () => {
   const ctaWaLink =
     'https://wa.me/6281212612006?text=Halo%20PUSTEKINDO,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20CCTV%20dan%20sistem%20keamanan.';
 
+  /* =====================================================
+      PROJECT / CLIENT LOGOS
+  ===================================================== */
+
   const projectLogos = [
     {
       name: 'Project 01',
@@ -90,7 +94,7 @@ export const CTA: React.FC = () => {
       </div>
 
       {/* =====================================================
-          MAIN CONTENT
+          MAIN CONTAINER
       ===================================================== */}
 
       <div
@@ -105,7 +109,7 @@ export const CTA: React.FC = () => {
         "
       >
         {/* =====================================================
-            TOP CTA
+            MAIN CTA CONTENT
         ===================================================== */}
 
         <div
@@ -123,7 +127,7 @@ export const CTA: React.FC = () => {
           ================================================= */}
 
           <div>
-            {/* Badge */}
+            {/* BADGE */}
 
             <div
               className="
@@ -146,12 +150,10 @@ export const CTA: React.FC = () => {
             >
               <Sparkles className="w-4 h-4" />
 
-              <span>
-                Konsultasi Sistem Keamanan
-              </span>
+              <span>Konsultasi Sistem Keamanan</span>
             </div>
 
-            {/* Heading */}
+            {/* HEADING */}
 
             <h2
               className="
@@ -168,18 +170,12 @@ export const CTA: React.FC = () => {
             >
               Sistem Keamanan yang Tepat
 
-              <span
-                className="
-                  block
-                  mt-2
-                  text-emerald-600
-                "
-              >
+              <span className="block mt-2 text-emerald-600">
                 Dimulai dari Perencanaan yang Tepat.
               </span>
             </h2>
 
-            {/* Description */}
+            {/* DESCRIPTION */}
 
             <p
               className="
@@ -211,9 +207,9 @@ export const CTA: React.FC = () => {
               "
             >
               Kami membantu mulai dari konsultasi awal, survei lokasi,
-              analisis kebutuhan, perencanaan titik pemasangan,
-              pemilihan perangkat, instalasi, konfigurasi jaringan,
-              hingga dukungan teknis setelah sistem digunakan.
+              analisis kebutuhan, perencanaan titik pemasangan, pemilihan
+              perangkat, instalasi, konfigurasi jaringan, hingga dukungan
+              teknis setelah sistem digunakan.
             </p>
 
             {/* =================================================
@@ -231,7 +227,7 @@ export const CTA: React.FC = () => {
                 max-w-4xl
               "
             >
-              {/* Product */}
+              {/* PRODUCT */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -262,7 +258,7 @@ export const CTA: React.FC = () => {
                 </div>
               </div>
 
-              {/* Technician */}
+              {/* TECHNICIAN */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -292,7 +288,7 @@ export const CTA: React.FC = () => {
                 </div>
               </div>
 
-              {/* Survey */}
+              {/* SURVEY */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -323,7 +319,7 @@ export const CTA: React.FC = () => {
                 </div>
               </div>
 
-              {/* Support */}
+              {/* AFTER SALES */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -360,13 +356,7 @@ export const CTA: React.FC = () => {
           ================================================= */}
 
           <div className="lg:pt-5">
-            <div
-              className="
-                border-l-2
-                border-emerald-400
-                pl-6
-              "
-            >
+            <div className="border-l-2 border-emerald-400 pl-6">
               <p
                 className="
                   text-[11px]
@@ -408,7 +398,7 @@ export const CTA: React.FC = () => {
               </p>
             </div>
 
-            {/* WhatsApp */}
+            {/* WHATSAPP */}
 
             <a
               id="big-cta-whatsapp"
@@ -440,9 +430,7 @@ export const CTA: React.FC = () => {
             >
               <MessageSquare className="w-5 h-5" />
 
-              <span>
-                Konsultasi via WhatsApp
-              </span>
+              <span>Konsultasi via WhatsApp</span>
 
               <ArrowRight
                 className="
@@ -454,7 +442,7 @@ export const CTA: React.FC = () => {
               />
             </a>
 
-            {/* Phone */}
+            {/* PHONE */}
 
             <a
               id="big-cta-phone"
@@ -485,12 +473,10 @@ export const CTA: React.FC = () => {
             >
               <PhoneCall className="w-4 h-4 text-emerald-600" />
 
-              <span>
-                {COMPANY_INFO.phone}
-              </span>
+              <span>{COMPANY_INFO.phone}</span>
             </a>
 
-            {/* Checklist */}
+            {/* CHECKLIST */}
 
             <div className="mt-6 space-y-3">
               <div className="flex items-center gap-2.5">
@@ -524,17 +510,10 @@ export const CTA: React.FC = () => {
             MITRA KAMI
         ===================================================== */}
 
-        <div
-          className="
-            mt-20
-            pt-12
-            border-t
-            border-emerald-100
-          "
-        >
-          {/* Heading */}
+        <div className="mt-20 pt-12 border-t border-emerald-100">
+          {/* HEADING */}
 
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <p
               className="
                 text-[11px]
@@ -558,7 +537,7 @@ export const CTA: React.FC = () => {
                 text-[#102a20]
               "
             >
-              Mitra Kami
+              Mitra & Pengalaman Proyek Kami
             </h3>
 
             <p
@@ -579,50 +558,219 @@ export const CTA: React.FC = () => {
           </div>
 
           {/* =================================================
-              HORIZONTAL RUNNING LOGOS
+              MARQUEE OUTER
           ================================================= */}
 
-          <div className="partner-marquee">
-            <div className="partner-marquee-track">
+          <div
+            style={{
+              position: 'relative',
+              display: 'block',
+              width: '100%',
+              maxWidth: '100%',
+              overflow: 'hidden',
+              paddingTop: '18px',
+              paddingBottom: '18px'
+            }}
+          >
+            {/* =================================================
+                RUNNING TRACK
+            ================================================= */}
 
-              {/* COPY 1 */}
+            <div
+              className="pustekindo-logo-track"
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'nowrap',
+                alignItems: 'center',
+                width: 'max-content',
+                minWidth: 'max-content'
+              }}
+            >
+              {/* =============================================
+                  GROUP A
+              ============================================= */}
 
-              <div className="partner-marquee-row">
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                  width: 'max-content',
+                  minWidth: 'max-content',
+                  flex: '0 0 auto',
+                  gap: '65px',
+                  paddingRight: '65px'
+                }}
+              >
                 {projectLogos.map((client, index) => (
                   <div
-                    key={`partner-a-${index}`}
-                    className="partner-logo-item"
+                    key={`project-a-${index}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '150px',
+                      minWidth: '150px',
+                      maxWidth: '150px',
+                      height: '100px',
+                      minHeight: '100px',
+                      flex: '0 0 150px'
+                    }}
                   >
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="partner-logo"
+                      draggable={false}
+                      style={{
+                        display: 'block',
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '145px',
+                        maxHeight: '90px',
+                        objectFit: 'contain',
+                        flexShrink: 0
+                      }}
                     />
                   </div>
                 ))}
               </div>
 
-              {/* COPY 2 */}
+              {/* =============================================
+                  GROUP B
+              ============================================= */}
 
               <div
-                className="partner-marquee-row"
                 aria-hidden="true"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                  width: 'max-content',
+                  minWidth: 'max-content',
+                  flex: '0 0 auto',
+                  gap: '65px',
+                  paddingRight: '65px'
+                }}
               >
                 {projectLogos.map((client, index) => (
                   <div
-                    key={`partner-b-${index}`}
-                    className="partner-logo-item"
+                    key={`project-b-${index}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '150px',
+                      minWidth: '150px',
+                      maxWidth: '150px',
+                      height: '100px',
+                      minHeight: '100px',
+                      flex: '0 0 150px'
+                    }}
                   >
                     <img
                       src={client.logo}
                       alt=""
-                      className="partner-logo"
+                      draggable={false}
+                      style={{
+                        display: 'block',
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '145px',
+                        maxHeight: '90px',
+                        objectFit: 'contain',
+                        flexShrink: 0
+                      }}
                     />
                   </div>
                 ))}
               </div>
 
+              {/* =============================================
+                  GROUP C
+              ============================================= */}
+
+              <div
+                aria-hidden="true"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                  width: 'max-content',
+                  minWidth: 'max-content',
+                  flex: '0 0 auto',
+                  gap: '65px',
+                  paddingRight: '65px'
+                }}
+              >
+                {projectLogos.map((client, index) => (
+                  <div
+                    key={`project-c-${index}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '150px',
+                      minWidth: '150px',
+                      maxWidth: '150px',
+                      height: '100px',
+                      minHeight: '100px',
+                      flex: '0 0 150px'
+                    }}
+                  >
+                    <img
+                      src={client.logo}
+                      alt=""
+                      draggable={false}
+                      style={{
+                        display: 'block',
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '145px',
+                        maxHeight: '90px',
+                        objectFit: 'contain',
+                        flexShrink: 0
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* LEFT FADE */}
+
+            <div
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: '60px',
+                zIndex: 10,
+                pointerEvents: 'none',
+                background:
+                  'linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%)'
+              }}
+            />
+
+            {/* RIGHT FADE */}
+
+            <div
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: '60px',
+                zIndex: 10,
+                pointerEvents: 'none',
+                background:
+                  'linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%)'
+              }}
+            />
           </div>
         </div>
 
@@ -718,6 +866,46 @@ export const CTA: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* =====================================================
+          MARQUEE ANIMATION
+          ADA LANGSUNG DI CTA.TSX
+      ===================================================== */}
+
+      <style>
+        {`
+          .pustekindo-logo-track {
+            animation: pustekindoLogoRunning 24s linear infinite;
+            will-change: transform;
+          }
+
+          @keyframes pustekindoLogoRunning {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+              transform: translate3d(-33.333333%, 0, 0);
+            }
+          }
+
+          .pustekindo-logo-track:hover {
+            animation-play-state: paused;
+          }
+
+          @media (max-width: 1024px) {
+            .pustekindo-logo-track {
+              animation-duration: 20s;
+            }
+          }
+
+          @media (max-width: 640px) {
+            .pustekindo-logo-track {
+              animation-duration: 16s;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };
