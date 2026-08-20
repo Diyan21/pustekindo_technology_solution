@@ -236,7 +236,7 @@ export const Navbar: React.FC = () => {
 
 
   /* =====================================================
-     LOCK BODY WHEN SEARCH OPEN
+     BODY LOCK
   ===================================================== */
 
   useEffect(() => {
@@ -300,7 +300,7 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* SECTION ALREADY EXISTS */
+    /* NORMAL SECTION */
 
     const target =
       document.querySelector(
@@ -321,7 +321,7 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* SECTION NOT RENDERED YET */
+    /* SECTION BELUM DIRENDER */
 
     window.dispatchEvent(
       new CustomEvent(
@@ -448,13 +448,13 @@ export const Navbar: React.FC = () => {
           ${
             isScrolled
               ? `
-                  bg-white/85
+                  bg-white/88
                   backdrop-blur-2xl
                   border-emerald-100/80
                   shadow-[0_10px_40px_rgba(15,23,42,0.07)]
                 `
               : `
-                  bg-white/55
+                  bg-white/70
                   backdrop-blur-xl
                   border-white/50
                 `
@@ -476,7 +476,7 @@ export const Navbar: React.FC = () => {
         />
 
 
-        {/* MAIN NAV */}
+        {/* NAV CONTAINER */}
 
         <div
           className="
@@ -490,8 +490,8 @@ export const Navbar: React.FC = () => {
         >
           <div
             className="
-              h-[84px]
-              lg:h-[90px]
+              h-[78px]
+              lg:h-[84px]
 
               flex
               items-center
@@ -500,53 +500,44 @@ export const Navbar: React.FC = () => {
           >
 
             {/* =========================================
-                LARGE FULL LOGO
+                LOGO
             ========================================== */}
 
             <a
               href="#beranda"
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('#beranda');
+
+                handleNavClick(
+                  '#beranda'
+                );
               }}
               className="
-                relative
                 flex
                 items-center
 
                 shrink-0
 
-                w-[190px]
-                sm:w-[220px]
-                lg:w-[255px]
-
                 h-full
-
-                overflow-visible
               "
             >
               <img
                 src="/images/logo-pustekindo.png"
                 alt="PUSTEKINDO Technology Solution"
                 className="
-                  absolute
+                  h-[56px]
+                  sm:h-[62px]
+                  lg:h-[68px]
+                  xl:h-[72px]
 
-                  left-[-80px]
-                  sm:left-[-90px]
-                  lg:left-[-115px]
+                  w-auto
 
-                  top-1/2
-                  -translate-y-1/2
-
-                  w-[390px]
-                  sm:w-[450px]
-                  lg:w-[560px]
-                  xl:w-[600px]
-
-                  h-auto
-                  max-w-none
+                  max-w-[230px]
+                  sm:max-w-[260px]
+                  lg:max-w-[290px]
 
                   object-contain
+                  object-left
 
                   transition-transform
                   duration-300
@@ -558,7 +549,7 @@ export const Navbar: React.FC = () => {
 
 
             {/* =========================================
-                DESKTOP NAVIGATION
+                DESKTOP NAV
             ========================================== */}
 
             <nav
@@ -582,7 +573,8 @@ export const Navbar: React.FC = () => {
                   children.length > 0;
 
                 const isService =
-                  link.name === 'Layanan';
+                  link.name ===
+                  'Layanan';
 
                 const hasChildren =
                   normalChildren ||
@@ -597,6 +589,7 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     className="
                       relative
+
                       h-full
 
                       flex
@@ -643,8 +636,6 @@ export const Navbar: React.FC = () => {
 
                         font-bold
 
-                        tracking-[0.01em]
-
                         transition-all
                         duration-200
 
@@ -669,7 +660,6 @@ export const Navbar: React.FC = () => {
                             h-3.5
 
                             transition-transform
-                            duration-200
 
                             ${
                               openDesktopMenu ===
@@ -685,16 +675,15 @@ export const Navbar: React.FC = () => {
                         <span
                           className="
                             absolute
-
                             left-2.5
                             right-2.5
                             bottom-0
 
                             h-[2px]
 
-                            rounded-full
-
                             bg-emerald-500
+
+                            rounded-full
                           "
                         />
                       )}
@@ -710,7 +699,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[88px]
+                            top-[82px]
                             left-1/2
                             -translate-x-1/2
 
@@ -727,31 +716,10 @@ export const Navbar: React.FC = () => {
                             shadow-[0_25px_70px_rgba(15,23,42,0.14)]
 
                             p-5
-
-                            overflow-hidden
                           "
                         >
                           <div
                             className="
-                              absolute
-                              top-0
-                              left-0
-                              right-0
-
-                              h-[2px]
-
-                              bg-gradient-to-r
-                              from-transparent
-                              via-emerald-500
-                              to-transparent
-                            "
-                          />
-
-                          <div
-                            className="
-                              relative
-                              z-10
-
                               grid
                               grid-cols-3
 
@@ -771,6 +739,7 @@ export const Navbar: React.FC = () => {
                                       pb-2
 
                                       text-[11px]
+
                                       uppercase
 
                                       tracking-[0.12em]
@@ -790,7 +759,9 @@ export const Navbar: React.FC = () => {
                                     {group.items.map(
                                       (service) => (
                                         <button
-                                          key={service}
+                                          key={
+                                            service
+                                          }
                                           type="button"
                                           onClick={() =>
                                             handleServiceClick(
@@ -818,14 +789,9 @@ export const Navbar: React.FC = () => {
 
                                             hover:bg-emerald-50
                                             hover:text-emerald-800
-
-                                            transition-all
-                                            duration-200
                                           "
                                         >
-                                          <span>
-                                            {service}
-                                          </span>
+                                          {service}
 
                                           <ChevronRight
                                             className="
@@ -870,8 +836,6 @@ export const Navbar: React.FC = () => {
                               text-emerald-700
 
                               hover:bg-emerald-100
-
-                              transition-colors
                             "
                           >
                             Lihat Semua Layanan PUSTEKINDO
@@ -890,7 +854,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[88px]
+                            top-[82px]
                             left-1/2
                             -translate-x-1/2
 
@@ -907,8 +871,6 @@ export const Navbar: React.FC = () => {
                             shadow-[0_20px_50px_rgba(15,23,42,0.12)]
 
                             py-2
-
-                            overflow-hidden
                           "
                         >
                           {children?.map(
@@ -940,8 +902,8 @@ export const Navbar: React.FC = () => {
 
                                   text-slate-600
 
-                                  hover:text-emerald-700
                                   hover:bg-emerald-50
+                                  hover:text-emerald-700
                                 "
                               >
                                 {child.name}
@@ -979,11 +941,11 @@ export const Navbar: React.FC = () => {
 
                   rounded-full
 
-                  bg-white/65
+                  bg-white/70
                   backdrop-blur-md
 
                   border
-                  border-emerald-100/70
+                  border-emerald-100
 
                   text-slate-600
 
@@ -993,10 +955,6 @@ export const Navbar: React.FC = () => {
                   flex
                   items-center
                   justify-center
-
-                  shadow-sm
-
-                  transition-all
                 "
               >
                 <Search className="w-4 h-4" />
@@ -1043,12 +1001,10 @@ export const Navbar: React.FC = () => {
                   font-extrabold
 
                   shadow-md
-                  shadow-emerald-900/10
 
                   hover:-translate-y-0.5
 
                   transition-all
-                  duration-200
                 "
               >
                 <MessageSquare
@@ -1091,7 +1047,6 @@ export const Navbar: React.FC = () => {
                   rounded-full
 
                   bg-white/70
-                  backdrop-blur-md
 
                   border
                   border-emerald-100
@@ -1133,12 +1088,12 @@ export const Navbar: React.FC = () => {
 
               <button
                 type="button"
-                aria-label="Menu"
                 onClick={() =>
                   setMobileMenuOpen(
                     !mobileMenuOpen
                   )
                 }
+                aria-label="Menu"
                 className="
                   w-10
                   h-10
@@ -1146,7 +1101,6 @@ export const Navbar: React.FC = () => {
                   rounded-xl
 
                   bg-white/70
-                  backdrop-blur-md
 
                   border
                   border-emerald-100
@@ -1182,11 +1136,12 @@ export const Navbar: React.FC = () => {
               backdrop-blur-2xl
 
               border-t
-              border-emerald-100/70
+              border-emerald-100
 
               shadow-xl
 
-              max-h-[calc(100vh-90px)]
+              max-h-[calc(100vh-84px)]
+
               overflow-y-auto
             "
           >
@@ -1389,9 +1344,6 @@ export const Navbar: React.FC = () => {
 
                                         bg-white/80
 
-                                        border
-                                        border-white
-
                                         text-left
 
                                         text-sm
@@ -1418,7 +1370,7 @@ export const Navbar: React.FC = () => {
                       )}
 
 
-                    {/* MOBILE NORMAL CHILDREN */}
+                    {/* MOBILE NORMAL SUBMENU */}
 
                     {!isService &&
                       normalChildren &&
@@ -1461,8 +1413,8 @@ export const Navbar: React.FC = () => {
 
                                   text-slate-500
 
-                                  hover:text-emerald-700
                                   hover:bg-emerald-50
+                                  hover:text-emerald-700
                                 "
                               >
                                 {child.name}
@@ -1617,8 +1569,6 @@ export const Navbar: React.FC = () => {
               e.stopPropagation()
             }
           >
-            {/* SEARCH INPUT */}
-
             <div
               className="
                 flex
@@ -1699,8 +1649,6 @@ export const Navbar: React.FC = () => {
             </div>
 
 
-            {/* SEARCH RESULTS */}
-
             <div
               className="
                 max-h-[420px]
@@ -1771,8 +1719,6 @@ export const Navbar: React.FC = () => {
                       text-left
 
                       hover:bg-emerald-50
-
-                      transition-colors
                     "
                   >
                     <div>
