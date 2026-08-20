@@ -55,7 +55,7 @@ interface ProductItem {
 }
 
 /* =====================================================
-   DATA 12 PRODUK / LAYANAN
+   12 PRODUK / LAYANAN
    HARGA DUMMY - NANTI TINGGAL GANTI
 ===================================================== */
 
@@ -172,7 +172,7 @@ const PRODUCTS: ProductItem[] = [
 ];
 
 /* =====================================================
-   BRAND LOGO CCTV
+   BRAND LOGO
 ===================================================== */
 
 const BrandLogo: React.FC<{
@@ -215,7 +215,7 @@ const BrandLogo: React.FC<{
 };
 
 /* =====================================================
-   HELPER: HARGA CCTV TERENDAH PER BRAND
+   HELPER HARGA TERENDAH BRAND CCTV
 ===================================================== */
 
 const getBrandStartingPrice = (
@@ -256,10 +256,13 @@ export const Brands: React.FC = () => {
   const selectedBrandData =
     CCTV_PRICE_DATA[selectedBrand];
 
+  const [selectedCategoryId, setSelectedCategoryId] =
+    useState(
+      CCTV_PRICE_DATA.hikvision.categories[0].id
+    );
+
   /* ===================================================
-     NAVBAR CCTV EVENT
-     Tetap support menu:
-     Hikvision / Dahua / HiLook / EZVIZ / IMOU
+     NAVBAR EVENT
   =================================================== */
 
   useEffect(() => {
@@ -277,13 +280,17 @@ export const Brands: React.FC = () => {
         CCTV_PRICE_DATA[brand]
       ) {
         setSelectedBrand(brand);
+
+        setSelectedCategoryId(
+          CCTV_PRICE_DATA[brand]
+            .categories[0].id
+        );
+
         setCctvModalOpen(true);
 
         setTimeout(() => {
           document
-            .querySelector(
-              '#harga-paket'
-            )
+            .querySelector('#harga-paket')
             ?.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
@@ -306,13 +313,22 @@ export const Brands: React.FC = () => {
   }, []);
 
   /* ===================================================
-     CCTV CATEGORY RINGKAS
+     SELECTED CATEGORY
   =================================================== */
 
-  const selectedBrandCategories =
+  const selectedCategory =
     useMemo(() => {
-      return selectedBrandData.categories;
-    }, [selectedBrandData]);
+      return (
+        selectedBrandData.categories.find(
+          (category) =>
+            category.id === selectedCategoryId
+        ) ??
+        selectedBrandData.categories[0]
+      );
+    }, [
+      selectedBrandData,
+      selectedCategoryId
+    ]);
 
   const selectedBrandStartingPrice =
     useMemo(() => {
@@ -322,7 +338,22 @@ export const Brands: React.FC = () => {
     }, [selectedBrandData]);
 
   /* ===================================================
-     WHATSAPP GENERIC PRODUCT
+     HANDLE BRAND CHANGE
+  =================================================== */
+
+  const handleBrandChange = (
+    brandId: BrandKey
+  ) => {
+    setSelectedBrand(brandId);
+
+    setSelectedCategoryId(
+      CCTV_PRICE_DATA[brandId]
+        .categories[0].id
+    );
+  };
+
+  /* ===================================================
+     WHATSAPP PRODUCT
   =================================================== */
 
   const getProductWhatsappUrl = (
@@ -354,6 +385,7 @@ export const Brands: React.FC = () => {
       '',
       'Saya tertarik dengan CCTV Security System.',
       `Merek: ${selectedBrandData.name}`,
+      `Kategori: ${selectedCategory.label}`,
       selectedBrandStartingPrice
         ? `Harga mulai: ${formatRupiah(
             selectedBrandStartingPrice
@@ -384,10 +416,7 @@ export const Brands: React.FC = () => {
         overflow-hidden
       "
     >
-      {/* =================================================
-          BACKGROUND ACCENT
-      ================================================= */}
-
+      {/* BACKGROUND */}
       <div
         className="
           absolute
@@ -414,17 +443,8 @@ export const Brands: React.FC = () => {
           lg:px-8
         "
       >
-        {/* =================================================
-            HEADER
-        ================================================= */}
-
-        <div
-          className="
-            text-center
-            max-w-3xl
-            mx-auto
-          "
-        >
+        {/* HEADER */}
+        <div className="text-center max-w-3xl mx-auto">
           <div
             className="
               inline-flex
@@ -446,7 +466,6 @@ export const Brands: React.FC = () => {
             "
           >
             <BadgeDollarSign className="w-4 h-4" />
-
             Produk & Layanan
           </div>
 
@@ -476,15 +495,11 @@ export const Brands: React.FC = () => {
             Harga yang ditampilkan merupakan
             harga mulai dan dapat disesuaikan
             dengan perangkat, kapasitas,
-            kondisi lokasi serta kebutuhan
-            instalasi.
+            kondisi lokasi serta kebutuhan instalasi.
           </p>
         </div>
 
-        {/* =================================================
-            12 PRODUCT CARDS
-        ================================================= */}
-
+        {/* PRODUCT CARDS */}
         <div
           className="
             mt-10
@@ -507,9 +522,7 @@ export const Brands: React.FC = () => {
                   if (isCctv) {
                     setCctvModalOpen(true);
                   } else {
-                    setSelectedProduct(
-                      product
-                    );
+                    setSelectedProduct(product);
                   }
                 }}
                 className={`
@@ -540,7 +553,6 @@ export const Brands: React.FC = () => {
                   }
                 `}
               >
-                {/* Featured */}
                 {product.featured && (
                   <div
                     className="
@@ -564,7 +576,6 @@ export const Brands: React.FC = () => {
                   </div>
                 )}
 
-                {/* Icon */}
                 <div
                   className="
                     w-12
@@ -584,7 +595,6 @@ export const Brands: React.FC = () => {
                   {product.icon}
                 </div>
 
-                {/* Title */}
                 <h3
                   className="
                     mt-4
@@ -596,7 +606,6 @@ export const Brands: React.FC = () => {
                   {product.title}
                 </h3>
 
-                {/* CCTV Brands */}
                 {isCctv && (
                   <div
                     className="
@@ -633,7 +642,6 @@ export const Brands: React.FC = () => {
                   </div>
                 )}
 
-                {/* Description */}
                 <p
                   className="
                     mt-3
@@ -647,7 +655,6 @@ export const Brands: React.FC = () => {
                   {product.description}
                 </p>
 
-                {/* Price */}
                 <div
                   className="
                     mt-5
@@ -676,13 +683,10 @@ export const Brands: React.FC = () => {
                       text-emerald-700
                     "
                   >
-                    {formatRupiah(
-                      product.price
-                    )}
+                    {formatRupiah(product.price)}
                   </div>
                 </div>
 
-                {/* Detail */}
                 <div
                   className="
                     mt-4
@@ -715,72 +719,6 @@ export const Brands: React.FC = () => {
             );
           })}
         </div>
-
-        {/* =================================================
-            INFORMATION
-        ================================================= */}
-
-        <div
-          className="
-            mt-8
-            bg-white/65
-            backdrop-blur-md
-            border
-            border-emerald-200
-            rounded-2xl
-            p-5
-            sm:p-6
-          "
-        >
-          <div
-            className="
-              flex
-              items-start
-              gap-3
-            "
-          >
-            <BadgeDollarSign
-              className="
-                w-5
-                h-5
-                text-emerald-600
-                shrink-0
-                mt-0.5
-              "
-            />
-
-            <div>
-              <h4
-                className="
-                  text-sm
-                  font-black
-                  text-[#0a192f]
-                "
-              >
-                Informasi Harga
-              </h4>
-
-              <p
-                className="
-                  mt-1
-                  text-xs
-                  sm:text-sm
-                  text-slate-600
-                  leading-relaxed
-                "
-              >
-                Harga di atas merupakan
-                estimasi harga mulai.
-                Penawaran akhir dapat
-                menyesuaikan merek, tipe
-                perangkat, jumlah perangkat,
-                kapasitas, panjang kabel,
-                kondisi lokasi dan kebutuhan
-                instalasi.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* =====================================================
@@ -808,7 +746,7 @@ export const Brands: React.FC = () => {
             className="
               relative
               w-full
-              max-w-3xl
+              max-w-4xl
               max-h-[90vh]
               overflow-y-auto
               bg-[#f0fdf4]
@@ -821,7 +759,7 @@ export const Brands: React.FC = () => {
               e.stopPropagation()
             }
           >
-            {/* Close */}
+            {/* CLOSE */}
             <button
               type="button"
               onClick={() =>
@@ -845,12 +783,11 @@ export const Brands: React.FC = () => {
                 shadow-sm
                 hover:bg-emerald-50
               "
-              aria-label="Tutup"
             >
               <X className="w-5 h-5" />
             </button>
 
-            {/* Header */}
+            {/* HEADER */}
             <div
               className="
                 p-6
@@ -906,19 +843,16 @@ export const Brands: React.FC = () => {
                   text-slate-600
                 "
               >
-                Tersedia beberapa merek CCTV
-                yang dapat disesuaikan dengan
-                kebutuhan dan anggaran.
+                Pilih merek, kemudian pilih
+                kategori CCTV untuk melihat
+                pilihan paket dan harganya.
               </p>
             </div>
 
-            {/* Brand Buttons */}
-            <div
-              className="
-                p-6
-                sm:p-8
-              "
-            >
+            {/* BODY */}
+            <div className="p-6 sm:p-8">
+
+              {/* BRAND BUTTONS */}
               <div
                 className="
                   grid
@@ -944,7 +878,7 @@ export const Brands: React.FC = () => {
                         key={brandId}
                         type="button"
                         onClick={() =>
-                          setSelectedBrand(
+                          handleBrandChange(
                             brandId
                           )
                         }
@@ -984,7 +918,7 @@ export const Brands: React.FC = () => {
                 )}
               </div>
 
-              {/* Selected Brand */}
+              {/* SELECTED BRAND */}
               <div
                 className="
                   mt-6
@@ -1027,9 +961,7 @@ export const Brands: React.FC = () => {
                         text-[#0a192f]
                       "
                     >
-                      {
-                        selectedBrandData.name
-                      }
+                      {selectedBrandData.name}
                     </h4>
                   </div>
 
@@ -1047,7 +979,7 @@ export const Brands: React.FC = () => {
                         text-slate-400
                       "
                     >
-                      Harga mulai
+                      Harga Mulai
                     </div>
 
                     <div
@@ -1067,7 +999,7 @@ export const Brands: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Categories */}
+                {/* CATEGORY BUTTONS */}
                 <div
                   className="
                     mt-5
@@ -1076,29 +1008,192 @@ export const Brands: React.FC = () => {
                     gap-2
                   "
                 >
-                  {selectedBrandCategories.map(
-                    (category) => (
-                      <span
-                        key={category.id}
+                  {selectedBrandData.categories.map(
+                    (category) => {
+                      const active =
+                        category.id ===
+                        selectedCategory.id;
+
+                      return (
+                        <button
+                          key={category.id}
+                          type="button"
+                          onClick={() =>
+                            setSelectedCategoryId(
+                              category.id
+                            )
+                          }
+                          className={`
+                            px-3
+                            py-2
+                            rounded-full
+                            border
+                            text-xs
+                            font-bold
+                            transition-all
+
+                            ${
+                              active
+                                ? `
+                                  bg-emerald-600
+                                  border-emerald-600
+                                  text-white
+                                  shadow-sm
+                                `
+                                : `
+                                  bg-emerald-50
+                                  border-emerald-100
+                                  text-emerald-800
+                                  hover:border-emerald-300
+                                `
+                            }
+                          `}
+                        >
+                          {category.label}
+                        </button>
+                      );
+                    }
+                  )}
+                </div>
+
+                {/* CATEGORY DESCRIPTION */}
+                <div
+                  className="
+                    mt-4
+                    bg-emerald-50/60
+                    border
+                    border-emerald-100
+                    rounded-xl
+                    px-4
+                    py-3
+                  "
+                >
+                  <div
+                    className="
+                      text-xs
+                      text-slate-600
+                      leading-relaxed
+                    "
+                  >
+                    <strong
+                      className="
+                        text-[#0a192f]
+                      "
+                    >
+                      {selectedCategory.label}:
+                    </strong>{' '}
+                    {selectedCategory.description}
+                  </div>
+                </div>
+
+                {/* PACKAGE PRICES */}
+                <div
+                  className="
+                    mt-5
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    gap-3
+                  "
+                >
+                  {selectedCategory.packages.map(
+                    (pkg) => (
+                      <div
+                        key={pkg.id}
                         className="
-                          inline-flex
-                          px-3
-                          py-1.5
-                          rounded-full
-                          bg-emerald-50
+                          bg-[#f8fffb]
                           border
                           border-emerald-100
-                          text-xs
-                          font-bold
-                          text-emerald-800
+                          rounded-xl
+                          p-4
                         "
                       >
-                        {category.label}
-                      </span>
+                        <div
+                          className="
+                            flex
+                            items-start
+                            justify-between
+                            gap-4
+                          "
+                        >
+                          <div>
+                            <div
+                              className="
+                                text-sm
+                                font-black
+                                text-[#0a192f]
+                              "
+                            >
+                              {pkg.title}
+                            </div>
+
+                            <div
+                              className="
+                                mt-1
+                                text-xs
+                                font-semibold
+                                text-emerald-700
+                              "
+                            >
+                              {pkg.resolution}
+                            </div>
+                          </div>
+
+                          <div className="text-right">
+                            <div
+                              className="
+                                text-[9px]
+                                uppercase
+                                tracking-wider
+                                font-bold
+                                text-slate-400
+                              "
+                            >
+                              Harga
+                            </div>
+
+                            <div
+                              className="
+                                mt-1
+                                text-base
+                                font-black
+                                text-emerald-700
+                              "
+                            >
+                              {pkg.price !== null
+                                ? formatRupiah(
+                                    pkg.price
+                                  )
+                                : 'Hubungi Kami'}
+                            </div>
+                          </div>
+                        </div>
+
+                        {pkg.badge && (
+                          <div
+                            className="
+                              mt-3
+                              inline-flex
+                              px-2
+                              py-1
+                              rounded-full
+                              bg-emerald-100
+                              text-[9px]
+                              uppercase
+                              tracking-wider
+                              font-black
+                              text-emerald-800
+                            "
+                          >
+                            {pkg.badge}
+                          </div>
+                        )}
+                      </div>
                     )
                   )}
                 </div>
 
+                {/* WHATSAPP */}
                 <a
                   href={getCctvWhatsappUrl()}
                   target="_blank"
