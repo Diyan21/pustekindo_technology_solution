@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
         border-t
         border-emerald-200
         pt-16
-        pb-12
+        pb-10
       "
     >
       {/* ==========================================
@@ -72,21 +72,21 @@ export const Footer: React.FC = () => {
 
       {/* ==========================================
           OVERLAY HIJAU MUDA
-          /85 = video tetap terlihat samar
+          Video tetap terlihat tetapi tidak
+          mengganggu tulisan
       ========================================== */}
       <div
         className="
           absolute
           inset-0
           z-[1]
-          bg-[#ecfdf5]/85
+          bg-[#ecfdf5]/70
           pointer-events-none
         "
       />
 
       {/* ==========================================
-          GRADIENT TAMBAHAN
-          Biar video lebih soft & clean
+          SOFT GRADIENT
       ========================================== */}
       <div
         className="
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
           bg-gradient-to-b
           from-white/20
           via-transparent
-          to-emerald-50/50
+          to-emerald-50/60
           pointer-events-none
         "
       />
@@ -124,30 +124,45 @@ export const Footer: React.FC = () => {
             grid-cols-1
             md:grid-cols-2
             lg:grid-cols-12
-            gap-10
-            lg:gap-8
-            pb-12
-            border-b
-            border-emerald-300/60
+            gap-5
+            lg:gap-6
+            pb-10
           "
         >
           {/* ======================================
               COLUMN 1: BRAND
           ====================================== */}
-          <div className="lg:col-span-4 space-y-4">
+          <div
+            className="
+              lg:col-span-4
+              space-y-4
+              bg-white/55
+              backdrop-blur-md
+              border
+              border-white/70
+              rounded-2xl
+              p-5
+              sm:p-6
+              shadow-sm
+              transition-all
+              duration-300
+              hover:bg-white/65
+              hover:shadow-md
+            "
+          >
             <div className="flex items-center space-x-3">
-
               {/* Logo */}
               <div
                 className="
-                  w-9
-                  h-9
-                  rounded-lg
+                  w-10
+                  h-10
+                  rounded-xl
                   bg-[#0a192f]
                   flex
                   items-center
                   justify-center
                   shadow-sm
+                  shrink-0
                 "
               >
                 <Video className="w-5 h-5 text-emerald-300" />
@@ -197,10 +212,12 @@ export const Footer: React.FC = () => {
               {COMPANY_INFO.description}
             </p>
 
-            {/* Provider Text */}
+            {/* Provider */}
             <div
               className="
-                pt-1
+                pt-3
+                border-t
+                border-emerald-200/60
                 text-xs
                 font-mono
                 text-emerald-800
@@ -227,7 +244,24 @@ export const Footer: React.FC = () => {
           {/* ======================================
               COLUMN 2: QUICK LINKS
           ====================================== */}
-          <div className="lg:col-span-2 space-y-3.5">
+          <div
+            className="
+              lg:col-span-2
+              space-y-4
+              bg-white/55
+              backdrop-blur-md
+              border
+              border-white/70
+              rounded-2xl
+              p-5
+              sm:p-6
+              shadow-sm
+              transition-all
+              duration-300
+              hover:bg-white/65
+              hover:shadow-md
+            "
+          >
             <h4
               className="
                 text-xs
@@ -241,7 +275,16 @@ export const Footer: React.FC = () => {
               Quick Links
             </h4>
 
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <div
+              className="
+                w-8
+                h-0.5
+                bg-emerald-500
+                rounded-full
+              "
+            />
+
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
                   <a
@@ -249,7 +292,7 @@ export const Footer: React.FC = () => {
                     className="
                       text-slate-700
                       hover:text-emerald-700
-                      transition-colors
+                      transition-all
                       flex
                       items-center
                       group
@@ -279,7 +322,24 @@ export const Footer: React.FC = () => {
           {/* ======================================
               COLUMN 3: SOLUTIONS
           ====================================== */}
-          <div className="lg:col-span-3 space-y-3.5">
+          <div
+            className="
+              lg:col-span-3
+              space-y-4
+              bg-white/55
+              backdrop-blur-md
+              border
+              border-white/70
+              rounded-2xl
+              p-5
+              sm:p-6
+              shadow-sm
+              transition-all
+              duration-300
+              hover:bg-white/65
+              hover:shadow-md
+            "
+          >
             <h4
               className="
                 text-xs
@@ -293,7 +353,16 @@ export const Footer: React.FC = () => {
               Solutions
             </h4>
 
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <div
+              className="
+                w-8
+                h-0.5
+                bg-emerald-500
+                rounded-full
+              "
+            />
+
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {solutionsList.map((sol, idx) => (
                 <li key={idx}>
                   <a
@@ -332,7 +401,24 @@ export const Footer: React.FC = () => {
           {/* ======================================
               COLUMN 4: CONTACT
           ====================================== */}
-          <div className="lg:col-span-3 space-y-3.5">
+          <div
+            className="
+              lg:col-span-3
+              space-y-4
+              bg-white/55
+              backdrop-blur-md
+              border
+              border-white/70
+              rounded-2xl
+              p-5
+              sm:p-6
+              shadow-sm
+              transition-all
+              duration-300
+              hover:bg-white/65
+              hover:shadow-md
+            "
+          >
             <h4
               className="
                 text-xs
@@ -346,25 +432,41 @@ export const Footer: React.FC = () => {
               Contact
             </h4>
 
-            <div className="space-y-3 text-xs sm:text-sm">
+            <div
+              className="
+                w-8
+                h-0.5
+                bg-emerald-500
+                rounded-full
+              "
+            />
 
+            <div className="space-y-4 text-xs sm:text-sm">
               {/* Address */}
               <div className="flex items-start space-x-2.5">
-                <MapPin
+                <div
                   className="
-                    w-4
-                    h-4
-                    text-emerald-600
+                    w-8
+                    h-8
+                    rounded-lg
+                    bg-emerald-50
+                    border
+                    border-emerald-100
+                    flex
+                    items-center
+                    justify-center
                     shrink-0
-                    mt-0.5
                   "
-                />
+                >
+                  <MapPin className="w-4 h-4 text-emerald-600" />
+                </div>
 
                 <span
                   className="
                     text-slate-700
                     leading-relaxed
                     text-xs
+                    pt-1
                   "
                 >
                   {COMPANY_INFO.address}
@@ -373,14 +475,22 @@ export const Footer: React.FC = () => {
 
               {/* Phone */}
               <div className="flex items-center space-x-2.5">
-                <Phone
+                <div
                   className="
-                    w-4
-                    h-4
-                    text-[#25D366]
+                    w-8
+                    h-8
+                    rounded-lg
+                    bg-emerald-50
+                    border
+                    border-emerald-100
+                    flex
+                    items-center
+                    justify-center
                     shrink-0
                   "
-                />
+                >
+                  <Phone className="w-4 h-4 text-[#25D366]" />
+                </div>
 
                 <a
                   href={`tel:${COMPANY_INFO.phone.replace(
@@ -402,14 +512,22 @@ export const Footer: React.FC = () => {
 
               {/* WhatsApp */}
               <div className="flex items-center space-x-2.5">
-                <MessageSquare
+                <div
                   className="
-                    w-4
-                    h-4
-                    text-[#25D366]
+                    w-8
+                    h-8
+                    rounded-lg
+                    bg-emerald-50
+                    border
+                    border-emerald-100
+                    flex
+                    items-center
+                    justify-center
                     shrink-0
                   "
-                />
+                >
+                  <MessageSquare className="w-4 h-4 text-[#25D366]" />
+                </div>
 
                 <a
                   href={COMPANY_INFO.whatsappUrl}
@@ -437,7 +555,15 @@ export const Footer: React.FC = () => {
         ======================================== */}
         <div
           className="
-            pt-8
+            mt-1
+            bg-white/45
+            backdrop-blur-md
+            border
+            border-white/60
+            rounded-xl
+            px-4
+            sm:px-5
+            py-4
             flex
             flex-col
             sm:flex-row
@@ -446,6 +572,7 @@ export const Footer: React.FC = () => {
             gap-4
             text-xs
             text-slate-600
+            shadow-sm
           "
         >
           <p className="text-center sm:text-left">
@@ -473,10 +600,10 @@ export const Footer: React.FC = () => {
               items-center
               space-x-1.5
               px-3
-              py-1.5
+              py-2
               rounded-lg
               bg-white/70
-              hover:bg-white/90
+              hover:bg-white
               backdrop-blur-sm
               text-slate-700
               hover:text-emerald-700
