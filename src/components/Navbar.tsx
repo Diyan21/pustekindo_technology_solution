@@ -551,8 +551,8 @@ export const Navbar: React.FC = () => {
 
           <div
             className="
-              h-[74px]
-              lg:h-[78px]
+              h-[82px]
+              lg:h-[88px]
 
               flex
               items-center
