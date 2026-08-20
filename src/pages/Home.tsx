@@ -69,13 +69,10 @@ export const Home: React.FC = () => {
       {/* 2. Hero */}
       <Hero />
 
-      {/* 3. Harga Paket / Produk */}
-      <Brands />
-
-      {/* 4. Galeri */}
+      {/* 3. Galeri */}
       <Gallery />
 
-      {/* 5. CTA + Running Logo Project */}
+      {/* 4. CTA + Running Logo Project */}
       <CTA />
 
 
@@ -83,6 +80,11 @@ export const Home: React.FC = () => {
           SECTION TAMBAHAN
           MUNCUL SAAT MENU DIKLIK
       ========================================== */}
+
+      {/* Harga Paket / Produk */}
+      {activeExtraSection === '#harga-paket' && (
+        <Brands />
+      )}
 
       {/* Tentang Kami */}
       {activeExtraSection === '#tentang' && (
