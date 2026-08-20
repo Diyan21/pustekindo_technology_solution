@@ -8,8 +8,7 @@ import {
   Phone,
   Search,
   Video,
-  X,
-  Camera
+  X
 } from 'lucide-react';
 
 import {
@@ -38,12 +37,9 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = [
-        ...NAV_LINKS.map(
-          (link) => link.href.substring(1)
-        ),
-        'keunggulan'
-      ];
+      const sections = NAV_LINKS.map(
+        (link) => link.href.substring(1)
+      );
 
       const scrollPosition = window.scrollY + 160;
 
@@ -122,7 +118,7 @@ export const Navbar: React.FC = () => {
     }
 
     // ========================================
-    // SECTION SUDAH ADA
+    // SECTION SUDAH ADA DI HALAMAN
     // ========================================
 
     const target =
@@ -143,6 +139,7 @@ export const Navbar: React.FC = () => {
 
     // ========================================
     // SECTION BELUM DIRENDER
+    // Home.tsx akan render dahulu
     // ========================================
 
     window.dispatchEvent(
@@ -178,7 +175,6 @@ export const Navbar: React.FC = () => {
       `}
     >
       {/* TOP ACCENT */}
-
       <div
         className="
           h-1
@@ -190,7 +186,6 @@ export const Navbar: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="h-[74px] flex items-center justify-between">
 
           {/* ==================================
@@ -226,7 +221,6 @@ export const Navbar: React.FC = () => {
             </div>
 
             <div className="leading-none">
-
               <div
                 className="
                   text-lg
@@ -252,7 +246,6 @@ export const Navbar: React.FC = () => {
               >
                 {COMPANY_INFO.subName}
               </div>
-
             </div>
           </a>
 
@@ -264,7 +257,6 @@ export const Navbar: React.FC = () => {
             className="hidden lg:flex items-center h-full"
             aria-label="Main Navigation"
           >
-
             {NAV_LINKS.map((link) => {
               const children =
                 'children' in link
@@ -301,7 +293,6 @@ export const Navbar: React.FC = () => {
                     }
                   }}
                 >
-
                   <a
                     href={link.href}
                     onClick={(e) => {
@@ -343,12 +334,13 @@ export const Navbar: React.FC = () => {
                     )}
                   </a>
 
-                  {/* DESKTOP DROPDOWN */}
+                  {/* ==============================
+                      DESKTOP DROPDOWN
+                  ============================== */}
 
                   {hasChildren &&
                     openDesktopMenu ===
                       link.name && (
-
                       <div
                         className="
                           absolute
@@ -365,10 +357,8 @@ export const Navbar: React.FC = () => {
                           overflow-hidden
                         "
                       >
-
                         {children?.map(
                           (child) => (
-
                             <a
                               key={child.name}
                               href={child.href}
@@ -393,7 +383,6 @@ export const Navbar: React.FC = () => {
                                 transition-colors
                               "
                             >
-
                               <span>
                                 {child.name}
                               </span>
@@ -405,54 +394,16 @@ export const Navbar: React.FC = () => {
                                   text-slate-300
                                 "
                               />
-
                             </a>
-
                           )
                         )}
-
                       </div>
                     )}
-
                 </div>
               );
             })}
 
-            {/* ==================================
-                DOKUMENTASI PEMASANGAN
-            ================================== */}
-
-            <a
-              href="#keunggulan"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#keunggulan');
-              }}
-              className={`
-                h-full
-                px-3
-                xl:px-4
-                flex
-                items-center
-                gap-1.5
-                text-[13px]
-                font-semibold
-                tracking-wide
-                transition-colors
-                border-b-2
-
-                ${
-                  activeSection === 'keunggulan'
-                    ? 'text-[#0a192f] border-[#0a192f]'
-                    : 'text-slate-700 border-transparent hover:text-[#0a192f]'
-                }
-              `}
-            >
-              Dokumentasi
-            </a>
-
             {/* SEARCH */}
-
             <button
               type="button"
               aria-label="Cari"
@@ -473,7 +424,6 @@ export const Navbar: React.FC = () => {
             >
               <Search className="w-4 h-4" />
             </button>
-
           </nav>
 
           {/* ==================================
@@ -532,7 +482,6 @@ export const Navbar: React.FC = () => {
               gap-2
             "
           >
-
             <a
               href={COMPANY_INFO.whatsappUrl}
               target="_blank"
@@ -569,19 +518,17 @@ export const Navbar: React.FC = () => {
                 flex
                 items-center
                 justify-center
+                transition-colors
               "
               aria-expanded={mobileMenuOpen}
               aria-label="Buka menu"
             >
-
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
               ) : (
                 <Menu className="w-5 h-5" />
               )}
-
             </button>
-
           </div>
 
         </div>
@@ -592,7 +539,6 @@ export const Navbar: React.FC = () => {
       ================================== */}
 
       {mobileMenuOpen && (
-
         <div
           className="
             lg:hidden
@@ -604,11 +550,9 @@ export const Navbar: React.FC = () => {
             overflow-y-auto
           "
         >
-
           <div className="px-4 py-4 space-y-1">
 
             {NAV_LINKS.map((link) => {
-
               const children =
                 'children' in link
                   ? link.children
@@ -628,7 +572,6 @@ export const Navbar: React.FC = () => {
 
               return (
                 <div key={link.name}>
-
                   <div className="flex items-center">
 
                     <a
@@ -660,7 +603,6 @@ export const Navbar: React.FC = () => {
                     </a>
 
                     {hasChildren && (
-
                       <button
                         type="button"
                         onClick={() =>
@@ -678,8 +620,8 @@ export const Navbar: React.FC = () => {
                           justify-center
                           text-slate-500
                         "
+                        aria-label={`Buka submenu ${link.name}`}
                       >
-
                         <ChevronDown
                           className={`
                             w-4
@@ -693,17 +635,16 @@ export const Navbar: React.FC = () => {
                             }
                           `}
                         />
-
                       </button>
                     )}
-
                   </div>
 
-                  {/* MOBILE SUBMENU */}
+                  {/* ==============================
+                      MOBILE SUBMENU
+                  ============================== */}
 
                   {hasChildren &&
                     expanded && (
-
                       <div
                         className="
                           ml-3
@@ -713,10 +654,8 @@ export const Navbar: React.FC = () => {
                           mb-2
                         "
                       >
-
                         {children?.map(
                           (child) => (
-
                             <a
                               key={child.name}
                               href={child.href}
@@ -736,53 +675,18 @@ export const Navbar: React.FC = () => {
                                 hover:text-[#0a192f]
                                 hover:bg-slate-50
                                 rounded-lg
+                                transition-colors
                               "
                             >
                               {child.name}
                             </a>
-
                           )
                         )}
-
                       </div>
                     )}
-
                 </div>
               );
             })}
-
-            {/* ==================================
-                MOBILE DOKUMENTASI
-            ================================== */}
-
-            <a
-              href="#keunggulan"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#keunggulan');
-              }}
-              className={`
-                flex
-                items-center
-                gap-2
-                px-3
-                py-3
-                rounded-lg
-                text-sm
-                font-semibold
-                transition-colors
-
-                ${
-                  activeSection === 'keunggulan'
-                    ? 'text-[#0a192f] bg-slate-100'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-[#0a192f]'
-                }
-              `}
-            >
-              <Camera className="w-4 h-4 text-[#007bff]" />
-
-              Dokumentasi
-            </a>
 
             {/* ==================================
                 MOBILE CONTACT
@@ -799,7 +703,6 @@ export const Navbar: React.FC = () => {
                 gap-2
               "
             >
-
               <a
                 href={COMPANY_INFO.whatsappUrl}
                 target="_blank"
@@ -815,9 +718,9 @@ export const Navbar: React.FC = () => {
                   text-white
                   text-xs
                   font-bold
+                  transition-colors
                 "
               >
-
                 <MessageSquare
                   className="
                     w-4
@@ -827,7 +730,6 @@ export const Navbar: React.FC = () => {
                 />
 
                 WhatsApp
-
               </a>
 
               <a
@@ -846,9 +748,9 @@ export const Navbar: React.FC = () => {
                   text-slate-700
                   text-xs
                   font-bold
+                  transition-colors
                 "
               >
-
                 <Phone
                   className="
                     w-4
@@ -859,13 +761,10 @@ export const Navbar: React.FC = () => {
                 />
 
                 Telepon
-
               </a>
-
             </div>
 
           </div>
-
         </div>
       )}
 
