@@ -53,17 +53,21 @@ export const Home: React.FC = () => {
     <main className="min-h-screen">
 
       {/* =========================
-          HOMEPAGE UTAMA
-      ========================== */}
+          {/* =========================
+    HOMEPAGE UTAMA
+========================== */}
 
-      {/* 1. Video Intro */}
-      <VideoIntro />
+{/* 1. Video Intro */}
+<VideoIntro />
 
-      {/* 2. Hero */}
-      <Hero />
+{/* 2. Hero */}
+<Hero />
 
-      {/* 3. Harga Paket / Produk */}
-      <Brands />
+{/* 3. Harga Paket / Produk */}
+<Brands />
+
+{/* 4. Galeri */}
+<Gallery />
 
 
       {/* =========================
@@ -94,10 +98,6 @@ export const Home: React.FC = () => {
         <Features />
       )}
 
-      {/* Galeri */}
-      {activeExtraSection === '#galeri' && (
-        <Gallery />
-      )}
 
       {/* Klien */}
       {activeExtraSection === '#klien' && (
