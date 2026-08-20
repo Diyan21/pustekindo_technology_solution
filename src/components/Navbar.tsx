@@ -564,51 +564,48 @@ export const Navbar: React.FC = () => {
                 FULL LOGO
             ========================================== */}
 
-            <a
-              href="#beranda"
-
-              onClick={(e) => {
-
-                e.preventDefault();
-
-                handleNavClick(
-                  '#beranda'
-                );
-              }}
-
-              className="
-                flex
-                items-center
-
-                shrink-0
-
-                group
-              "
-            >
-
-             <img
-  src="/images/logo-pustekindo.png"
-  alt="PUSTEKINDO Technology Solution"
+           <a
+  href="#beranda"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavClick('#beranda');
+  }}
   className="
-    h-[58px]
-    sm:h-[64px]
-    lg:h-[70px]
-
-    w-auto
-
-    max-w-[270px]
-    sm:max-w-[300px]
-    lg:max-w-[330px]
-
-    object-contain
-    object-left
-
-    transition-all
-    duration-300
-
-    group-hover:scale-[1.02]
+    relative
+    flex
+    items-center
+    shrink-0
+    w-[250px]
+    h-full
+    overflow-visible
   "
-/>
+>
+  <img
+    src="/images/logo-pustekindo.png"
+    alt="PUSTEKINDO Technology Solution"
+    className="
+      absolute
+      left-[-55px]
+      top-1/2
+      -translate-y-1/2
+
+      w-[360px]
+      sm:w-[400px]
+      lg:w-[440px]
+      xl:w-[480px]
+
+      h-auto
+      max-w-none
+
+      object-contain
+
+      transition-transform
+      duration-300
+
+      hover:scale-[1.03]
+    "
+  />
+</a>
 
             </a>
 
