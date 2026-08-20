@@ -80,7 +80,7 @@ export const About: React.FC = () => {
                 <div className="relative aspect-[4/3] overflow-hidden">
 
                   <img
-                    src="/images/pustekindo-cctv-installation.png"
+                    src="/images/pustekindo-cctv-installation.jpeg"
                     alt="Teknisi PUSTEKINDO melakukan instalasi CCTV"
                     className="
                       absolute
