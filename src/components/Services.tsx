@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Camera,
@@ -274,6 +274,51 @@ const SERVICES: ServiceItem[] = [
 export const Services: React.FC = () => {
   const [selectedService, setSelectedService] =
     useState<ServiceItem | null>(null);
+
+  /* =====================================================
+     MENERIMA KLIK DARI NAVBAR
+     contoh: Networking / CCTV / PABX
+  ===================================================== */
+
+  useEffect(() => {
+    const handleSelectService = (event: Event) => {
+      const customEvent =
+        event as CustomEvent<string>;
+
+      const service =
+        SERVICES.find(
+          (item) =>
+            item.title === customEvent.detail
+        );
+
+      if (!service) {
+        return;
+      }
+
+      setSelectedService(service);
+
+      setTimeout(() => {
+        document
+          .querySelector('#layanan')
+          ?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+      }, 100);
+    };
+
+    window.addEventListener(
+      'select-service',
+      handleSelectService
+    );
+
+    return () => {
+      window.removeEventListener(
+        'select-service',
+        handleSelectService
+      );
+    };
+  }, []);
 
   return (
     <section
@@ -554,7 +599,7 @@ export const Services: React.FC = () => {
       </div>
 
       {/* =====================================================
-          SERVICE MODAL
+          SERVICE MODAL / ARTIKEL KECIL
       ===================================================== */}
 
       {selectedService && (
