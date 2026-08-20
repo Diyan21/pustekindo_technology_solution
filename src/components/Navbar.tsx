@@ -103,11 +103,6 @@ const SEARCH_ITEMS = [
 
 
 export const Navbar: React.FC = () => {
-
-  /* =====================================================
-     STATE
-  ===================================================== */
-
   const [isScrolled, setIsScrolled] =
     useState(false);
 
@@ -131,15 +126,12 @@ export const Navbar: React.FC = () => {
 
 
   /* =====================================================
-     SEARCH RESULTS
+     SEARCH
   ===================================================== */
 
   const searchResults = useMemo(() => {
-
     const query =
-      searchQuery
-        .trim()
-        .toLowerCase();
+      searchQuery.trim().toLowerCase();
 
     if (!query) {
       return [];
@@ -152,7 +144,6 @@ export const Navbar: React.FC = () => {
           .includes(query)
       )
       .slice(0, 8);
-
   }, [searchQuery]);
 
 
@@ -161,9 +152,7 @@ export const Navbar: React.FC = () => {
   ===================================================== */
 
   useEffect(() => {
-
     const handleScroll = () => {
-
       setIsScrolled(
         window.scrollY > 20
       );
@@ -182,7 +171,6 @@ export const Navbar: React.FC = () => {
         i >= 0;
         i--
       ) {
-
         const section =
           document.getElementById(
             sections[i]
@@ -192,7 +180,6 @@ export const Navbar: React.FC = () => {
           section &&
           section.offsetTop <= scrollPosition
         ) {
-
           setActiveSection(
             sections[i]
           );
@@ -210,31 +197,27 @@ export const Navbar: React.FC = () => {
     );
 
     return () => {
-
       window.removeEventListener(
         'scroll',
         handleScroll
       );
     };
-
   }, []);
 
 
   /* =====================================================
-     CLOSE MENU ON ESC
+     ESC CLOSE
   ===================================================== */
 
   useEffect(() => {
-
     const handleKeyDown = (
       event: KeyboardEvent
     ) => {
-
       if (event.key === 'Escape') {
-
         setSearchOpen(false);
         setMobileMenuOpen(false);
         setOpenDesktopMenu(null);
+        setOpenMobileMenu(null);
       }
     };
 
@@ -244,66 +227,48 @@ export const Navbar: React.FC = () => {
     );
 
     return () => {
-
       window.removeEventListener(
         'keydown',
         handleKeyDown
       );
     };
-
   }, []);
 
 
   /* =====================================================
-     BODY SCROLL LOCK SEARCH MODAL
+     LOCK BODY WHEN SEARCH OPEN
   ===================================================== */
 
   useEffect(() => {
-
-    if (searchOpen) {
-
-      document.body.style.overflow =
-        'hidden';
-
-    } else {
-
-      document.body.style.overflow =
-        '';
-    }
+    document.body.style.overflow =
+      searchOpen ? 'hidden' : '';
 
     return () => {
-
       document.body.style.overflow =
         '';
     };
-
   }, [searchOpen]);
 
 
   /* =====================================================
-     NORMAL NAVIGATION
+     NAVIGATION
   ===================================================== */
 
   const handleNavClick = (
     href: string
   ) => {
-
     setMobileMenuOpen(false);
     setOpenDesktopMenu(null);
     setOpenMobileMenu(null);
-
     setSearchOpen(false);
     setSearchQuery('');
 
 
-    /* =========================================
-       CCTV BRAND
-    ========================================== */
+    /* CCTV BRAND */
 
     if (
       href.startsWith('#brand-')
     ) {
-
       const brandId =
         href.replace(
           '#brand-',
@@ -325,7 +290,6 @@ export const Navbar: React.FC = () => {
         );
 
       if (priceSection) {
-
         priceSection.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
@@ -336,9 +300,7 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* =========================================
-       NORMAL EXISTING SECTION
-    ========================================== */
+    /* SECTION ALREADY EXISTS */
 
     const target =
       document.querySelector(
@@ -346,7 +308,6 @@ export const Navbar: React.FC = () => {
       );
 
     if (target) {
-
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
@@ -360,9 +321,7 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* =========================================
-       SECTION BELUM DIRENDER
-    ========================================== */
+    /* SECTION NOT RENDERED YET */
 
     window.dispatchEvent(
       new CustomEvent(
@@ -386,7 +345,6 @@ export const Navbar: React.FC = () => {
   const handleServiceClick = (
     serviceName: string
   ) => {
-
     setMobileMenuOpen(false);
     setOpenDesktopMenu(null);
     setOpenMobileMenu(null);
@@ -407,14 +365,11 @@ export const Navbar: React.FC = () => {
       );
 
     if (serviceSection) {
-
       serviceSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-
     } else {
-
       window.dispatchEvent(
         new CustomEvent(
           'open-extra-section',
@@ -425,7 +380,6 @@ export const Navbar: React.FC = () => {
       );
 
       setTimeout(() => {
-
         document
           .querySelector(
             '#layanan'
@@ -434,7 +388,6 @@ export const Navbar: React.FC = () => {
             behavior: 'smooth',
             block: 'start'
           });
-
       }, 150);
     }
 
@@ -455,12 +408,10 @@ export const Navbar: React.FC = () => {
       type: string;
     }
   ) => {
-
     if (
       item.href === '#layanan' &&
       item.type !== 'Menu'
     ) {
-
       handleServiceClick(
         item.name
       );
@@ -474,13 +425,8 @@ export const Navbar: React.FC = () => {
   };
 
 
-  /* =====================================================
-     RENDER
-  ===================================================== */
-
   return (
     <>
-
       {/* =================================================
           NAVBAR
       ================================================= */}
@@ -502,31 +448,27 @@ export const Navbar: React.FC = () => {
           ${
             isScrolled
               ? `
-                  bg-white/82
+                  bg-white/85
                   backdrop-blur-2xl
                   border-emerald-100/80
-
                   shadow-[0_10px_40px_rgba(15,23,42,0.07)]
                 `
               : `
-                  bg-white/48
+                  bg-white/55
                   backdrop-blur-xl
-                  border-white/40
+                  border-white/50
                 `
           }
         `}
       >
 
-        {/* =============================================
-            TOP GREEN ACCENT
-        ============================================== */}
+        {/* TOP ACCENT */}
 
         <div
           className="
             h-[2px]
 
             bg-gradient-to-r
-
             from-transparent
             via-emerald-500
             to-transparent
@@ -534,9 +476,7 @@ export const Navbar: React.FC = () => {
         />
 
 
-        {/* =============================================
-            NAV CONTAINER
-        ============================================== */}
+        {/* MAIN NAV */}
 
         <div
           className="
@@ -548,11 +488,10 @@ export const Navbar: React.FC = () => {
             lg:px-8
           "
         >
-
           <div
             className="
-              h-[82px]
-              lg:h-[88px]
+              h-[84px]
+              lg:h-[90px]
 
               flex
               items-center
@@ -561,52 +500,60 @@ export const Navbar: React.FC = () => {
           >
 
             {/* =========================================
-                FULL LOGO
+                LARGE FULL LOGO
             ========================================== */}
 
-           <a
-  href="#beranda"
-  onClick={(e) => {
-    e.preventDefault();
-    handleNavClick('#beranda');
-  }}
-  className="
-    relative
-    flex
-    items-center
-    shrink-0
-    w-[250px]
-    h-full
-    overflow-visible
-  "
->
-  <img
-    src="/images/logo-pustekindo.png"
-    alt="PUSTEKINDO Technology Solution"
-    className="
-      absolute
-      left-[-55px]
-      top-1/2
-      -translate-y-1/2
+            <a
+              href="#beranda"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('#beranda');
+              }}
+              className="
+                relative
+                flex
+                items-center
 
-      w-[360px]
-      sm:w-[400px]
-      lg:w-[440px]
-      xl:w-[480px]
+                shrink-0
 
-      h-auto
-      max-w-none
+                w-[190px]
+                sm:w-[220px]
+                lg:w-[255px]
 
-      object-contain
+                h-full
 
-      transition-transform
-      duration-300
+                overflow-visible
+              "
+            >
+              <img
+                src="/images/logo-pustekindo.png"
+                alt="PUSTEKINDO Technology Solution"
+                className="
+                  absolute
 
-      hover:scale-[1.03]
-    "
-  />
-</a>
+                  left-[-80px]
+                  sm:left-[-90px]
+                  lg:left-[-115px]
 
+                  top-1/2
+                  -translate-y-1/2
+
+                  w-[390px]
+                  sm:w-[450px]
+                  lg:w-[560px]
+                  xl:w-[600px]
+
+                  h-auto
+                  max-w-none
+
+                  object-contain
+
+                  transition-transform
+                  duration-300
+
+                  hover:scale-[1.02]
+                "
+              />
             </a>
 
 
@@ -624,9 +571,7 @@ export const Navbar: React.FC = () => {
                 h-full
               "
             >
-
               {NAV_LINKS.map((link) => {
-
                 const children =
                   'children' in link
                     ? link.children
@@ -647,63 +592,47 @@ export const Navbar: React.FC = () => {
                   activeSection ===
                   link.href.substring(1);
 
-
                 return (
-
                   <div
                     key={link.name}
-
                     className="
                       relative
-
                       h-full
 
                       flex
                       items-center
                     "
-
                     onMouseEnter={() => {
-
                       if (hasChildren) {
-
                         setOpenDesktopMenu(
                           link.name
                         );
                       }
                     }}
-
                     onMouseLeave={() => {
-
                       if (hasChildren) {
-
                         setOpenDesktopMenu(
                           null
                         );
                       }
                     }}
                   >
-
-                    {/* NAV ITEM */}
-
                     <a
                       href={link.href}
-
                       onClick={(e) => {
-
                         e.preventDefault();
 
                         handleNavClick(
                           link.href
                         );
                       }}
-
                       className={`
                         relative
 
                         h-full
 
-                        px-3
-                        xl:px-4
+                        px-2.5
+                        xl:px-3.5
 
                         flex
                         items-center
@@ -731,11 +660,9 @@ export const Navbar: React.FC = () => {
                         }
                       `}
                     >
-
                       {link.name}
 
                       {hasChildren && (
-
                         <ChevronDown
                           className={`
                             w-3.5
@@ -752,20 +679,15 @@ export const Navbar: React.FC = () => {
                             }
                           `}
                         />
-
                       )}
 
-
-                      {/* ACTIVE INDICATOR */}
-
                       {isActive && (
-
                         <span
                           className="
                             absolute
 
-                            left-3
-                            right-3
+                            left-2.5
+                            right-2.5
                             bottom-0
 
                             h-[2px]
@@ -775,345 +697,280 @@ export const Navbar: React.FC = () => {
                             bg-emerald-500
                           "
                         />
-
                       )}
-
                     </a>
 
 
-                    {/* =================================
-                        SERVICE DROPDOWN
-                    ================================== */}
+                    {/* SERVICE DROPDOWN */}
 
                     {isService &&
                       openDesktopMenu ===
                         link.name && (
-
-                      <div
-                        className="
-                          absolute
-
-                          top-[76px]
-                          left-1/2
-                          -translate-x-1/2
-
-                          w-[650px]
-
-                          rounded-2xl
-
-                          bg-white/94
-                          backdrop-blur-2xl
-
-                          border
-                          border-emerald-100/80
-
-                          shadow-[0_25px_70px_rgba(15,23,42,0.14)]
-
-                          p-5
-
-                          overflow-hidden
-                        "
-                      >
-
-                        {/* subtle green accent */}
-
                         <div
                           className="
                             absolute
-                            top-0
-                            left-0
-                            right-0
 
-                            h-[2px]
+                            top-[88px]
+                            left-1/2
+                            -translate-x-1/2
 
-                            bg-gradient-to-r
-                            from-transparent
-                            via-emerald-500
-                            to-transparent
-                          "
-                        />
+                            w-[650px]
 
+                            rounded-2xl
 
-                        <div
-                          className="
-                            grid
-                            grid-cols-3
-
-                            gap-5
-
-                            relative
-                            z-10
-                          "
-                        >
-
-                          {SERVICE_GROUPS.map(
-                            (group) => (
-
-                              <div
-                                key={
-                                  group.title
-                                }
-                              >
-
-                                <div
-                                  className="
-                                    mb-3
-                                    pb-2
-
-                                    text-[11px]
-
-                                    uppercase
-
-                                    tracking-[0.12em]
-
-                                    font-extrabold
-
-                                    text-emerald-700
-
-                                    border-b
-                                    border-emerald-100
-                                  "
-                                >
-
-                                  {group.title}
-
-                                </div>
-
-
-                                <div
-                                  className="
-                                    space-y-1
-                                  "
-                                >
-
-                                  {group.items.map(
-                                    (service) => (
-
-                                      <button
-                                        key={service}
-
-                                        type="button"
-
-                                        onClick={() =>
-                                          handleServiceClick(
-                                            service
-                                          )
-                                        }
-
-                                        className="
-                                          w-full
-
-                                          flex
-                                          items-center
-                                          justify-between
-
-                                          px-3
-                                          py-2.5
-
-                                          rounded-lg
-
-                                          text-left
-
-                                          text-sm
-                                          font-medium
-
-                                          text-slate-600
-
-                                          hover:bg-emerald-50
-                                          hover:text-emerald-800
-
-                                          transition-all
-                                          duration-200
-                                        "
-                                      >
-
-                                        <span>
-                                          {service}
-                                        </span>
-
-                                        <ChevronRight
-                                          className="
-                                            w-3.5
-                                            h-3.5
-
-                                            text-slate-300
-                                          "
-                                        />
-
-                                      </button>
-
-                                    )
-                                  )}
-
-                                </div>
-
-                              </div>
-
-                            )
-                          )}
-
-                        </div>
-
-
-                        <button
-                          type="button"
-
-                          onClick={() =>
-                            handleNavClick(
-                              '#layanan'
-                            )
-                          }
-
-                          className="
-                            mt-5
-
-                            w-full
-
-                            py-3
-
-                            rounded-xl
-
-                            bg-emerald-50
+                            bg-white/95
+                            backdrop-blur-2xl
 
                             border
-                            border-emerald-200
+                            border-emerald-100/80
 
-                            text-sm
-                            font-bold
+                            shadow-[0_25px_70px_rgba(15,23,42,0.14)]
 
-                            text-emerald-700
+                            p-5
 
-                            hover:bg-emerald-100
-
-                            transition-colors
+                            overflow-hidden
                           "
                         >
+                          <div
+                            className="
+                              absolute
+                              top-0
+                              left-0
+                              right-0
 
-                          Lihat Semua Layanan PUSTEKINDO
+                              h-[2px]
 
-                        </button>
+                              bg-gradient-to-r
+                              from-transparent
+                              via-emerald-500
+                              to-transparent
+                            "
+                          />
 
-                      </div>
+                          <div
+                            className="
+                              relative
+                              z-10
 
-                    )}
+                              grid
+                              grid-cols-3
+
+                              gap-5
+                            "
+                          >
+                            {SERVICE_GROUPS.map(
+                              (group) => (
+                                <div
+                                  key={
+                                    group.title
+                                  }
+                                >
+                                  <div
+                                    className="
+                                      mb-3
+                                      pb-2
+
+                                      text-[11px]
+                                      uppercase
+
+                                      tracking-[0.12em]
+
+                                      font-extrabold
+
+                                      text-emerald-700
+
+                                      border-b
+                                      border-emerald-100
+                                    "
+                                  >
+                                    {group.title}
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    {group.items.map(
+                                      (service) => (
+                                        <button
+                                          key={service}
+                                          type="button"
+                                          onClick={() =>
+                                            handleServiceClick(
+                                              service
+                                            )
+                                          }
+                                          className="
+                                            w-full
+
+                                            flex
+                                            items-center
+                                            justify-between
+
+                                            px-3
+                                            py-2.5
+
+                                            rounded-lg
+
+                                            text-left
+
+                                            text-sm
+                                            font-medium
+
+                                            text-slate-600
+
+                                            hover:bg-emerald-50
+                                            hover:text-emerald-800
+
+                                            transition-all
+                                            duration-200
+                                          "
+                                        >
+                                          <span>
+                                            {service}
+                                          </span>
+
+                                          <ChevronRight
+                                            className="
+                                              w-3.5
+                                              h-3.5
+                                              text-slate-300
+                                            "
+                                          />
+                                        </button>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              )
+                            )}
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleNavClick(
+                                '#layanan'
+                              )
+                            }
+                            className="
+                              mt-5
+
+                              w-full
+
+                              py-3
+
+                              rounded-xl
+
+                              bg-emerald-50
+
+                              border
+                              border-emerald-200
+
+                              text-sm
+                              font-bold
+
+                              text-emerald-700
+
+                              hover:bg-emerald-100
+
+                              transition-colors
+                            "
+                          >
+                            Lihat Semua Layanan PUSTEKINDO
+                          </button>
+                        </div>
+                      )}
 
 
-                    {/* =================================
-                        NORMAL DROPDOWN
-                    ================================== */}
+                    {/* NORMAL DROPDOWN */}
 
                     {!isService &&
                       normalChildren &&
                       openDesktopMenu ===
                         link.name && (
+                        <div
+                          className="
+                            absolute
 
-                      <div
-                        className="
-                          absolute
+                            top-[88px]
+                            left-1/2
+                            -translate-x-1/2
 
-                          top-[76px]
-                          left-1/2
-                          -translate-x-1/2
+                            w-56
 
-                          w-56
+                            rounded-xl
 
-                          rounded-xl
+                            bg-white/95
+                            backdrop-blur-2xl
 
-                          bg-white/94
-                          backdrop-blur-2xl
+                            border
+                            border-emerald-100/70
 
-                          border
-                          border-emerald-100/70
+                            shadow-[0_20px_50px_rgba(15,23,42,0.12)]
 
-                          shadow-[0_20px_50px_rgba(15,23,42,0.12)]
+                            py-2
 
-                          py-2
-
-                          overflow-hidden
-                        "
-                      >
-
-                        {children?.map(
-                          (child) => (
-
-                            <a
-                              key={
-                                child.name
-                              }
-
-                              href={
-                                child.href
-                              }
-
-                              onClick={(e) => {
-
-                                e.preventDefault();
-
-                                handleNavClick(
+                            overflow-hidden
+                          "
+                        >
+                          {children?.map(
+                            (child) => (
+                              <a
+                                key={
+                                  child.name
+                                }
+                                href={
                                   child.href
-                                );
-                              }}
+                                }
+                                onClick={(e) => {
+                                  e.preventDefault();
 
-                              className="
-                                flex
-                                items-center
-                                justify-between
-
-                                px-5
-                                py-3
-
-                                text-sm
-                                font-medium
-
-                                text-slate-600
-
-                                hover:text-emerald-700
-                                hover:bg-emerald-50
-
-                                transition-colors
-                              "
-                            >
-
-                              {child.name}
-
-                              <ChevronRight
+                                  handleNavClick(
+                                    child.href
+                                  );
+                                }}
                                 className="
-                                  w-4
-                                  h-4
+                                  flex
+                                  items-center
+                                  justify-between
 
-                                  text-slate-300
+                                  px-5
+                                  py-3
+
+                                  text-sm
+                                  font-medium
+
+                                  text-slate-600
+
+                                  hover:text-emerald-700
+                                  hover:bg-emerald-50
                                 "
-                              />
+                              >
+                                {child.name}
 
-                            </a>
-
-                          )
-                        )}
-
-                      </div>
-
-                    )}
-
+                                <ChevronRight
+                                  className="
+                                    w-4
+                                    h-4
+                                    text-slate-300
+                                  "
+                                />
+                              </a>
+                            )
+                          )}
+                        </div>
+                      )}
                   </div>
-
                 );
-
               })}
 
 
-              {/* =========================================
-                  SEARCH DESKTOP
-              ========================================== */}
+              {/* SEARCH */}
 
               <button
                 type="button"
-
                 onClick={() =>
                   setSearchOpen(true)
                 }
-
                 aria-label="Cari"
-
                 className="
                   ml-2
 
@@ -1122,16 +979,15 @@ export const Navbar: React.FC = () => {
 
                   rounded-full
 
-                  bg-white/60
+                  bg-white/65
                   backdrop-blur-md
 
                   border
                   border-emerald-100/70
 
-                  hover:bg-emerald-50
-                  hover:border-emerald-200
-
                   text-slate-600
+
+                  hover:bg-emerald-50
                   hover:text-emerald-700
 
                   flex
@@ -1141,19 +997,10 @@ export const Navbar: React.FC = () => {
                   shadow-sm
 
                   transition-all
-                  duration-200
                 "
               >
-
-                <Search
-                  className="
-                    w-4
-                    h-4
-                  "
-                />
-
+                <Search className="w-4 h-4" />
               </button>
-
             </nav>
 
 
@@ -1171,16 +1018,12 @@ export const Navbar: React.FC = () => {
                 ml-4
               "
             >
-
               <a
                 href={
                   COMPANY_INFO.whatsappUrl
                 }
-
                 target="_blank"
-
                 rel="noopener noreferrer"
-
                 className="
                   inline-flex
                   items-center
@@ -1192,7 +1035,6 @@ export const Navbar: React.FC = () => {
                   rounded-full
 
                   bg-emerald-600
-
                   hover:bg-emerald-700
 
                   text-white
@@ -1209,7 +1051,6 @@ export const Navbar: React.FC = () => {
                   duration-200
                 "
               >
-
                 <MessageSquare
                   className="
                     w-4
@@ -1219,9 +1060,7 @@ export const Navbar: React.FC = () => {
                 />
 
                 Konsultasi
-
               </a>
-
             </div>
 
 
@@ -1239,63 +1078,41 @@ export const Navbar: React.FC = () => {
                 gap-2
               "
             >
-
-              {/* SEARCH */}
-
               <button
                 type="button"
-
                 onClick={() =>
                   setSearchOpen(true)
                 }
-
                 aria-label="Cari"
-
                 className="
                   w-9
                   h-9
 
                   rounded-full
 
-                  bg-white/65
+                  bg-white/70
                   backdrop-blur-md
 
                   border
-                  border-emerald-100/70
+                  border-emerald-100
 
                   text-[#102a20]
 
                   flex
                   items-center
                   justify-center
-
-                  shadow-sm
                 "
               >
-
-                <Search
-                  className="
-                    w-4
-                    h-4
-                  "
-                />
-
+                <Search className="w-4 h-4" />
               </button>
-
-
-              {/* WHATSAPP */}
 
               <a
                 href={
                   COMPANY_INFO.whatsappUrl
                 }
-
                 target="_blank"
-
                 rel="noopener noreferrer"
-
                 aria-label="WhatsApp"
-
                 className="
                   w-9
                   h-9
@@ -1309,82 +1126,46 @@ export const Navbar: React.FC = () => {
                   flex
                   items-center
                   justify-center
-
-                  shadow-sm
                 "
               >
-
-                <MessageSquare
-                  className="
-                    w-4
-                    h-4
-                  "
-                />
-
+                <MessageSquare className="w-4 h-4" />
               </a>
-
-
-              {/* MENU */}
 
               <button
                 type="button"
-
                 aria-label="Menu"
-
                 onClick={() =>
                   setMobileMenuOpen(
                     !mobileMenuOpen
                   )
                 }
-
                 className="
                   w-10
                   h-10
 
                   rounded-xl
 
-                  bg-white/65
+                  bg-white/70
                   backdrop-blur-md
 
                   border
-                  border-emerald-100/70
+                  border-emerald-100
 
                   text-[#102a20]
 
                   flex
                   items-center
                   justify-center
-
-                  shadow-sm
                 "
               >
-
                 {mobileMenuOpen ? (
-
-                  <X
-                    className="
-                      w-5
-                      h-5
-                    "
-                  />
-
+                  <X className="w-5 h-5" />
                 ) : (
-
-                  <Menu
-                    className="
-                      w-5
-                      h-5
-                    "
-                  />
-
+                  <Menu className="w-5 h-5" />
                 )}
-
               </button>
-
             </div>
-
           </div>
-
         </div>
 
 
@@ -1393,12 +1174,11 @@ export const Navbar: React.FC = () => {
         ================================================= */}
 
         {mobileMenuOpen && (
-
           <div
             className="
               lg:hidden
 
-              bg-white/94
+              bg-white/95
               backdrop-blur-2xl
 
               border-t
@@ -1406,12 +1186,10 @@ export const Navbar: React.FC = () => {
 
               shadow-xl
 
-              max-h-[calc(100vh-80px)]
-
+              max-h-[calc(100vh-90px)]
               overflow-y-auto
             "
           >
-
             <div
               className="
                 px-4
@@ -1420,152 +1198,126 @@ export const Navbar: React.FC = () => {
                 space-y-1
               "
             >
+              {NAV_LINKS.map((link) => {
+                const children =
+                  'children' in link
+                    ? link.children
+                    : undefined;
 
-              {NAV_LINKS.map(
-                (link) => {
+                const normalChildren =
+                  Array.isArray(children) &&
+                  children.length > 0;
 
-                  const children =
-                    'children' in link
-                      ? link.children
-                      : undefined;
+                const isService =
+                  link.name ===
+                  'Layanan';
 
-                  const normalChildren =
-                    Array.isArray(children) &&
-                    children.length > 0;
+                const hasChildren =
+                  normalChildren ||
+                  isService;
 
-                  const isService =
-                    link.name ===
-                    'Layanan';
+                const expanded =
+                  openMobileMenu ===
+                  link.name;
 
-                  const hasChildren =
-                    normalChildren ||
-                    isService;
+                const isActive =
+                  activeSection ===
+                  link.href.substring(1);
 
-                  const expanded =
-                    openMobileMenu ===
-                    link.name;
-
-                  const isActive =
-                    activeSection ===
-                    link.href.substring(1);
-
-
-                  return (
-
+                return (
+                  <div
+                    key={
+                      link.name
+                    }
+                  >
                     <div
-                      key={
-                        link.name
-                      }
+                      className="
+                        flex
+                        items-center
+                      "
                     >
+                      <a
+                        href={
+                          link.href
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
 
-                      <div
-                        className="
-                          flex
-                          items-center
-                        "
-                      >
-
-                        <a
-                          href={
+                          handleNavClick(
                             link.href
+                          );
+                        }}
+                        className={`
+                          flex-1
+
+                          px-3
+                          py-3
+
+                          rounded-xl
+
+                          text-sm
+                          font-bold
+
+                          ${
+                            isActive
+                              ? `
+                                  bg-emerald-50
+                                  text-emerald-700
+                                `
+                              : `
+                                  text-slate-700
+                                  hover:bg-emerald-50
+                                `
                           }
+                        `}
+                      >
+                        {link.name}
+                      </a>
 
-                          onClick={(e) => {
+                      {hasChildren && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenMobileMenu(
+                              expanded
+                                ? null
+                                : link.name
+                            )
+                          }
+                          className="
+                            w-10
+                            h-10
 
-                            e.preventDefault();
+                            flex
+                            items-center
+                            justify-center
 
-                            handleNavClick(
-                              link.href
-                            );
-                          }}
-
-                          className={`
-                            flex-1
-
-                            px-3
-                            py-3
-
-                            rounded-xl
-
-                            text-sm
-                            font-bold
-
-                            transition-colors
-
-                            ${
-                              isActive
-                                ? `
-                                    bg-emerald-50
-                                    text-emerald-700
-                                  `
-                                : `
-                                    text-slate-700
-                                    hover:bg-emerald-50
-                                    hover:text-emerald-700
-                                  `
-                            }
-                          `}
+                            text-slate-500
+                          "
                         >
+                          <ChevronDown
+                            className={`
+                              w-4
+                              h-4
 
-                          {link.name}
+                              transition-transform
 
-                        </a>
-
-
-                        {hasChildren && (
-
-                          <button
-                            type="button"
-
-                            onClick={() =>
-                              setOpenMobileMenu(
+                              ${
                                 expanded
-                                  ? null
-                                  : link.name
-                              )
-                            }
-
-                            className="
-                              w-10
-                              h-10
-
-                              flex
-                              items-center
-                              justify-center
-
-                              text-slate-500
-                            "
-                          >
-
-                            <ChevronDown
-                              className={`
-                                w-4
-                                h-4
-
-                                transition-transform
-
-                                ${
-                                  expanded
-                                    ? 'rotate-180'
-                                    : ''
-                                }
-                              `}
-                            />
-
-                          </button>
-
-                        )}
-
-                      </div>
+                                  ? 'rotate-180'
+                                  : ''
+                              }
+                            `}
+                          />
+                        </button>
+                      )}
+                    </div>
 
 
-                      {/* =================================
-                          MOBILE SERVICE MENU
-                      ================================== */}
+                    {/* MOBILE SERVICE */}
 
-                      {isService &&
-                        expanded && (
-
+                    {isService &&
+                      expanded && (
                         <div
                           className="
                             mx-2
@@ -1581,27 +1333,22 @@ export const Navbar: React.FC = () => {
                             border-emerald-100
                           "
                         >
-
                           {SERVICE_GROUPS.map(
                             (group) => (
-
                               <div
                                 key={
                                   group.title
                                 }
-
                                 className="
                                   mb-4
                                   last:mb-0
                                 "
                               >
-
                                 <div
                                   className="
                                     mb-2
 
                                     text-[11px]
-
                                     uppercase
 
                                     tracking-wider
@@ -1611,28 +1358,21 @@ export const Navbar: React.FC = () => {
                                     text-emerald-700
                                   "
                                 >
-
                                   {group.title}
-
                                 </div>
-
 
                                 {group.items.map(
                                   (service) => (
-
                                     <button
                                       key={
                                         service
                                       }
-
                                       type="button"
-
                                       onClick={() =>
                                         handleServiceClick(
                                           service
                                         )
                                       }
-
                                       className="
                                         w-full
 
@@ -1658,11 +1398,8 @@ export const Navbar: React.FC = () => {
                                         font-medium
 
                                         text-slate-600
-
-                                        hover:text-emerald-700
                                       "
                                     >
-
                                       {service}
 
                                       <ChevronRight
@@ -1671,63 +1408,47 @@ export const Navbar: React.FC = () => {
                                           h-3.5
                                         "
                                       />
-
                                     </button>
-
                                   )
                                 )}
-
                               </div>
-
                             )
                           )}
-
                         </div>
-
                       )}
 
 
-                      {/* =================================
-                          MOBILE NORMAL SUBMENU
-                      ================================== */}
+                    {/* MOBILE NORMAL CHILDREN */}
 
-                      {!isService &&
-                        normalChildren &&
-                        expanded && (
-
+                    {!isService &&
+                      normalChildren &&
+                      expanded && (
                         <div
                           className="
                             ml-3
                             pl-3
-
                             mb-2
 
                             border-l
                             border-emerald-100
                           "
                         >
-
                           {children?.map(
                             (child) => (
-
                               <a
                                 key={
                                   child.name
                                 }
-
                                 href={
                                   child.href
                                 }
-
                                 onClick={(e) => {
-
                                   e.preventDefault();
 
                                   handleNavClick(
                                     child.href
                                   );
                                 }}
-
                                 className="
                                   block
 
@@ -1744,29 +1465,18 @@ export const Navbar: React.FC = () => {
                                   hover:bg-emerald-50
                                 "
                               >
-
                                 {child.name}
-
                               </a>
-
                             )
                           )}
-
                         </div>
-
                       )}
-
-                    </div>
-
-                  );
-
-                }
-              )}
+                  </div>
+                );
+              })}
 
 
-              {/* =========================================
-                  MOBILE CONTACT
-              ========================================== */}
+              {/* MOBILE CONTACT */}
 
               <div
                 className="
@@ -1782,16 +1492,12 @@ export const Navbar: React.FC = () => {
                   gap-2
                 "
               >
-
                 <a
                   href={
                     COMPANY_INFO.whatsappUrl
                   }
-
                   target="_blank"
-
                   rel="noopener noreferrer"
-
                   className="
                     flex
                     items-center
@@ -1809,7 +1515,6 @@ export const Navbar: React.FC = () => {
                     font-bold
                   "
                 >
-
                   <MessageSquare
                     className="
                       w-4
@@ -1819,16 +1524,13 @@ export const Navbar: React.FC = () => {
                   />
 
                   WhatsApp
-
                 </a>
-
 
                 <a
                   href={`tel:${COMPANY_INFO.phone.replace(
                     /[^0-9]/g,
                     ''
                   )}`}
-
                   className="
                     flex
                     items-center
@@ -1849,7 +1551,6 @@ export const Navbar: React.FC = () => {
                     font-bold
                   "
                 >
-
                   <Phone
                     className="
                       w-4
@@ -1859,17 +1560,11 @@ export const Navbar: React.FC = () => {
                   />
 
                   Telepon
-
                 </a>
-
               </div>
-
             </div>
-
           </div>
-
         )}
-
       </header>
 
 
@@ -1878,7 +1573,6 @@ export const Navbar: React.FC = () => {
       ================================================= */}
 
       {searchOpen && (
-
         <div
           className="
             fixed
@@ -1887,7 +1581,6 @@ export const Navbar: React.FC = () => {
             z-[200]
 
             bg-[#071426]/40
-
             backdrop-blur-md
 
             flex
@@ -1899,19 +1592,16 @@ export const Navbar: React.FC = () => {
             pt-24
             sm:pt-32
           "
-
           onClick={() =>
             setSearchOpen(false)
           }
         >
-
           <div
             className="
               w-full
               max-w-xl
 
               bg-white/95
-
               backdrop-blur-2xl
 
               border
@@ -1923,15 +1613,11 @@ export const Navbar: React.FC = () => {
 
               overflow-hidden
             "
-
             onClick={(e) =>
               e.stopPropagation()
             }
           >
-
-            {/* =========================================
-                SEARCH INPUT
-            ========================================== */}
+            {/* SEARCH INPUT */}
 
             <div
               className="
@@ -1947,7 +1633,6 @@ export const Navbar: React.FC = () => {
                 border-emerald-100
               "
             >
-
               <Search
                 className="
                   w-5
@@ -1959,24 +1644,18 @@ export const Navbar: React.FC = () => {
                 "
               />
 
-
               <input
                 autoFocus
-
                 type="text"
-
                 value={
                   searchQuery
                 }
-
                 onChange={(e) =>
                   setSearchQuery(
                     e.target.value
                   )
                 }
-
                 placeholder="Cari CCTV, Networking, Fire Alarm..."
-
                 className="
                   flex-1
 
@@ -1995,14 +1674,11 @@ export const Navbar: React.FC = () => {
                 "
               />
 
-
               <button
                 type="button"
-
                 onClick={() =>
                   setSearchOpen(false)
                 }
-
                 className="
                   w-9
                   h-9
@@ -2018,22 +1694,12 @@ export const Navbar: React.FC = () => {
                   justify-center
                 "
               >
-
-                <X
-                  className="
-                    w-4
-                    h-4
-                  "
-                />
-
+                <X className="w-4 h-4" />
               </button>
-
             </div>
 
 
-            {/* =========================================
-                SEARCH RESULTS
-            ========================================== */}
+            {/* SEARCH RESULTS */}
 
             <div
               className="
@@ -2044,9 +1710,7 @@ export const Navbar: React.FC = () => {
                 p-2
               "
             >
-
               {!searchQuery && (
-
                 <div
                   className="
                     px-4
@@ -2059,51 +1723,39 @@ export const Navbar: React.FC = () => {
                     text-slate-400
                   "
                 >
-
                   Ketik layanan atau produk yang ingin dicari.
-
                 </div>
-
               )}
-
 
               {searchQuery &&
-                searchResults.length === 0 && (
+                searchResults.length ===
+                  0 && (
+                  <div
+                    className="
+                      px-4
+                      py-8
 
-                <div
-                  className="
-                    px-4
-                    py-8
+                      text-center
 
-                    text-center
+                      text-sm
 
-                    text-sm
-
-                    text-slate-400
-                  "
-                >
-
-                  Tidak ada hasil ditemukan.
-
-                </div>
-
-              )}
-
+                      text-slate-400
+                    "
+                  >
+                    Tidak ada hasil ditemukan.
+                  </div>
+                )}
 
               {searchResults.map(
                 (item) => (
-
                   <button
                     key={`${item.type}-${item.name}`}
-
                     type="button"
-
                     onClick={() =>
                       handleSearchResult(
                         item
                       )
                     }
-
                     className="
                       w-full
 
@@ -2123,9 +1775,7 @@ export const Navbar: React.FC = () => {
                       transition-colors
                     "
                   >
-
                     <div>
-
                       <div
                         className="
                           text-sm
@@ -2135,11 +1785,8 @@ export const Navbar: React.FC = () => {
                           text-[#102a20]
                         "
                       >
-
                         {item.name}
-
                       </div>
-
 
                       <div
                         className="
@@ -2156,13 +1803,9 @@ export const Navbar: React.FC = () => {
                           text-emerald-600
                         "
                       >
-
                         {item.type}
-
                       </div>
-
                     </div>
-
 
                     <ChevronRight
                       className="
@@ -2172,20 +1815,13 @@ export const Navbar: React.FC = () => {
                         text-slate-300
                       "
                     />
-
                   </button>
-
                 )
               )}
-
             </div>
-
           </div>
-
         </div>
-
       )}
-
     </>
   );
 };
