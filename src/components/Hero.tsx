@@ -1,191 +1,417 @@
-import React, { useState, useEffect } from 'react';
-import { MessageSquare, ArrowRight, ShieldCheck, Video, Cpu, Server, Wifi, Eye, Radio, Shield } from 'lucide-react';
+import React from 'react';
+import {
+  MessageSquare,
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  MapPin,
+  Wrench,
+  Network
+} from 'lucide-react';
+
 import { COMPANY_INFO } from '../data/companyData';
-import { ImagePlaceholder } from './ImagePlaceholder';
 
 export const Hero: React.FC = () => {
-  const [activeCam, setActiveCam] = useState<number>(1);
-  const [liveTime, setLiveTime] = useState<string>('');
+  const whatsappLink =
+    'https://wa.me/6281212612006?text=Halo%20PUSTEKINDO,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20CCTV%20dan%20sistem%20keamanan.';
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setLiveTime(now.toTimeString().split(' ')[0]);
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const openServices = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
 
-  const camFeeds = [
-    { id: 1, name: 'CAM-01 [MAIN ENTRANCE]', loc: 'Gate 1 Perimeter', status: 'ONLINE', fps: '30 FPS' },
-    { id: 2, name: 'CAM-02 [WAREHOUSE RACK]', loc: 'Zone B Logistics', status: 'ONLINE', fps: '30 FPS' },
-    { id: 3, name: 'CAM-03 [FACTORY FLOOR]', loc: 'Line 2 Production', status: 'ONLINE', fps: '30 FPS' },
-    { id: 4, name: 'CAM-04 [SERVER ROOM]', loc: 'Data Center HQ', status: 'ONLINE', fps: '60 FPS' },
-  ];
+    window.dispatchEvent(
+      new CustomEvent('open-extra-section', {
+        detail: '#layanan'
+      })
+    );
+  };
 
   return (
     <section
-  id="beranda"
-  className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-[#f8fafc] text-slate-800 overflow-hidden"
->
-      {/* Background Subtle Tech Geometry */}
+      id="beranda"
+      className="
+        relative
+        overflow-hidden
+        bg-[#f4fbf7]
+        pt-28
+        pb-16
+        lg:pt-36
+        lg:pb-24
+        text-slate-800
+      "
+    >
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 right-10 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-cyan-100/50 rounded-full blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.4] bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div
+          className="
+            absolute
+            -top-40
+            right-0
+            w-[650px]
+            h-[650px]
+            rounded-full
+            bg-emerald-100/60
+            blur-[140px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            -bottom-40
+            -left-20
+            w-[500px]
+            h-[500px]
+            rounded-full
+            bg-green-100/50
+            blur-[130px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.22]
+            bg-[radial-gradient(#86b99b_1px,transparent_1px)]
+            [background-size:25px_25px]
+          "
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
-          {/* Left Column: Headlines & CTA */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Clean Badge */}
-            <div className="inline-flex items-center space-x-2 bg-blue-50 text-[#007bff] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-100 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#007bff]" />
-              <span>Professional Surveillance & IT Solution</span>
+      <div
+        className="
+          relative
+          z-10
+          max-w-6xl
+          mx-auto
+          px-4
+          sm:px-6
+          lg:px-8
+        "
+      >
+        {/* Main Hero Card */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            rounded-[30px]
+            border
+            border-emerald-100
+            bg-white/80
+            backdrop-blur-sm
+            shadow-[0_25px_70px_-35px_rgba(15,80,55,0.22)]
+          "
+        >
+          {/* Decorative glow */}
+          <div
+            className="
+              absolute
+              -right-24
+              -top-32
+              w-[430px]
+              h-[430px]
+              rounded-full
+              bg-emerald-100/70
+              blur-[110px]
+              pointer-events-none
+            "
+          />
+
+          <div
+            className="
+              relative
+              z-10
+              px-6
+              py-10
+              sm:px-10
+              sm:py-12
+              lg:px-14
+              lg:py-14
+            "
+          >
+            {/* Badge */}
+            <div
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-emerald-200
+                bg-emerald-50
+                px-3.5
+                py-1.5
+                text-xs
+                font-bold
+                uppercase
+                tracking-[0.12em]
+                text-emerald-700
+              "
+            >
+              <ShieldCheck className="w-4 h-4" />
+              Solusi CCTV & IT Terintegrasi
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-[#0a192f] leading-[1.15]">
-              Solusi Surveillance System untuk Keamanan yang{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#007bff] to-[#00d4ff]">
-                Lebih Cerdas
-              </span>
-            </h1>
+            {/* Content */}
+            <div className="mt-6 max-w-4xl">
+              <h1
+                className="
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+                  lg:text-[56px]
+                  font-extrabold
+                  tracking-tight
+                  leading-[1.08]
+                  text-[#102a20]
+                "
+              >
+                Solusi CCTV & Sistem Keamanan
+                <span className="block text-emerald-600 mt-1">
+                  untuk Bisnis dan Hunian
+                </span>
+              </h1>
 
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              <strong className="text-[#0a192f] font-semibold">PUSTEKINDO TECHNOLOGY SOLUTION</strong> menghadirkan sistem CCTV dan pemantauan berbasis teknologi IT untuk membantu bisnis dan hunian mendapatkan sistem keamanan yang efektif, mudah digunakan dan dapat diandalkan.
-            </p>
+              <p
+                className="
+                  mt-6
+                  max-w-3xl
+                  text-base
+                  sm:text-lg
+                  leading-8
+                  text-slate-600
+                "
+              >
+                <strong className="font-bold text-[#102a20]">
+                  {COMPANY_INFO.name} {COMPANY_INFO.subName}
+                </strong>{' '}
+                menyediakan solusi CCTV, surveillance, jaringan, dan
+                sistem keamanan berbasis teknologi IT untuk membantu
+                bisnis maupun hunian mendapatkan sistem pengawasan
+                yang efektif, mudah digunakan, dan dapat diandalkan.
+              </p>
 
-            {/* CTA Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              {/* Mini Article */}
+              <div
+                className="
+                  mt-7
+                  max-w-3xl
+                  border-l-4
+                  border-emerald-500
+                  pl-5
+                  py-1
+                "
+              >
+                <p
+                  className="
+                    text-sm
+                    sm:text-base
+                    leading-7
+                    text-slate-500
+                  "
+                >
+                  Setiap lokasi memiliki kebutuhan keamanan yang
+                  berbeda. Karena itu, solusi kami dirancang berdasarkan
+                  kondisi area, kebutuhan pemantauan, infrastruktur
+                  jaringan, serta skala penggunaan.
+                </p>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div
+              className="
+                mt-8
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                lg:grid-cols-4
+                gap-3
+                max-w-4xl
+              "
+            >
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-emerald-100
+                  bg-emerald-50/60
+                  px-4
+                  py-3
+                "
+              >
+                <MapPin className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  Survei Lokasi
+                </span>
+              </div>
+
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-emerald-100
+                  bg-emerald-50/60
+                  px-4
+                  py-3
+                "
+              >
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  Perencanaan Sistem
+                </span>
+              </div>
+
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-emerald-100
+                  bg-emerald-50/60
+                  px-4
+                  py-3
+                "
+              >
+                <Wrench className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  Instalasi Profesional
+                </span>
+              </div>
+
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-xl
+                  border
+                  border-emerald-100
+                  bg-emerald-50/60
+                  px-4
+                  py-3
+                "
+              >
+                <Network className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm font-semibold text-slate-700">
+                  Integrasi Jaringan
+                </span>
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div
+              className="
+                mt-9
+                flex
+                flex-col
+                sm:flex-row
+                gap-3
+              "
+            >
               <a
                 id="hero-cta-primary"
-                href="https://wa.me/6281212612006?text=Halo%20PUSTEKINDO,%20saya%20ingin%20konsultasi%20mengenai%20kebutuhan%20CCTV%20dan%20surveillance%20system."
+                href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-sm sm:text-base font-bold text-white bg-[#0a192f] hover:bg-slate-800 shadow-lg shadow-blue-950/15 hover:shadow-blue-900/25 transition-all duration-200 active:scale-95 group"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-emerald-600
+                  px-7
+                  py-3.5
+                  text-sm
+                  sm:text-base
+                  font-bold
+                  text-white
+                  shadow-md
+                  shadow-emerald-900/10
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:bg-emerald-700
+                  hover:shadow-lg
+                  active:scale-[0.98]
+                "
               >
-                <MessageSquare className="w-4 h-4 mr-2.5 text-[#00d4ff] group-hover:scale-110 transition-transform" />
-                <span>Konsultasikan Kebutuhan Anda</span>
+                <MessageSquare className="w-5 h-5 mr-2.5" />
+                Konsultasi via WhatsApp
               </a>
 
               <a
                 id="hero-cta-secondary"
-                href="#solusi"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-200 shadow-sm"
+                href="#layanan"
+                onClick={openServices}
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-emerald-200
+                  bg-white
+                  px-7
+                  py-3.5
+                  text-sm
+                  sm:text-base
+                  font-semibold
+                  text-emerald-800
+                  transition-all
+                  duration-200
+                  hover:border-emerald-300
+                  hover:bg-emerald-50
+                "
               >
-                <span>Lihat Solusi Kami</span>
-                <ArrowRight className="w-4 h-4 ml-2 text-[#007bff]" />
+                Lihat Layanan Kami
+                <ArrowRight className="w-4 h-4 ml-2" />
               </a>
             </div>
 
-            {/* Clean Minimalism Micro Highlights Cards */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200/80 shadow-sm">
-                <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-[#007bff] shrink-0">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#0a192f]">Produk Berkualitas</div>
-                  <div className="text-[11px] text-slate-500">Keandalan jangka panjang</div>
-                </div>
-              </div>
+            {/* Bottom Note */}
+            <div
+              className="
+                mt-9
+                pt-6
+                border-t
+                border-emerald-100
+                flex
+                flex-col
+                sm:flex-row
+                sm:items-center
+                sm:justify-between
+                gap-2
+                max-w-4xl
+              "
+            >
+              <p className="text-xs sm:text-sm text-slate-500">
+                Solusi disesuaikan dengan kebutuhan lokasi dan skala penggunaan.
+              </p>
 
-              <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200/80 shadow-sm">
-                <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center text-[#00d4ff] shrink-0">
-                  <Wifi className="w-5 h-5 text-cyan-600" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-[#0a192f]">IT Based Solution</div>
-                  <div className="text-[11px] text-slate-500">Integrasi jaringan modern</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Clean Deep Navy Monitor Console */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-[#0a192f] border border-slate-800 shadow-2xl p-4 sm:p-5 text-white overflow-hidden">
-              
-              {/* Background glow inside monitor */}
-              <div className="absolute -right-16 -bottom-16 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
-
-              {/* Top Console Bar */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-xs font-mono">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#00d4ff] animate-pulse" />
-                  <span className="text-white font-bold tracking-wider">PUSTEKINDO MONITORING CORE</span>
-                </div>
-                <div className="text-[#00d4ff] font-semibold">
-                  {liveTime || '00:00:00'} <span className="text-slate-400 font-normal text-[10px]">WIB</span>
-                </div>
-              </div>
-
-              {/* Main View Area */}
-              <div className="mt-3 relative">
-                <ImagePlaceholder
-                  src="/images/hero-cctv.jpg"
-                  alt="PUSTEKINDO Surveillance System"
-                  type="hero"
-                  title={camFeeds.find(c => c.id === activeCam)?.name || 'SURVEILLANCE FEED'}
-                  subtitle={camFeeds.find(c => c.id === activeCam)?.loc || 'Perimeter Active'}
-                  cameraCode={`CAM-0${activeCam} [LIVE]`}
-                  aspectRatio="aspect-[16/10]"
-                  className="rounded-xl shadow-inner border border-slate-800"
-                />
-
-                {/* Live Floating Badge */}
-                <div className="absolute top-3 left-3 bg-[#0a192f]/90 border border-[#00d4ff]/40 rounded px-2.5 py-1 text-[10px] font-mono text-[#00d4ff] flex items-center space-x-1.5 shadow">
-                  <Radio className="w-3 h-3 text-red-500 animate-ping" />
-                  <span className="font-bold">LIVE STREAM</span>
-                </div>
-              </div>
-
-              {/* Multi-Channel Switcher Tabs */}
-              <div className="mt-3 grid grid-cols-4 gap-2">
-                {camFeeds.map((feed) => (
-                  <button
-                    key={feed.id}
-                    onClick={() => setActiveCam(feed.id)}
-                    className={`p-2 rounded-lg text-left transition-all border font-mono ${
-                      activeCam === feed.id
-                        ? 'bg-blue-950/80 border-[#00d4ff]/80 text-[#00d4ff] shadow-sm'
-                        : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
-                    }`}
-                  >
-                    <div className="text-[10px] font-bold truncate">CAM 0{feed.id}</div>
-                    <div className="text-[9px] text-slate-400 truncate flex items-center mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mr-1" />
-                      {feed.status}
-                    </div>
-                  </button>
-                ))}
-              </div>
-
-              {/* System Specs Footer inside Hero Card */}
-              <div className="mt-3 pt-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400 font-mono">
-                <span className="flex items-center">
-                  <Server className="w-3.5 h-3.5 mr-1 text-[#00d4ff]" /> NVR Storage OK
-                </span>
-                <span className="flex items-center">
-                  <Wifi className="w-3.5 h-3.5 mr-1 text-[#25D366]" /> 1Gbps Link
-                </span>
-                <span className="flex items-center text-slate-400">
-                  <Cpu className="w-3.5 h-3.5 mr-1 text-[#007bff]" /> AI Motion
-                </span>
-              </div>
-
+              <span
+                className="
+                  text-xs
+                  font-bold
+                  text-emerald-700
+                  uppercase
+                  tracking-wider
+                "
+              >
+                CCTV • Surveillance • Network • IT Solution
+              </span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
   );
 };
-
