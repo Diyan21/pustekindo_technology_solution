@@ -45,13 +45,7 @@ export const CTA: React.FC = () => {
   return (
     <section
       id="cta-section"
-      className="
-        relative
-        overflow-hidden
-        bg-white
-        py-20
-        lg:py-24
-      "
+      className="relative overflow-hidden bg-white py-20 lg:py-24"
     >
       {/* =====================================================
           BACKGROUND
@@ -66,7 +60,7 @@ export const CTA: React.FC = () => {
             w-[620px]
             h-[620px]
             rounded-full
-            bg-emerald-50
+            bg-emerald-50/70
             blur-[150px]
           "
         />
@@ -79,7 +73,7 @@ export const CTA: React.FC = () => {
             w-[560px]
             h-[560px]
             rounded-full
-            bg-green-50
+            bg-green-50/60
             blur-[145px]
           "
         />
@@ -88,7 +82,7 @@ export const CTA: React.FC = () => {
           className="
             absolute
             inset-0
-            opacity-[0.10]
+            opacity-[0.08]
             bg-[radial-gradient(#8bd7b0_1px,transparent_1px)]
             [background-size:22px_22px]
           "
@@ -96,7 +90,7 @@ export const CTA: React.FC = () => {
       </div>
 
       {/* =====================================================
-          CONTENT
+          MAIN CONTENT
       ===================================================== */}
 
       <div
@@ -110,9 +104,9 @@ export const CTA: React.FC = () => {
           lg:px-8
         "
       >
-        {/* =================================================
-            MAIN CTA
-        ================================================= */}
+        {/* =====================================================
+            TOP CTA
+        ===================================================== */}
 
         <div
           className="
@@ -124,9 +118,13 @@ export const CTA: React.FC = () => {
             items-start
           "
         >
-          {/* LEFT */}
+          {/* =================================================
+              LEFT CONTENT
+          ================================================= */}
 
           <div>
+            {/* Badge */}
+
             <div
               className="
                 inline-flex
@@ -147,8 +145,13 @@ export const CTA: React.FC = () => {
               "
             >
               <Sparkles className="w-4 h-4" />
-              Konsultasi Sistem Keamanan
+
+              <span>
+                Konsultasi Sistem Keamanan
+              </span>
             </div>
+
+            {/* Heading */}
 
             <h2
               className="
@@ -176,6 +179,8 @@ export const CTA: React.FC = () => {
               </span>
             </h2>
 
+            {/* Description */}
+
             <p
               className="
                 mt-7
@@ -189,9 +194,10 @@ export const CTA: React.FC = () => {
               <strong className="font-extrabold text-[#102a20]">
                 {COMPANY_INFO.name} {COMPANY_INFO.subName}
               </strong>{' '}
-              membantu kebutuhan CCTV, surveillance system, jaringan,
-              access control, dan solusi keamanan berbasis IT untuk rumah,
-              kantor, toko, gudang, maupun area bisnis.
+              menyediakan solusi CCTV, surveillance system, jaringan,
+              access control, dan sistem keamanan berbasis teknologi IT
+              untuk rumah, kantor, toko, gudang, perusahaan, serta area
+              komersial.
             </p>
 
             <p
@@ -204,10 +210,10 @@ export const CTA: React.FC = () => {
                 text-[#587064]
               "
             >
-              Kami menangani proses mulai dari konsultasi awal, survei
-              lokasi, analisis kebutuhan, penentuan titik pemasangan,
-              pemilihan perangkat, instalasi, konfigurasi, hingga dukungan
-              teknis setelah sistem digunakan.
+              Kami membantu mulai dari konsultasi awal, survei lokasi,
+              analisis kebutuhan, perencanaan titik pemasangan,
+              pemilihan perangkat, instalasi, konfigurasi jaringan,
+              hingga dukungan teknis setelah sistem digunakan.
             </p>
 
             {/* =================================================
@@ -225,6 +231,8 @@ export const CTA: React.FC = () => {
                 max-w-4xl
               "
             >
+              {/* Product */}
+
               <div className="flex items-start gap-4">
                 <div
                   className="
@@ -247,12 +255,14 @@ export const CTA: React.FC = () => {
                   </h3>
 
                   <p className="mt-1.5 text-sm leading-6 text-[#587064]">
-                    Perangkat dipilih sesuai kebutuhan agar sistem stabil,
-                    efektif, dan dapat diandalkan dalam penggunaan
-                    sehari-hari.
+                    Perangkat dipilih berdasarkan kebutuhan agar sistem
+                    stabil, efektif, dan dapat diandalkan untuk penggunaan
+                    jangka panjang.
                   </p>
                 </div>
               </div>
+
+              {/* Technician */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -277,10 +287,12 @@ export const CTA: React.FC = () => {
 
                   <p className="mt-1.5 text-sm leading-6 text-[#587064]">
                     Instalasi, konfigurasi, dan pengujian dilakukan secara
-                    terstruktur sesuai kebutuhan lokasi.
+                    terstruktur sesuai kondisi dan kebutuhan setiap lokasi.
                   </p>
                 </div>
               </div>
+
+              {/* Survey */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -304,12 +316,14 @@ export const CTA: React.FC = () => {
                   </h3>
 
                   <p className="mt-1.5 text-sm leading-6 text-[#587064]">
-                    Posisi kamera, jalur kabel, jaringan, dan perangkat
-                    dirancang berdasarkan kondisi serta karakteristik
-                    lokasi.
+                    Posisi kamera, jalur kabel, kebutuhan jaringan, dan
+                    perangkat dirancang berdasarkan kondisi serta
+                    karakteristik lokasi.
                   </p>
                 </div>
               </div>
+
+              {/* Support */}
 
               <div className="flex items-start gap-4">
                 <div
@@ -333,7 +347,7 @@ export const CTA: React.FC = () => {
                   </h3>
 
                   <p className="mt-1.5 text-sm leading-6 text-[#587064]">
-                    Tim kami siap membantu pengecekan, pengembangan, dan
+                    Tim kami siap membantu pengecekan, pengembangan, maupun
                     penyesuaian sistem sesuai kebutuhan operasional.
                   </p>
                 </div>
@@ -426,7 +440,9 @@ export const CTA: React.FC = () => {
             >
               <MessageSquare className="w-5 h-5" />
 
-              Konsultasi via WhatsApp
+              <span>
+                Konsultasi via WhatsApp
+              </span>
 
               <ArrowRight
                 className="
@@ -468,10 +484,13 @@ export const CTA: React.FC = () => {
               "
             >
               <PhoneCall className="w-4 h-4 text-emerald-600" />
-              {COMPANY_INFO.phone}
+
+              <span>
+                {COMPANY_INFO.phone}
+              </span>
             </a>
 
-            {/* checklist */}
+            {/* Checklist */}
 
             <div className="mt-6 space-y-3">
               <div className="flex items-center gap-2.5">
@@ -502,7 +521,7 @@ export const CTA: React.FC = () => {
         </div>
 
         {/* =====================================================
-            MITRA / PROJECT RUNNING LOGO
+            MITRA KAMI
         ===================================================== */}
 
         <div
@@ -513,7 +532,9 @@ export const CTA: React.FC = () => {
             border-emerald-100
           "
         >
-          <div className="text-center">
+          {/* Heading */}
+
+          <div className="text-center mb-8">
             <p
               className="
                 text-[11px]
@@ -537,7 +558,7 @@ export const CTA: React.FC = () => {
                 text-[#102a20]
               "
             >
-              Mitra & Pengalaman Proyek Kami
+              Mitra Kami
             </h3>
 
             <p
@@ -557,18 +578,20 @@ export const CTA: React.FC = () => {
             </p>
           </div>
 
-          {/* RUNNING AREA */}
+          {/* =================================================
+              HORIZONTAL RUNNING LOGOS
+          ================================================= */}
 
-          <div className="partner-marquee mt-10">
+          <div className="partner-marquee">
             <div className="partner-marquee-track">
 
-              {/* GROUP 1 */}
+              {/* COPY 1 */}
 
-              <div className="partner-logo-group">
-                {projectLogos.map((client) => (
+              <div className="partner-marquee-row">
+                {projectLogos.map((client, index) => (
                   <div
-                    key={`first-${client.name}`}
-                    className="partner-logo-wrap"
+                    key={`partner-a-${index}`}
+                    className="partner-logo-item"
                   >
                     <img
                       src={client.logo}
@@ -579,36 +602,16 @@ export const CTA: React.FC = () => {
                 ))}
               </div>
 
-              {/* GROUP 2 */}
+              {/* COPY 2 */}
 
               <div
-                className="partner-logo-group"
+                className="partner-marquee-row"
                 aria-hidden="true"
               >
-                {projectLogos.map((client) => (
+                {projectLogos.map((client, index) => (
                   <div
-                    key={`second-${client.name}`}
-                    className="partner-logo-wrap"
-                  >
-                    <img
-                      src={client.logo}
-                      alt=""
-                      className="partner-logo"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* GROUP 3 */}
-
-              <div
-                className="partner-logo-group"
-                aria-hidden="true"
-              >
-                {projectLogos.map((client) => (
-                  <div
-                    key={`third-${client.name}`}
-                    className="partner-logo-wrap"
+                    key={`partner-b-${index}`}
+                    className="partner-logo-item"
                   >
                     <img
                       src={client.logo}
