@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   MessageSquare,
   PhoneCall,
@@ -18,87 +19,130 @@ export const CTA: React.FC = () => {
   const ctaWaLink =
     'https://wa.me/6281212612006?text=Halo%20PUSTEKINDO,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20CCTV%20dan%20sistem%20keamanan.';
 
+  const projectLogos = [
+    {
+      name: 'Project 01',
+      logo: '/images/clients/client-01.png'
+    },
+    {
+      name: 'Project 02',
+      logo: '/images/clients/client-02.png'
+    },
+    {
+      name: 'Project 03',
+      logo: '/images/clients/client-03.png'
+    },
+    {
+      name: 'Project 04',
+      logo: '/images/clients/client-04.png'
+    },
+    {
+      name: 'Project 05',
+      logo: '/images/clients/client-05.png'
+    },
+    {
+      name: 'Project 06',
+      logo: '/images/clients/client-06.png'
+    }
+  ];
+
   return (
     <section
       id="cta-section"
       className="
         relative
         overflow-hidden
+
         py-20
         lg:py-28
+
         bg-gradient-to-br
-        from-[#062c24]
-        via-[#0a5b47]
-        to-[#dff8eb]
+        from-[#052e26]
+        via-[#08664f]
+        to-[#b7efd2]
       "
     >
       {/* =====================================================
-          BACKGROUND TEXTURE
+          BACKGROUND
       ===================================================== */}
 
       <div className="absolute inset-0 pointer-events-none">
-        {/* Large glow right */}
+        {/* glow kanan */}
         <div
           className="
             absolute
             -top-40
-            -right-24
-            w-[680px]
-            h-[680px]
+            -right-28
+
+            w-[700px]
+            h-[700px]
+
             rounded-full
+
             bg-emerald-300/25
+
             blur-[150px]
           "
         />
 
-        {/* Large glow left */}
+        {/* glow kiri */}
         <div
           className="
             absolute
             -bottom-52
-            -left-32
-            w-[560px]
-            h-[560px]
+            -left-36
+
+            w-[580px]
+            h-[580px]
+
             rounded-full
+
             bg-green-100/30
-            blur-[140px]
+
+            blur-[145px]
           "
         />
 
-        {/* Fine dot texture */}
+        {/* grain / texture */}
         <div
           className="
             absolute
             inset-0
-            opacity-[0.18]
+
+            opacity-[0.16]
+
             bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28)_1px,transparent_1.5px)]
             [background-size:14px_14px]
           "
         />
 
-        {/* Dark left shade */}
+        {/* dark shade */}
         <div
           className="
             absolute
             inset-y-0
             left-0
+
             w-[58%]
+
             bg-gradient-to-r
-            from-black/18
+            from-black/20
             via-black/5
             to-transparent
           "
         />
 
-        {/* Bottom fade */}
+        {/* bottom shade */}
         <div
           className="
             absolute
             inset-x-0
             bottom-0
-            h-44
+
+            h-48
+
             bg-gradient-to-t
-            from-black/10
+            from-black/15
             to-transparent
           "
         />
@@ -113,30 +157,33 @@ export const CTA: React.FC = () => {
         className="
           relative
           z-10
+
           max-w-6xl
           mx-auto
+
           px-4
           sm:px-6
           lg:px-8
         "
       >
+        {/* =================================================
+            MAIN CTA
+        ================================================= */}
+
         <div
           className="
             grid
             grid-cols-1
             lg:grid-cols-[1fr_340px]
+
             gap-12
             lg:gap-16
+
             items-start
           "
         >
-
-          {/* =================================================
-              LEFT
-          ================================================= */}
-
+          {/* LEFT */}
           <div>
-            {/* Eyebrow */}
             <div
               className="
                 inline-flex
@@ -149,8 +196,10 @@ export const CTA: React.FC = () => {
                 rounded-full
 
                 bg-white/10
+
                 border
                 border-white/15
+
                 backdrop-blur-md
 
                 text-emerald-100
@@ -169,7 +218,6 @@ export const CTA: React.FC = () => {
             </div>
 
 
-            {/* Heading */}
             <h2
               className="
                 mt-6
@@ -189,12 +237,15 @@ export const CTA: React.FC = () => {
               "
             >
               Sistem Keamanan yang Tepat
+
               <span
                 className="
                   block
                   mt-2
+
                   text-transparent
                   bg-clip-text
+
                   bg-gradient-to-r
                   from-emerald-300
                   via-green-200
@@ -206,7 +257,6 @@ export const CTA: React.FC = () => {
             </h2>
 
 
-            {/* Description */}
             <p
               className="
                 mt-7
@@ -243,16 +293,16 @@ export const CTA: React.FC = () => {
                 text-emerald-100/70
               "
             >
-              Kami menangani proses dari konsultasi awal, survei lokasi,
-              analisis kebutuhan, penentuan titik pemasangan, pemilihan
-              perangkat, instalasi, konfigurasi, hingga dukungan teknis
-              setelah sistem digunakan.
+              Kami menangani proses mulai dari konsultasi awal, survei
+              lokasi, analisis kebutuhan, penentuan titik pemasangan,
+              pemilihan perangkat, instalasi, konfigurasi, hingga dukungan
+              teknis setelah sistem digunakan.
             </p>
 
 
-            {/* =================================================
+            {/* =========================================
                 BENEFITS
-            ================================================= */}
+            ========================================== */}
 
             <div
               className="
@@ -268,12 +318,12 @@ export const CTA: React.FC = () => {
                 max-w-4xl
               "
             >
-              {/* 1 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
+
                     rounded-2xl
 
                     bg-gradient-to-br
@@ -293,39 +343,34 @@ export const CTA: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3
-                    className="
-                      text-base
-                      sm:text-lg
-                      font-extrabold
-                      text-white
-                    "
-                  >
+                  <h3 className="text-base sm:text-lg font-extrabold text-white">
                     Produk Berkualitas
                   </h3>
 
                   <p
                     className="
                       mt-1.5
+
                       text-sm
                       leading-6
+
                       text-emerald-100/70
                     "
                   >
                     Pemilihan perangkat disesuaikan dengan kebutuhan
                     penggunaan agar sistem stabil, efektif, dan dapat
-                    diandalkan dalam jangka panjang.
+                    diandalkan.
                   </p>
                 </div>
               </div>
 
 
-              {/* 2 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
+
                     rounded-2xl
 
                     bg-gradient-to-br
@@ -345,39 +390,34 @@ export const CTA: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3
-                    className="
-                      text-base
-                      sm:text-lg
-                      font-extrabold
-                      text-white
-                    "
-                  >
+                  <h3 className="text-base sm:text-lg font-extrabold text-white">
                     Teknisi Berpengalaman
                   </h3>
 
                   <p
                     className="
                       mt-1.5
+
                       text-sm
                       leading-6
+
                       text-emerald-100/70
                     "
                   >
                     Instalasi, konfigurasi, dan pengujian dilakukan secara
                     terstruktur oleh tenaga teknis yang memahami kebutuhan
-                    di lapangan.
+                    lapangan.
                   </p>
                 </div>
               </div>
 
 
-              {/* 3 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
+
                     rounded-2xl
 
                     bg-gradient-to-br
@@ -397,22 +437,17 @@ export const CTA: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3
-                    className="
-                      text-base
-                      sm:text-lg
-                      font-extrabold
-                      text-white
-                    "
-                  >
+                  <h3 className="text-base sm:text-lg font-extrabold text-white">
                     Survei & Perencanaan
                   </h3>
 
                   <p
                     className="
                       mt-1.5
+
                       text-sm
                       leading-6
+
                       text-emerald-100/70
                     "
                   >
@@ -424,12 +459,12 @@ export const CTA: React.FC = () => {
               </div>
 
 
-              {/* 4 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
+
                     rounded-2xl
 
                     bg-gradient-to-br
@@ -449,28 +484,22 @@ export const CTA: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3
-                    className="
-                      text-base
-                      sm:text-lg
-                      font-extrabold
-                      text-white
-                    "
-                  >
+                  <h3 className="text-base sm:text-lg font-extrabold text-white">
                     Dukungan Setelah Instalasi
                   </h3>
 
                   <p
                     className="
                       mt-1.5
+
                       text-sm
                       leading-6
+
                       text-emerald-100/70
                     "
                   >
-                    Tim kami siap membantu pengecekan, pengembangan,
-                    maupun penyesuaian sistem sesuai kebutuhan
-                    operasional.
+                    Tim kami siap membantu pengecekan, pengembangan, maupun
+                    penyesuaian sistem sesuai kebutuhan operasional.
                   </p>
                 </div>
               </div>
@@ -479,15 +508,10 @@ export const CTA: React.FC = () => {
 
 
           {/* =================================================
-              RIGHT CTA
+              RIGHT CONTACT
           ================================================= */}
 
-          <div
-            className="
-              lg:sticky
-              lg:top-28
-            "
-          >
+          <div className="lg:sticky lg:top-28">
             <div
               className="
                 border-l
@@ -542,16 +566,13 @@ export const CTA: React.FC = () => {
                 "
               >
                 Sampaikan jenis lokasi, area yang ingin dipantau, atau
-                sistem yang sedang Anda rencanakan. Tim kami akan membantu
+                sistem yang sedang direncanakan. Tim kami akan membantu
                 memberikan arahan awal dan rekomendasi solusi.
               </p>
             </div>
 
 
-            {/* =================================================
-                WHATSAPP 3D BUTTON
-            ================================================= */}
-
+            {/* WhatsApp 3D */}
             <a
               id="big-cta-whatsapp"
               href={ctaWaLink}
@@ -603,7 +624,6 @@ export const CTA: React.FC = () => {
                 duration-200
               "
             >
-              {/* Texture */}
               <span
                 className="
                   absolute
@@ -618,7 +638,6 @@ export const CTA: React.FC = () => {
                 "
               />
 
-              {/* Light layer */}
               <span
                 className="
                   absolute
@@ -635,7 +654,6 @@ export const CTA: React.FC = () => {
                 "
               />
 
-              {/* Shine */}
               <span
                 className="
                   absolute
@@ -709,7 +727,7 @@ export const CTA: React.FC = () => {
                 border
                 border-white/20
 
-                bg-white/8
+                bg-white/10
                 backdrop-blur-md
 
                 text-sm
@@ -717,7 +735,7 @@ export const CTA: React.FC = () => {
 
                 text-white
 
-                hover:bg-white/14
+                hover:bg-white/15
                 hover:border-white/30
 
                 transition-all
@@ -729,7 +747,7 @@ export const CTA: React.FC = () => {
             </a>
 
 
-            {/* Mini checklist */}
+            {/* checklist */}
             <div
               className="
                 mt-7
@@ -737,64 +755,240 @@ export const CTA: React.FC = () => {
               "
             >
               <div className="flex items-center gap-2.5">
-                <CheckCircle2
-                  className="
-                    w-4
-                    h-4
-                    text-emerald-300
-                    shrink-0
-                  "
-                />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
 
-                <span
-                  className="
-                    text-sm
-                    text-emerald-50/80
-                  "
-                >
+                <span className="text-sm text-emerald-50/80">
                   Konsultasi kebutuhan sistem
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2
-                  className="
-                    w-4
-                    h-4
-                    text-emerald-300
-                    shrink-0
-                  "
-                />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
 
-                <span
-                  className="
-                    text-sm
-                    text-emerald-50/80
-                  "
-                >
+                <span className="text-sm text-emerald-50/80">
                   Survei dan analisis lokasi
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2
-                  className="
-                    w-4
-                    h-4
-                    text-emerald-300
-                    shrink-0
-                  "
-                />
+                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
 
-                <span
-                  className="
-                    text-sm
-                    text-emerald-50/80
-                  "
-                >
+                <span className="text-sm text-emerald-50/80">
                   Rekomendasi perangkat & instalasi
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+
+
+        {/* =====================================================
+            PROJECT LOGOS / MARQUEE
+        ===================================================== */}
+
+        <div
+          className="
+            mt-20
+            pt-10
+
+            border-t
+            border-white/15
+          "
+        >
+          <div className="text-center">
+            <div
+              className="
+                inline-flex
+                items-center
+                gap-2
+
+                text-[11px]
+                sm:text-xs
+
+                font-extrabold
+                uppercase
+                tracking-[0.18em]
+
+                text-emerald-200
+              "
+            >
+              <ShieldCheck className="w-4 h-4" />
+
+              Dipercaya untuk Berbagai Proyek
+            </div>
+
+            <h3
+              className="
+                mt-3
+
+                text-2xl
+                sm:text-3xl
+
+                font-black
+                tracking-tight
+
+                text-white
+              "
+            >
+              Pengalaman Proyek PUSTEKINDO
+            </h3>
+
+            <p
+              className="
+                mt-2
+
+                mx-auto
+
+                max-w-2xl
+
+                text-sm
+                sm:text-base
+
+                leading-7
+
+                text-emerald-100/65
+              "
+            >
+              Pengalaman implementasi sistem keamanan dan teknologi untuk
+              berbagai kebutuhan perusahaan, institusi, properti, dan area
+              komersial.
+            </p>
+          </div>
+
+
+          {/* MARQUEE */}
+          <div
+            className="
+              relative
+
+              mt-10
+
+              overflow-hidden
+            "
+          >
+            {/* fade left */}
+            <div
+              className="
+                absolute
+                left-0
+                top-0
+                bottom-0
+
+                w-20
+                sm:w-32
+
+                z-20
+
+                bg-gradient-to-r
+                from-[#07503f]
+                to-transparent
+
+                pointer-events-none
+              "
+            />
+
+            {/* fade right */}
+            <div
+              className="
+                absolute
+                right-0
+                top-0
+                bottom-0
+
+                w-20
+                sm:w-32
+
+                z-20
+
+                bg-gradient-to-l
+                from-[#8ed9b4]/70
+                to-transparent
+
+                pointer-events-none
+              "
+            />
+
+
+            <div
+              className="
+                flex
+                w-max
+
+                animate-[projectMarquee_28s_linear_infinite]
+
+                hover:[animation-play-state:paused]
+              "
+            >
+              {[...projectLogos, ...projectLogos].map(
+                (client, index) => (
+                  <div
+                    key={`${client.name}-${index}`}
+                    className="
+                      group
+
+                      flex
+                      items-center
+                      justify-center
+
+                      w-[160px]
+                      sm:w-[190px]
+
+                      h-[90px]
+                      sm:h-[105px]
+
+                      mx-2.5
+                      sm:mx-3
+
+                      rounded-2xl
+
+                      bg-white/95
+
+                      border
+                      border-white/30
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.10)]
+
+                      transition-all
+                      duration-300
+
+                      hover:-translate-y-1
+
+                      hover:bg-white
+
+                      hover:shadow-[0_15px_35px_rgba(0,0,0,0.16)]
+                    "
+                  >
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      loading="lazy"
+                      className="
+                        max-w-[115px]
+                        sm:max-w-[135px]
+
+                        max-h-[55px]
+                        sm:max-h-[65px]
+
+                        w-auto
+                        h-auto
+
+                        object-contain
+
+                        opacity-80
+
+                        grayscale
+
+                        group-hover:grayscale-0
+                        group-hover:opacity-100
+                        group-hover:scale-105
+
+                        transition-all
+                        duration-300
+                      "
+                    />
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
