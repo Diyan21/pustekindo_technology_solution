@@ -586,30 +586,29 @@ export const Navbar: React.FC = () => {
               "
             >
 
-              <img
-                src="/images/logo-pustekindo.png"
+             <img
+  src="/images/logo-pustekindo.png"
+  alt="PUSTEKINDO Technology Solution"
+  className="
+    h-[58px]
+    sm:h-[64px]
+    lg:h-[70px]
 
-                alt="PUSTEKINDO Technology Solution"
+    w-auto
 
-                className="
-                  h-[46px]
-                  sm:h-[50px]
-                  lg:h-[54px]
+    max-w-[270px]
+    sm:max-w-[300px]
+    lg:max-w-[330px]
 
-                  w-auto
+    object-contain
+    object-left
 
-                  max-w-[220px]
-                  lg:max-w-[250px]
+    transition-all
+    duration-300
 
-                  object-contain
-                  object-left
-
-                  transition-all
-                  duration-300
-
-                  group-hover:scale-[1.02]
-                "
-              />
+    group-hover:scale-[1.02]
+  "
+/>
 
             </a>
 
