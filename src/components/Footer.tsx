@@ -35,18 +35,89 @@ export const Footer: React.FC = () => {
     <footer
       id="main-footer"
       className="
-        bg-[#ecfdf5]
-        text-slate-600
+        relative
+        overflow-hidden
+        text-slate-700
         border-t
-        border-emerald-100
+        border-emerald-200
         pt-16
         pb-12
-        relative
       "
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ==========================================
+          VIDEO BACKGROUND
+      ========================================== */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        className="
+          absolute
+          inset-0
+          z-0
+          w-full
+          h-full
+          object-cover
+          pointer-events-none
+        "
+      >
+        <source
+          src="/videos/footer-pustekindo.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-        {/* Main 4 Columns Grid */}
+      {/* ==========================================
+          OVERLAY HIJAU MUDA
+          /85 = video tetap terlihat samar
+      ========================================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          z-[1]
+          bg-[#ecfdf5]/85
+          pointer-events-none
+        "
+      />
+
+      {/* ==========================================
+          GRADIENT TAMBAHAN
+          Biar video lebih soft & clean
+      ========================================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          z-[2]
+          bg-gradient-to-b
+          from-white/20
+          via-transparent
+          to-emerald-50/50
+          pointer-events-none
+        "
+      />
+
+      {/* ==========================================
+          FOOTER CONTENT
+      ========================================== */}
+      <div
+        className="
+          relative
+          z-10
+          max-w-7xl
+          mx-auto
+          px-4
+          sm:px-6
+          lg:px-8
+        "
+      >
+        {/* ========================================
+            MAIN 4 COLUMNS
+        ======================================== */}
         <div
           className="
             grid
@@ -57,14 +128,16 @@ export const Footer: React.FC = () => {
             lg:gap-8
             pb-12
             border-b
-            border-emerald-200
+            border-emerald-300/60
           "
         >
-
-          {/* Column 1 */}
+          {/* ======================================
+              COLUMN 1: BRAND
+          ====================================== */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center space-x-3">
 
+              {/* Logo */}
               <div
                 className="
                   w-9
@@ -80,6 +153,7 @@ export const Footer: React.FC = () => {
                 <Video className="w-5 h-5 text-emerald-300" />
               </div>
 
+              {/* Company Name */}
               <div>
                 <span
                   className="
@@ -108,14 +182,14 @@ export const Footer: React.FC = () => {
                   {COMPANY_INFO.subName}
                 </span>
               </div>
-
             </div>
 
+            {/* Description */}
             <p
               className="
                 text-xs
                 sm:text-sm
-                text-slate-600
+                text-slate-700
                 leading-relaxed
                 max-w-sm
               "
@@ -123,18 +197,26 @@ export const Footer: React.FC = () => {
               {COMPANY_INFO.description}
             </p>
 
+            {/* Provider Text */}
             <div
               className="
                 pt-1
                 text-xs
                 font-mono
-                text-emerald-700
+                text-emerald-800
                 flex
                 items-center
                 space-x-2
               "
             >
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <ShieldCheck
+                className="
+                  w-4
+                  h-4
+                  text-emerald-600
+                  shrink-0
+                "
+              />
 
               <span>
                 Solution Provider, bukan sekadar salesman.
@@ -142,7 +224,9 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* ======================================
+              COLUMN 2: QUICK LINKS
+          ====================================== */}
           <div className="lg:col-span-2 space-y-3.5">
             <h4
               className="
@@ -163,7 +247,7 @@ export const Footer: React.FC = () => {
                   <a
                     href={link.href}
                     className="
-                      text-slate-600
+                      text-slate-700
                       hover:text-emerald-700
                       transition-colors
                       flex
@@ -176,9 +260,10 @@ export const Footer: React.FC = () => {
                         w-3
                         h-3
                         mr-1
-                        text-emerald-400
+                        text-emerald-500
                         group-hover:text-emerald-700
-                        transition-colors
+                        group-hover:translate-x-0.5
+                        transition-all
                       "
                     />
 
@@ -191,7 +276,9 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Solutions */}
+          {/* ======================================
+              COLUMN 3: SOLUTIONS
+          ====================================== */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4
               className="
@@ -212,7 +299,7 @@ export const Footer: React.FC = () => {
                   <a
                     href="#solusi"
                     className="
-                      text-slate-600
+                      text-slate-700
                       hover:text-emerald-700
                       transition-colors
                       flex
@@ -227,6 +314,7 @@ export const Footer: React.FC = () => {
                         rounded-full
                         bg-emerald-500
                         mr-2
+                        shrink-0
                         group-hover:scale-125
                         transition-transform
                       "
@@ -241,7 +329,9 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
+          {/* ======================================
+              COLUMN 4: CONTACT
+          ====================================== */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4
               className="
@@ -258,6 +348,7 @@ export const Footer: React.FC = () => {
 
             <div className="space-y-3 text-xs sm:text-sm">
 
+              {/* Address */}
               <div className="flex items-start space-x-2.5">
                 <MapPin
                   className="
@@ -271,7 +362,7 @@ export const Footer: React.FC = () => {
 
                 <span
                   className="
-                    text-slate-600
+                    text-slate-700
                     leading-relaxed
                     text-xs
                   "
@@ -280,6 +371,7 @@ export const Footer: React.FC = () => {
                 </span>
               </div>
 
+              {/* Phone */}
               <div className="flex items-center space-x-2.5">
                 <Phone
                   className="
@@ -308,6 +400,7 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
 
+              {/* WhatsApp */}
               <div className="flex items-center space-x-2.5">
                 <MessageSquare
                   className="
@@ -323,24 +416,25 @@ export const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    text-emerald-700
-                    hover:text-emerald-800
+                    text-emerald-800
+                    hover:text-emerald-900
                     hover:underline
                     font-semibold
                     text-xs
                     sm:text-sm
+                    transition-colors
                   "
                 >
                   Chat WhatsApp (0812-1261-2006)
                 </a>
               </div>
-
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
+        {/* ========================================
+            BOTTOM BAR / COPYRIGHT
+        ======================================== */}
         <div
           className="
             pt-8
@@ -351,23 +445,28 @@ export const Footer: React.FC = () => {
             justify-between
             gap-4
             text-xs
-            text-slate-500
+            text-slate-600
           "
         >
           <p className="text-center sm:text-left">
             © 2026{' '}
+
             <strong
               className="
                 text-[#0a192f]
                 font-semibold
               "
             >
-              {COMPANY_INFO.name} {COMPANY_INFO.subName}
+              {COMPANY_INFO.name}{' '}
+              {COMPANY_INFO.subName}
             </strong>
+
             . All Rights Reserved.
           </p>
 
+          {/* Back To Top */}
           <button
+            type="button"
             onClick={scrollToTop}
             className="
               flex
@@ -376,14 +475,15 @@ export const Footer: React.FC = () => {
               px-3
               py-1.5
               rounded-lg
-              bg-white/80
-              hover:bg-white
-              text-slate-600
+              bg-white/70
+              hover:bg-white/90
+              backdrop-blur-sm
+              text-slate-700
               hover:text-emerald-700
               border
-              border-emerald-200
+              border-emerald-300/70
               shadow-sm
-              transition-colors
+              transition-all
               text-xs
             "
             aria-label="Kembali ke atas"
@@ -395,7 +495,6 @@ export const Footer: React.FC = () => {
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
-
       </div>
     </footer>
   );
