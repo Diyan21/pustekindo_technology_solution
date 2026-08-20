@@ -469,7 +469,7 @@ export const Navbar: React.FC = () => {
                 "
               >
                 <img
-                  src="/images/logo-pustekindo.jpg"
+                  src="/images/logo-pustekindo.png"
                   alt="Logo PUSTEKINDO"
                   className="
                     w-full
