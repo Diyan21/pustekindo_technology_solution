@@ -131,6 +131,10 @@ export const NAV_LINKS = [
     ]
   },
   {
+    name: 'Layanan',
+    href: '#layanan'
+  },
+  {
     name: 'Tentang Kami',
     href: '#tentang',
     children: [
@@ -143,6 +147,10 @@ export const NAV_LINKS = [
         href: '#visi-misi'
       }
     ]
+  },
+  {
+    name: 'Dokumentasi',
+    href: '#keunggulan'
   },
   {
     name: 'Galeri',
