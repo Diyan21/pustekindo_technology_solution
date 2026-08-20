@@ -7,7 +7,9 @@ import {
   Wrench,
   BadgeCheck,
   Network,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 
 import { COMPANY_INFO } from '../data/companyData';
@@ -22,39 +24,90 @@ export const CTA: React.FC = () => {
       className="
         relative
         overflow-hidden
-        bg-[#f4fbf7]
-        py-16
-        lg:py-20
+        py-20
+        lg:py-28
+        bg-gradient-to-br
+        from-[#062c24]
+        via-[#0a5b47]
+        to-[#dff8eb]
       "
     >
-      {/* Soft Background Accent */}
+      {/* =====================================================
+          BACKGROUND TEXTURE
+      ===================================================== */}
+
       <div className="absolute inset-0 pointer-events-none">
+        {/* Large glow right */}
         <div
           className="
             absolute
             -top-40
-            right-0
-            w-[600px]
-            h-[600px]
+            -right-24
+            w-[680px]
+            h-[680px]
             rounded-full
-            bg-emerald-100/45
+            bg-emerald-300/25
             blur-[150px]
           "
         />
 
+        {/* Large glow left */}
         <div
           className="
             absolute
-            -bottom-48
+            -bottom-52
             -left-32
-            w-[500px]
-            h-[500px]
+            w-[560px]
+            h-[560px]
             rounded-full
-            bg-green-100/40
+            bg-green-100/30
             blur-[140px]
           "
         />
+
+        {/* Fine dot texture */}
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.18]
+            bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28)_1px,transparent_1.5px)]
+            [background-size:14px_14px]
+          "
+        />
+
+        {/* Dark left shade */}
+        <div
+          className="
+            absolute
+            inset-y-0
+            left-0
+            w-[58%]
+            bg-gradient-to-r
+            from-black/18
+            via-black/5
+            to-transparent
+          "
+        />
+
+        {/* Bottom fade */}
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-44
+            bg-gradient-to-t
+            from-black/10
+            to-transparent
+          "
+        />
       </div>
+
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
 
       <div
         className="
@@ -67,72 +120,108 @@ export const CTA: React.FC = () => {
           lg:px-8
         "
       >
-        {/* =========================================
-            TOP CONTENT
-        ========================================== */}
-
         <div
           className="
             grid
             grid-cols-1
-            lg:grid-cols-[1fr_320px]
-            gap-10
+            lg:grid-cols-[1fr_340px]
+            gap-12
             lg:gap-16
             items-start
           "
         >
-          {/* LEFT */}
+
+          {/* =================================================
+              LEFT
+          ================================================= */}
+
           <div>
-            {/* Label */}
+            {/* Eyebrow */}
             <div
               className="
                 inline-flex
                 items-center
                 gap-2
-                text-emerald-700
-                text-xs
-                sm:text-sm
-                font-bold
+
+                px-3.5
+                py-1.5
+
+                rounded-full
+
+                bg-white/10
+                border
+                border-white/15
+                backdrop-blur-md
+
+                text-emerald-100
+
+                text-[11px]
+                sm:text-xs
+
+                font-extrabold
                 uppercase
-                tracking-[0.12em]
-                mb-5
+                tracking-[0.16em]
               "
             >
-              <ShieldCheck className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-emerald-300" />
+
               Konsultasi Sistem Keamanan
             </div>
+
 
             {/* Heading */}
             <h2
               className="
-                text-3xl
-                sm:text-4xl
-                lg:text-[46px]
-                font-extrabold
-                text-[#102a20]
-                tracking-tight
-                leading-[1.12]
-                max-w-3xl
+                mt-6
+
+                text-4xl
+                sm:text-5xl
+                lg:text-[58px]
+
+                font-black
+
+                tracking-[-0.03em]
+                leading-[1.02]
+
+                text-white
+
+                max-w-4xl
               "
             >
-              Butuh Sistem CCTV yang Tepat
-              <span className="block text-emerald-600">
-                untuk Lokasi Anda?
+              Sistem Keamanan yang Tepat
+              <span
+                className="
+                  block
+                  mt-2
+                  text-transparent
+                  bg-clip-text
+                  bg-gradient-to-r
+                  from-emerald-300
+                  via-green-200
+                  to-white
+                "
+              >
+                Dimulai dari Perencanaan yang Tepat.
               </span>
             </h2>
+
 
             {/* Description */}
             <p
               className="
-                mt-5
+                mt-7
+
+                max-w-3xl
+
                 text-base
                 sm:text-lg
-                text-slate-600
+
                 leading-8
-                max-w-3xl
+
+                text-emerald-50/85
               "
             >
-              <strong className="text-[#102a20] font-bold">
+              <strong className="text-white font-extrabold">
                 {COMPANY_INFO.name} {COMPANY_INFO.subName}
               </strong>{' '}
               membantu kebutuhan CCTV, surveillance system, jaringan,
@@ -143,57 +232,73 @@ export const CTA: React.FC = () => {
             <p
               className="
                 mt-4
+
+                max-w-3xl
+
                 text-sm
                 sm:text-base
-                text-slate-500
+
                 leading-7
-                max-w-3xl
+
+                text-emerald-100/70
               "
             >
-              Kami membantu mulai dari konsultasi awal, survei lokasi,
+              Kami menangani proses dari konsultasi awal, survei lokasi,
               analisis kebutuhan, penentuan titik pemasangan, pemilihan
-              perangkat, instalasi, konfigurasi sistem, hingga dukungan
-              teknis setelah pemasangan.
+              perangkat, instalasi, konfigurasi, hingga dukungan teknis
+              setelah sistem digunakan.
             </p>
 
-            {/* =========================================
-                BENEFITS GRID
-            ========================================== */}
+
+            {/* =================================================
+                BENEFITS
+            ================================================= */}
 
             <div
               className="
-                mt-10
+                mt-12
+
                 grid
                 grid-cols-1
                 sm:grid-cols-2
+
                 gap-x-10
-                gap-y-8
+                gap-y-9
+
                 max-w-4xl
               "
             >
-              {/* Benefit 1 */}
+              {/* 1 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
-                    rounded-xl
-                    bg-emerald-100
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-emerald-300
+                    to-emerald-500
+
+                    shadow-[0_8px_24px_rgba(16,185,129,0.30)]
+
                     flex
                     items-center
                     justify-center
+
                     shrink-0
                   "
                 >
-                  <ShieldCheck className="w-6 h-6 text-emerald-700" />
+                  <ShieldCheck className="w-6 h-6 text-[#063c30]" />
                 </div>
 
                 <div>
                   <h3
                     className="
                       text-base
+                      sm:text-lg
                       font-extrabold
-                      text-[#102a20]
+                      text-white
                     "
                   >
                     Produk Berkualitas
@@ -203,40 +308,49 @@ export const CTA: React.FC = () => {
                     className="
                       mt-1.5
                       text-sm
-                      text-slate-500
                       leading-6
+                      text-emerald-100/70
                     "
                   >
                     Pemilihan perangkat disesuaikan dengan kebutuhan
-                    penggunaan untuk menghasilkan sistem yang stabil,
-                    efektif, dan dapat diandalkan.
+                    penggunaan agar sistem stabil, efektif, dan dapat
+                    diandalkan dalam jangka panjang.
                   </p>
                 </div>
               </div>
 
-              {/* Benefit 2 */}
+
+              {/* 2 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
-                    rounded-xl
-                    bg-emerald-100
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-green-200
+                    to-emerald-400
+
+                    shadow-[0_8px_24px_rgba(16,185,129,0.26)]
+
                     flex
                     items-center
                     justify-center
+
                     shrink-0
                   "
                 >
-                  <Wrench className="w-6 h-6 text-emerald-700" />
+                  <Wrench className="w-6 h-6 text-[#063c30]" />
                 </div>
 
                 <div>
                   <h3
                     className="
                       text-base
+                      sm:text-lg
                       font-extrabold
-                      text-[#102a20]
+                      text-white
                     "
                   >
                     Teknisi Berpengalaman
@@ -246,40 +360,49 @@ export const CTA: React.FC = () => {
                     className="
                       mt-1.5
                       text-sm
-                      text-slate-500
                       leading-6
+                      text-emerald-100/70
                     "
                   >
-                    Proses instalasi, konfigurasi, dan pengujian sistem
-                    ditangani secara terstruktur oleh tenaga teknis yang
-                    memahami kebutuhan lapangan.
+                    Instalasi, konfigurasi, dan pengujian dilakukan secara
+                    terstruktur oleh tenaga teknis yang memahami kebutuhan
+                    di lapangan.
                   </p>
                 </div>
               </div>
 
-              {/* Benefit 3 */}
+
+              {/* 3 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
-                    rounded-xl
-                    bg-emerald-100
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-emerald-200
+                    to-green-400
+
+                    shadow-[0_8px_24px_rgba(16,185,129,0.24)]
+
                     flex
                     items-center
                     justify-center
+
                     shrink-0
                   "
                 >
-                  <MapPin className="w-6 h-6 text-emerald-700" />
+                  <MapPin className="w-6 h-6 text-[#063c30]" />
                 </div>
 
                 <div>
                   <h3
                     className="
                       text-base
+                      sm:text-lg
                       font-extrabold
-                      text-[#102a20]
+                      text-white
                     "
                   >
                     Survei & Perencanaan
@@ -289,40 +412,49 @@ export const CTA: React.FC = () => {
                     className="
                       mt-1.5
                       text-sm
-                      text-slate-500
                       leading-6
+                      text-emerald-100/70
                     "
                   >
-                    Penempatan kamera, jalur kabel, jaringan, serta
-                    kebutuhan perangkat direncanakan berdasarkan kondisi
-                    dan karakteristik lokasi.
+                    Posisi kamera, jalur kabel, kebutuhan jaringan, dan
+                    perangkat dirancang berdasarkan kondisi serta
+                    karakteristik lokasi.
                   </p>
                 </div>
               </div>
 
-              {/* Benefit 4 */}
+
+              {/* 4 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
                     w-12
                     h-12
-                    rounded-xl
-                    bg-emerald-100
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-lime-200
+                    to-emerald-400
+
+                    shadow-[0_8px_24px_rgba(16,185,129,0.24)]
+
                     flex
                     items-center
                     justify-center
+
                     shrink-0
                   "
                 >
-                  <BadgeCheck className="w-6 h-6 text-emerald-700" />
+                  <BadgeCheck className="w-6 h-6 text-[#063c30]" />
                 </div>
 
                 <div>
                   <h3
                     className="
                       text-base
+                      sm:text-lg
                       font-extrabold
-                      text-[#102a20]
+                      text-white
                     "
                   >
                     Dukungan Setelah Instalasi
@@ -332,105 +464,224 @@ export const CTA: React.FC = () => {
                     className="
                       mt-1.5
                       text-sm
-                      text-slate-500
                       leading-6
+                      text-emerald-100/70
                     "
                   >
-                    Tim kami siap membantu kebutuhan pengecekan,
-                    pengembangan, maupun penyesuaian sistem sesuai
-                    kebutuhan operasional.
+                    Tim kami siap membantu pengecekan, pengembangan,
+                    maupun penyesuaian sistem sesuai kebutuhan
+                    operasional.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* =========================================
-              RIGHT CONTACT
-          ========================================== */}
+
+          {/* =================================================
+              RIGHT CTA
+          ================================================= */}
 
           <div
             className="
-              lg:pt-8
+              lg:sticky
+              lg:top-28
             "
           >
             <div
               className="
-                border-l-2
-                border-emerald-400
+                border-l
+                border-white/20
+
                 pl-6
+                lg:pl-7
               "
             >
               <p
                 className="
-                  text-xs
-                  font-bold
+                  text-[11px]
+                  sm:text-xs
+
+                  font-extrabold
                   uppercase
-                  tracking-[0.14em]
-                  text-emerald-700
+                  tracking-[0.16em]
+
+                  text-emerald-200
                 "
               >
-                Konsultasikan Kebutuhan Anda
+                Mulai Konsultasi
               </p>
 
               <h3
                 className="
                   mt-3
-                  text-xl
-                  sm:text-2xl
-                  font-extrabold
-                  text-[#102a20]
-                  leading-snug
+
+                  text-2xl
+                  sm:text-3xl
+
+                  font-black
+
+                  tracking-tight
+                  leading-tight
+
+                  text-white
                 "
               >
-                Mulai dari kebutuhan sederhana hingga sistem terintegrasi.
+                Ceritakan kebutuhan lokasi Anda.
               </h3>
 
               <p
                 className="
-                  mt-3
+                  mt-4
+
                   text-sm
-                  text-slate-500
+
                   leading-6
+
+                  text-emerald-100/70
                 "
               >
                 Sampaikan jenis lokasi, area yang ingin dipantau, atau
-                kebutuhan sistem Anda. Tim kami akan membantu memberikan
-                arahan awal dan rekomendasi solusi.
+                sistem yang sedang Anda rencanakan. Tim kami akan membantu
+                memberikan arahan awal dan rekomendasi solusi.
               </p>
             </div>
 
-            {/* WhatsApp */}
+
+            {/* =================================================
+                WHATSAPP 3D BUTTON
+            ================================================= */}
+
             <a
               id="big-cta-whatsapp"
               href={ctaWaLink}
               target="_blank"
               rel="noopener noreferrer"
               className="
-                mt-7
+                group
+                relative
+                overflow-hidden
+
+                mt-8
+
                 w-full
+
                 inline-flex
                 items-center
                 justify-center
+
+                gap-2.5
+
                 px-6
-                py-3.5
-                rounded-xl
-                text-sm
-                font-bold
+                py-4
+
+                rounded-2xl
+
+                bg-gradient-to-br
+                from-[#064e3b]
+                via-[#10b981]
+                to-[#6ee7b7]
+
+                border
+                border-emerald-200/30
+
                 text-white
-                bg-emerald-600
-                hover:bg-emerald-700
-                shadow-md
-                shadow-emerald-900/10
-                hover:-translate-y-0.5
+                text-sm
+                font-extrabold
+
+                shadow-[0_8px_0_#064e3b,0_16px_35px_rgba(16,185,129,0.32)]
+
+                hover:-translate-y-1
+
+                hover:shadow-[0_10px_0_#064e3b,0_22px_45px_rgba(16,185,129,0.40)]
+
+                active:translate-y-[3px]
+
+                active:shadow-[0_4px_0_#064e3b,0_10px_25px_rgba(16,185,129,0.28)]
+
                 transition-all
                 duration-200
-                active:scale-[0.98]
               "
             >
-              <MessageSquare className="w-5 h-5 mr-2.5" />
-              Konsultasi via WhatsApp
+              {/* Texture */}
+              <span
+                className="
+                  absolute
+                  inset-0
+
+                  opacity-30
+
+                  bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.5)_0_1px,transparent_1.5px)]
+                  [background-size:8px_8px]
+
+                  pointer-events-none
+                "
+              />
+
+              {/* Light layer */}
+              <span
+                className="
+                  absolute
+                  inset-x-0
+                  top-0
+
+                  h-[45%]
+
+                  bg-gradient-to-b
+                  from-white/25
+                  to-transparent
+
+                  pointer-events-none
+                "
+              />
+
+              {/* Shine */}
+              <span
+                className="
+                  absolute
+                  -left-[55%]
+                  top-0
+
+                  h-full
+                  w-[40%]
+
+                  skew-x-[-22deg]
+
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/25
+                  to-transparent
+
+                  group-hover:left-[125%]
+
+                  transition-all
+                  duration-700
+
+                  pointer-events-none
+                "
+              />
+
+              <MessageSquare className="relative z-10 w-5 h-5" />
+
+              <span className="relative z-10">
+                Konsultasi via WhatsApp
+              </span>
+
+              <ArrowRight
+                className="
+                  relative
+                  z-10
+
+                  w-4
+                  h-4
+
+                  group-hover:translate-x-1
+
+                  transition-transform
+                "
+              />
             </a>
+
 
             {/* Phone */}
             <a
@@ -440,137 +691,220 @@ export const CTA: React.FC = () => {
                 ''
               )}`}
               className="
-                mt-3
+                mt-5
+
                 w-full
+
                 inline-flex
                 items-center
                 justify-center
+
+                gap-2
+
                 px-6
                 py-3.5
+
                 rounded-xl
-                text-sm
-                font-semibold
-                text-emerald-800
+
                 border
-                border-emerald-200
-                bg-transparent
-                hover:bg-emerald-50
+                border-white/20
+
+                bg-white/8
+                backdrop-blur-md
+
+                text-sm
+                font-bold
+
+                text-white
+
+                hover:bg-white/14
+                hover:border-white/30
+
                 transition-all
-                duration-200
               "
             >
-              <PhoneCall className="w-4 h-4 mr-2" />
-              0812-1261-2006
+              <PhoneCall className="w-4 h-4 text-emerald-300" />
+
+              {COMPANY_INFO.phone}
             </a>
 
-            {/* Mini info */}
+
+            {/* Mini checklist */}
             <div
               className="
-                mt-6
+                mt-7
                 space-y-3
               "
             >
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2
+                  className="
+                    w-4
+                    h-4
+                    text-emerald-300
+                    shrink-0
+                  "
+                />
 
-                <span className="text-sm text-slate-500">
+                <span
+                  className="
+                    text-sm
+                    text-emerald-50/80
+                  "
+                >
                   Konsultasi kebutuhan sistem
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2
+                  className="
+                    w-4
+                    h-4
+                    text-emerald-300
+                    shrink-0
+                  "
+                />
 
-                <span className="text-sm text-slate-500">
+                <span
+                  className="
+                    text-sm
+                    text-emerald-50/80
+                  "
+                >
                   Survei dan analisis lokasi
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2
+                  className="
+                    w-4
+                    h-4
+                    text-emerald-300
+                    shrink-0
+                  "
+                />
 
-                <span className="text-sm text-slate-500">
-                  Rekomendasi perangkat dan instalasi
+                <span
+                  className="
+                    text-sm
+                    text-emerald-50/80
+                  "
+                >
+                  Rekomendasi perangkat & instalasi
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* =========================================
-            BOTTOM SOLUTION BAR
-        ========================================== */}
+
+        {/* =====================================================
+            BOTTOM SOLUTIONS
+        ===================================================== */}
 
         <div
           className="
-            mt-14
-            pt-7
+            mt-16
+            pt-8
+
             border-t
-            border-emerald-200/70
+            border-white/15
+
             flex
             flex-col
             lg:flex-row
-            lg:items-center
+
+            lg:items-end
             lg:justify-between
-            gap-5
+
+            gap-6
           "
         >
           <div>
             <p
               className="
-                text-xs
-                font-bold
+                text-[11px]
+                sm:text-xs
+
+                font-extrabold
                 uppercase
-                tracking-[0.14em]
-                text-emerald-700
+                tracking-[0.16em]
+
+                text-emerald-200
               "
             >
               Solusi Terintegrasi
             </p>
 
+            <h4
+              className="
+                mt-2
+
+                text-lg
+                sm:text-xl
+
+                font-extrabold
+
+                text-white
+              "
+            >
+              Satu sistem, dirancang sesuai kebutuhan lokasi.
+            </h4>
+
             <p
               className="
                 mt-2
+
                 text-sm
-                text-slate-500
-                max-w-2xl
+
                 leading-6
+
+                text-emerald-100/65
+
+                max-w-2xl
               "
             >
-              Solusi dapat disesuaikan dengan skala rumah, usaha, kantor,
-              gudang, maupun kebutuhan proyek yang lebih kompleks.
+              Solusi dapat disesuaikan untuk rumah, kantor, toko, gudang,
+              area komersial, hingga kebutuhan proyek yang lebih kompleks.
             </p>
           </div>
+
 
           <div
             className="
               flex
               flex-wrap
-              gap-x-5
+
+              gap-x-6
               gap-y-3
+
               text-xs
               sm:text-sm
-              font-bold
-              text-[#102a20]
+
+              font-extrabold
+
+              text-white
             "
           >
             <span className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <ShieldCheck className="w-4 h-4 text-emerald-300" />
               CCTV
             </span>
 
             <span className="flex items-center gap-2">
-              <BadgeCheck className="w-4 h-4 text-emerald-600" />
+              <BadgeCheck className="w-4 h-4 text-emerald-300" />
               Access Control
             </span>
 
             <span className="flex items-center gap-2">
-              <Network className="w-4 h-4 text-emerald-600" />
+              <Network className="w-4 h-4 text-emerald-300" />
               Networking
             </span>
 
             <span className="flex items-center gap-2">
-              <Wrench className="w-4 h-4 text-emerald-600" />
+              <Wrench className="w-4 h-4 text-emerald-300" />
               IT Solution
             </span>
           </div>
