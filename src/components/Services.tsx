@@ -10,7 +10,9 @@ import {
   Network,
   PhoneCall,
   Satellite,
-  Wrench,
+  Cog,
+  Zap,
+  Pipette,
   ShieldCheck
 } from 'lucide-react';
 
@@ -87,26 +89,40 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: 10,
-    title: 'Mechanical, Electrical & Plumbing',
+    title: 'Mechanical',
     description:
-      'Pekerjaan MEP untuk kebutuhan instalasi mekanikal, elektrikal, plumbing, dan infrastruktur pendukung gedung.',
-    icon: <Wrench className="w-6 h-6" />
+      'Pekerjaan dan instalasi sistem mekanikal untuk kebutuhan gedung, fasilitas, dan infrastruktur pendukung.',
+    icon: <Cog className="w-6 h-6" />
+  },
+  {
+    id: 11,
+    title: 'Electrical',
+    description:
+      'Instalasi dan pekerjaan kelistrikan untuk kebutuhan gedung, perangkat, panel, dan sistem pendukung.',
+    icon: <Zap className="w-6 h-6" />
+  },
+  {
+    id: 12,
+    title: 'Plumbing',
+    description:
+      'Pekerjaan instalasi plumbing, jalur air, pipa, dan kebutuhan utilitas bangunan lainnya.',
+    icon: <Pipette className="w-6 h-6" />
   }
 ];
 
 export const Services: React.FC = () => {
   return (
-   <section
-  id="layanan"
-  className="
-    scroll-mt-28
-    py-20
-    lg:py-24
-    bg-[#ecfdf5]
-    relative
-    overflow-hidden
-  "
->
+    <section
+      id="layanan"
+      className="
+        scroll-mt-28
+        py-20
+        lg:py-24
+        bg-[#ecfdf5]
+        relative
+        overflow-hidden
+      "
+    >
       {/* Background Accent */}
       <div
         className="
@@ -116,7 +132,7 @@ export const Services: React.FC = () => {
           -translate-x-1/2
           w-[750px]
           h-[300px]
-          bg-blue-100/30
+          bg-emerald-100/50
           blur-3xl
           rounded-full
           pointer-events-none
@@ -136,7 +152,6 @@ export const Services: React.FC = () => {
       >
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-
           <div
             className="
               inline-flex
@@ -145,10 +160,10 @@ export const Services: React.FC = () => {
               px-3.5
               py-1.5
               rounded-full
-              bg-blue-50
+              bg-emerald-50
               border
-              border-blue-100
-              text-[#007bff]
+              border-emerald-200
+              text-emerald-700
               text-xs
               font-bold
               uppercase
@@ -156,7 +171,6 @@ export const Services: React.FC = () => {
             "
           >
             <ShieldCheck className="w-4 h-4" />
-
             Layanan PUSTEKINDO
           </div>
 
@@ -170,7 +184,7 @@ export const Services: React.FC = () => {
               tracking-tight
             "
           >
-            Solusi Security, Networking & Technology
+            Security, IT, Communication & Engineering Solution
           </h2>
 
           <p
@@ -178,15 +192,14 @@ export const Services: React.FC = () => {
               mt-3
               text-sm
               sm:text-base
-              text-slate-500
+              text-slate-600
               leading-relaxed
             "
           >
-            PUSTEKINDO menyediakan berbagai layanan instalasi
-            security system, jaringan, komunikasi, tata suara,
+            PUSTEKINDO menyediakan layanan CCTV, access control,
+            jaringan, komunikasi, tata suara, sistem keamanan,
             serta kebutuhan mechanical, electrical dan plumbing.
           </p>
-
         </div>
 
         {/* Service Cards */}
@@ -205,12 +218,12 @@ export const Services: React.FC = () => {
               key={service.id}
               className="
                 group
-                bg-white
+                bg-white/95
                 rounded-2xl
                 border
-                border-slate-200
+                border-emerald-100
                 p-5
-                hover:border-blue-300
+                hover:border-emerald-300
                 hover:shadow-xl
                 hover:-translate-y-1
                 transition-all
@@ -224,12 +237,12 @@ export const Services: React.FC = () => {
                   h-12
                   rounded-xl
                   bg-[#0a192f]
-                  text-[#00d4ff]
+                  text-emerald-300
                   flex
                   items-center
                   justify-center
                   shadow-sm
-                  group-hover:bg-[#007bff]
+                  group-hover:bg-emerald-600
                   group-hover:text-white
                   transition-colors
                   duration-300
@@ -254,7 +267,7 @@ export const Services: React.FC = () => {
                 className="
                   mt-2
                   text-sm
-                  text-slate-500
+                  text-slate-600
                   leading-relaxed
                 "
               >
@@ -266,20 +279,19 @@ export const Services: React.FC = () => {
                   mt-4
                   pt-4
                   border-t
-                  border-slate-100
+                  border-emerald-100
                 "
               >
                 <span
                   className="
                     text-xs
                     font-semibold
-                    text-[#007bff]
+                    text-emerald-700
                   "
                 >
                   Instalasi • Maintenance • Support
                 </span>
               </div>
-
             </article>
           ))}
         </div>
@@ -293,6 +305,7 @@ export const Services: React.FC = () => {
             p-6
             sm:p-8
             text-center
+            shadow-xl
           "
         >
           <h3
@@ -303,7 +316,7 @@ export const Services: React.FC = () => {
               text-white
             "
           >
-            Butuh Sistem yang Disesuaikan dengan Lokasi?
+            Butuh Solusi yang Disesuaikan dengan Lokasi?
           </h3>
 
           <p
@@ -317,11 +330,11 @@ export const Services: React.FC = () => {
             "
           >
             Tim PUSTEKINDO dapat membantu menentukan kebutuhan
-            perangkat, titik pemasangan, jaringan, dan konfigurasi
-            sistem sesuai kebutuhan operasional Anda.
+            perangkat, instalasi, jaringan, sistem keamanan,
+            komunikasi, serta kebutuhan teknis gedung sesuai
+            kondisi lapangan.
           </p>
         </div>
-
       </div>
     </section>
   );
