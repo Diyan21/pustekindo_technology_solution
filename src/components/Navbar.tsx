@@ -266,9 +266,7 @@ export const Navbar: React.FC = () => {
 
     /* CCTV BRAND */
 
-    if (
-      href.startsWith('#brand-')
-    ) {
+    if (href.startsWith('#brand-')) {
       const brandId =
         href.replace(
           '#brand-',
@@ -398,7 +396,7 @@ export const Navbar: React.FC = () => {
 
 
   /* =====================================================
-     SEARCH RESULT CLICK
+     SEARCH RESULT
   ===================================================== */
 
   const handleSearchResult = (
@@ -467,7 +465,6 @@ export const Navbar: React.FC = () => {
         <div
           className="
             h-[2px]
-
             bg-gradient-to-r
             from-transparent
             via-emerald-500
@@ -476,13 +473,12 @@ export const Navbar: React.FC = () => {
         />
 
 
-        {/* NAV CONTAINER */}
+        {/* MAIN NAV CONTAINER */}
 
         <div
           className="
-            max-w-7xl
+            max-w-[1440px]
             mx-auto
-
             px-4
             sm:px-6
             lg:px-8
@@ -490,12 +486,14 @@ export const Navbar: React.FC = () => {
         >
           <div
             className="
-              h-[78px]
-              lg:h-[84px]
+              h-[82px]
+              lg:h-[88px]
 
               flex
               items-center
               justify-between
+
+              gap-4
             "
           >
 
@@ -525,16 +523,13 @@ export const Navbar: React.FC = () => {
                 src="/images/logo-pustekindo.png"
                 alt="PUSTEKINDO Technology Solution"
                 className="
-                  h-[56px]
-                  sm:h-[62px]
-                  lg:h-[68px]
-                  xl:h-[72px]
+                  w-[200px]
+                  sm:w-[230px]
+                  lg:w-[280px]
+                  xl:w-[310px]
 
-                  w-auto
-
-                  max-w-[230px]
-                  sm:max-w-[260px]
-                  lg:max-w-[290px]
+                  h-auto
+                  max-h-[76px]
 
                   object-contain
                   object-left
@@ -549,7 +544,7 @@ export const Navbar: React.FC = () => {
 
 
             {/* =========================================
-                DESKTOP NAV
+                DESKTOP NAVIGATION
             ========================================== */}
 
             <nav
@@ -560,6 +555,8 @@ export const Navbar: React.FC = () => {
                 items-center
 
                 h-full
+
+                ml-auto
               "
             >
               {NAV_LINKS.map((link) => {
@@ -573,8 +570,7 @@ export const Navbar: React.FC = () => {
                   children.length > 0;
 
                 const isService =
-                  link.name ===
-                  'Layanan';
+                  link.name === 'Layanan';
 
                 const hasChildren =
                   normalChildren ||
@@ -589,7 +585,6 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     className="
                       relative
-
                       h-full
 
                       flex
@@ -625,7 +620,7 @@ export const Navbar: React.FC = () => {
                         h-full
 
                         px-2.5
-                        xl:px-3.5
+                        xl:px-3
 
                         flex
                         items-center
@@ -633,6 +628,8 @@ export const Navbar: React.FC = () => {
 
                         text-[12px]
                         xl:text-[13px]
+
+                        whitespace-nowrap
 
                         font-bold
 
@@ -660,6 +657,7 @@ export const Navbar: React.FC = () => {
                             h-3.5
 
                             transition-transform
+                            duration-200
 
                             ${
                               openDesktopMenu ===
@@ -681,16 +679,18 @@ export const Navbar: React.FC = () => {
 
                             h-[2px]
 
-                            bg-emerald-500
-
                             rounded-full
+
+                            bg-emerald-500
                           "
                         />
                       )}
                     </a>
 
 
-                    {/* SERVICE DROPDOWN */}
+                    {/* =====================================
+                        SERVICE DROPDOWN
+                    ====================================== */}
 
                     {isService &&
                       openDesktopMenu ===
@@ -699,7 +699,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[82px]
+                            top-[86px]
                             left-1/2
                             -translate-x-1/2
 
@@ -716,10 +716,31 @@ export const Navbar: React.FC = () => {
                             shadow-[0_25px_70px_rgba(15,23,42,0.14)]
 
                             p-5
+
+                            overflow-hidden
                           "
                         >
                           <div
                             className="
+                              absolute
+                              top-0
+                              left-0
+                              right-0
+
+                              h-[2px]
+
+                              bg-gradient-to-r
+                              from-transparent
+                              via-emerald-500
+                              to-transparent
+                            "
+                          />
+
+                          <div
+                            className="
+                              relative
+                              z-10
+
                               grid
                               grid-cols-3
 
@@ -739,7 +760,6 @@ export const Navbar: React.FC = () => {
                                       pb-2
 
                                       text-[11px]
-
                                       uppercase
 
                                       tracking-[0.12em]
@@ -789,9 +809,14 @@ export const Navbar: React.FC = () => {
 
                                             hover:bg-emerald-50
                                             hover:text-emerald-800
+
+                                            transition-all
+                                            duration-200
                                           "
                                         >
-                                          {service}
+                                          <span>
+                                            {service}
+                                          </span>
 
                                           <ChevronRight
                                             className="
@@ -836,6 +861,8 @@ export const Navbar: React.FC = () => {
                               text-emerald-700
 
                               hover:bg-emerald-100
+
+                              transition-colors
                             "
                           >
                             Lihat Semua Layanan PUSTEKINDO
@@ -844,7 +871,9 @@ export const Navbar: React.FC = () => {
                       )}
 
 
-                    {/* NORMAL DROPDOWN */}
+                    {/* =====================================
+                        NORMAL DROPDOWN
+                    ====================================== */}
 
                     {!isService &&
                       normalChildren &&
@@ -854,7 +883,7 @@ export const Navbar: React.FC = () => {
                           className="
                             absolute
 
-                            top-[82px]
+                            top-[86px]
                             left-1/2
                             -translate-x-1/2
 
@@ -871,6 +900,8 @@ export const Navbar: React.FC = () => {
                             shadow-[0_20px_50px_rgba(15,23,42,0.12)]
 
                             py-2
+
+                            overflow-hidden
                           "
                         >
                           {children?.map(
@@ -902,8 +933,8 @@ export const Navbar: React.FC = () => {
 
                                   text-slate-600
 
-                                  hover:bg-emerald-50
                                   hover:text-emerald-700
+                                  hover:bg-emerald-50
                                 "
                               >
                                 {child.name}
@@ -925,7 +956,9 @@ export const Navbar: React.FC = () => {
               })}
 
 
-              {/* SEARCH */}
+              {/* =========================================
+                  SEARCH BUTTON
+              ========================================== */}
 
               <button
                 type="button"
@@ -938,6 +971,8 @@ export const Navbar: React.FC = () => {
 
                   w-10
                   h-10
+
+                  shrink-0
 
                   rounded-full
 
@@ -955,6 +990,10 @@ export const Navbar: React.FC = () => {
                   flex
                   items-center
                   justify-center
+
+                  shadow-sm
+
+                  transition-all
                 "
               >
                 <Search className="w-4 h-4" />
@@ -973,7 +1012,9 @@ export const Navbar: React.FC = () => {
 
                 items-center
 
-                ml-4
+                ml-3
+
+                shrink-0
               "
             >
               <a
@@ -1001,10 +1042,12 @@ export const Navbar: React.FC = () => {
                   font-extrabold
 
                   shadow-md
+                  shadow-emerald-900/10
 
                   hover:-translate-y-0.5
 
                   transition-all
+                  duration-200
                 "
               >
                 <MessageSquare
@@ -1032,6 +1075,8 @@ export const Navbar: React.FC = () => {
                 items-center
 
                 gap-2
+
+                ml-auto
               "
             >
               <button
@@ -1047,6 +1092,7 @@ export const Navbar: React.FC = () => {
                   rounded-full
 
                   bg-white/70
+                  backdrop-blur-md
 
                   border
                   border-emerald-100
@@ -1088,12 +1134,12 @@ export const Navbar: React.FC = () => {
 
               <button
                 type="button"
+                aria-label="Menu"
                 onClick={() =>
                   setMobileMenuOpen(
                     !mobileMenuOpen
                   )
                 }
-                aria-label="Menu"
                 className="
                   w-10
                   h-10
@@ -1101,6 +1147,7 @@ export const Navbar: React.FC = () => {
                   rounded-xl
 
                   bg-white/70
+                  backdrop-blur-md
 
                   border
                   border-emerald-100
@@ -1136,7 +1183,7 @@ export const Navbar: React.FC = () => {
               backdrop-blur-2xl
 
               border-t
-              border-emerald-100
+              border-emerald-100/70
 
               shadow-xl
 
@@ -1344,6 +1391,9 @@ export const Navbar: React.FC = () => {
 
                                         bg-white/80
 
+                                        border
+                                        border-white
+
                                         text-left
 
                                         text-sm
@@ -1370,7 +1420,7 @@ export const Navbar: React.FC = () => {
                       )}
 
 
-                    {/* MOBILE NORMAL SUBMENU */}
+                    {/* MOBILE NORMAL CHILDREN */}
 
                     {!isService &&
                       normalChildren &&
@@ -1413,8 +1463,8 @@ export const Navbar: React.FC = () => {
 
                                   text-slate-500
 
-                                  hover:bg-emerald-50
                                   hover:text-emerald-700
+                                  hover:bg-emerald-50
                                 "
                               >
                                 {child.name}
@@ -1569,6 +1619,9 @@ export const Navbar: React.FC = () => {
               e.stopPropagation()
             }
           >
+
+            {/* SEARCH INPUT */}
+
             <div
               className="
                 flex
@@ -1649,6 +1702,8 @@ export const Navbar: React.FC = () => {
             </div>
 
 
+            {/* SEARCH RESULTS */}
+
             <div
               className="
                 max-h-[420px]
@@ -1719,6 +1774,8 @@ export const Navbar: React.FC = () => {
                       text-left
 
                       hover:bg-emerald-50
+
+                      transition-colors
                     "
                   >
                     <div>
