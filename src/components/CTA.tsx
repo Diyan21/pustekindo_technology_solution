@@ -124,9 +124,7 @@ export const CTA: React.FC = () => {
             items-start
           "
         >
-          {/* =================================================
-              LEFT
-          ================================================= */}
+          {/* LEFT */}
 
           <div>
             <div
@@ -396,6 +394,8 @@ export const CTA: React.FC = () => {
               </p>
             </div>
 
+            {/* WhatsApp */}
+
             <a
               id="big-cta-whatsapp"
               href={ctaWaLink}
@@ -438,6 +438,8 @@ export const CTA: React.FC = () => {
               />
             </a>
 
+            {/* Phone */}
+
             <a
               id="big-cta-phone"
               href={`tel:${COMPANY_INFO.phone.replace(
@@ -469,6 +471,8 @@ export const CTA: React.FC = () => {
               {COMPANY_INFO.phone}
             </a>
 
+            {/* checklist */}
+
             <div className="mt-6 space-y-3">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -498,7 +502,7 @@ export const CTA: React.FC = () => {
         </div>
 
         {/* =====================================================
-            PROJECT EXPERIENCE
+            MITRA / PROJECT RUNNING LOGO
         ===================================================== */}
 
         <div
@@ -510,26 +514,22 @@ export const CTA: React.FC = () => {
           "
         >
           <div className="text-center">
-            <div
+            <p
               className="
-                inline-flex
-                items-center
-                gap-2
                 text-[11px]
                 sm:text-xs
                 font-extrabold
                 uppercase
                 tracking-[0.16em]
-                text-emerald-700
+                text-emerald-600
               "
             >
-              <ShieldCheck className="w-4 h-4" />
               Dipercaya untuk Berbagai Proyek
-            </div>
+            </p>
 
             <h3
               className="
-                mt-3
+                mt-2
                 text-2xl
                 sm:text-3xl
                 font-black
@@ -537,7 +537,7 @@ export const CTA: React.FC = () => {
                 text-[#102a20]
               "
             >
-              Pengalaman Proyek PUSTEKINDO
+              Mitra & Pengalaman Proyek Kami
             </h3>
 
             <p
@@ -557,145 +557,71 @@ export const CTA: React.FC = () => {
             </p>
           </div>
 
-         {/* =================================================
-    RUNNING CLIENT / PROJECT LOGOS
-================================================= */}
+          {/* RUNNING AREA */}
 
-<div className="mt-14 pt-12 border-t border-slate-100">
+          <div className="partner-marquee mt-10">
+            <div className="partner-marquee-track">
 
-  <div className="text-center mb-10">
-    <p
-      className="
-        text-[11px]
-        sm:text-xs
-        font-extrabold
-        uppercase
-        tracking-[0.16em]
-        text-emerald-600
-      "
-    >
-      Dipercaya untuk Berbagai Proyek
-    </p>
+              {/* GROUP 1 */}
 
-    <h3
-      className="
-        mt-2
-        text-2xl
-        sm:text-3xl
-        font-black
-        tracking-tight
-        text-[#102a20]
-      "
-    >
-      Mitra & Pengalaman Proyek Kami
-    </h3>
+              <div className="partner-logo-group">
+                {projectLogos.map((client) => (
+                  <div
+                    key={`first-${client.name}`}
+                    className="partner-logo-wrap"
+                  >
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="partner-logo"
+                    />
+                  </div>
+                ))}
+              </div>
 
-    <p
-      className="
-        mt-2
-        max-w-2xl
-        mx-auto
-        text-sm
-        text-slate-500
-        leading-6
-      "
-    >
-      Pengalaman implementasi sistem keamanan dan teknologi
-      untuk berbagai perusahaan, institusi, properti,
-      dan kebutuhan area komersial.
-    </p>
-  </div>
+              {/* GROUP 2 */}
 
+              <div
+                className="partner-logo-group"
+                aria-hidden="true"
+              >
+                {projectLogos.map((client) => (
+                  <div
+                    key={`second-${client.name}`}
+                    className="partner-logo-wrap"
+                  >
+                    <img
+                      src={client.logo}
+                      alt=""
+                      className="partner-logo"
+                    />
+                  </div>
+                ))}
+              </div>
 
-  {/* RUNNING AREA */}
-  <div className="partner-marquee">
+              {/* GROUP 3 */}
 
-    <div className="partner-marquee-track">
+              <div
+                className="partner-logo-group"
+                aria-hidden="true"
+              >
+                {projectLogos.map((client) => (
+                  <div
+                    key={`third-${client.name}`}
+                    className="partner-logo-wrap"
+                  >
+                    <img
+                      src={client.logo}
+                      alt=""
+                      className="partner-logo"
+                    />
+                  </div>
+                ))}
+              </div>
 
-      {/* =====================
-          GROUP PERTAMA
-      ====================== */}
-      <div className="partner-logo-group">
-
-        <img
-          src="/images/client-01.png"
-          alt="Mitra PUSTEKINDO"
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-02.png"
-          alt="Mitra PUSTEKINDO"
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-03.png"
-          alt="Mitra PUSTEKINDO"
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-04.png"
-          alt="Mitra PUSTEKINDO"
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-05.png"
-          alt="Mitra PUSTEKINDO"
-          className="partner-logo"
-        />
-
-      </div>
-
-
-      {/* =====================
-          GROUP DUPLIKAT
-          SUPAYA LOOP MULUS
-      ====================== */}
-      <div
-        className="partner-logo-group"
-        aria-hidden="true"
-      >
-
-        <img
-          src="/images/client-01.png"
-          alt=""
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-02.png"
-          alt=""
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-03.png"
-          alt=""
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-04.png"
-          alt=""
-          className="partner-logo"
-        />
-
-        <img
-          src="/images/client-05.png"
-          alt=""
-          className="partner-logo"
-        />
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
+            </div>
+          </div>
+        </div>
 
         {/* =====================================================
             BOTTOM SOLUTIONS
