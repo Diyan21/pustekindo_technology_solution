@@ -557,72 +557,145 @@ export const CTA: React.FC = () => {
             </p>
           </div>
 
-          {/* =================================================
-              RUNNING LOGOS LANDSCAPE
-          ================================================= */}
+         {/* =================================================
+    RUNNING CLIENT / PROJECT LOGOS
+================================================= */}
 
-          <div className="mt-10 w-full overflow-hidden">
-            <div className="client-marquee">
-              <div className="client-marquee-track">
+<div className="mt-14 pt-12 border-t border-slate-100">
 
-                {/* SET 1 */}
-                <div className="client-marquee-set">
-                  {projectLogos.map((client, index) => (
-                    <div
-                      key={`client-a-${index}`}
-                      className="client-logo-card"
-                    >
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className="client-logo-image"
-                      />
-                    </div>
-                  ))}
-                </div>
+  <div className="text-center mb-10">
+    <p
+      className="
+        text-[11px]
+        sm:text-xs
+        font-extrabold
+        uppercase
+        tracking-[0.16em]
+        text-emerald-600
+      "
+    >
+      Dipercaya untuk Berbagai Proyek
+    </p>
 
-                {/* SET 2 */}
-                <div
-                  className="client-marquee-set"
-                  aria-hidden="true"
-                >
-                  {projectLogos.map((client, index) => (
-                    <div
-                      key={`client-b-${index}`}
-                      className="client-logo-card"
-                    >
-                      <img
-                        src={client.logo}
-                        alt=""
-                        className="client-logo-image"
-                      />
-                    </div>
-                  ))}
-                </div>
+    <h3
+      className="
+        mt-2
+        text-2xl
+        sm:text-3xl
+        font-black
+        tracking-tight
+        text-[#102a20]
+      "
+    >
+      Mitra & Pengalaman Proyek Kami
+    </h3>
 
-                {/* SET 3 */}
-                <div
-                  className="client-marquee-set"
-                  aria-hidden="true"
-                >
-                  {projectLogos.map((client, index) => (
-                    <div
-                      key={`client-c-${index}`}
-                      className="client-logo-card"
-                    >
-                      <img
-                        src={client.logo}
-                        alt=""
-                        className="client-logo-image"
-                      />
-                    </div>
-                  ))}
-                </div>
+    <p
+      className="
+        mt-2
+        max-w-2xl
+        mx-auto
+        text-sm
+        text-slate-500
+        leading-6
+      "
+    >
+      Pengalaman implementasi sistem keamanan dan teknologi
+      untuk berbagai perusahaan, institusi, properti,
+      dan kebutuhan area komersial.
+    </p>
+  </div>
 
-              </div>
-            </div>
-          </div>
-        </div>
+
+  {/* RUNNING AREA */}
+  <div className="partner-marquee">
+
+    <div className="partner-marquee-track">
+
+      {/* =====================
+          GROUP PERTAMA
+      ====================== */}
+      <div className="partner-logo-group">
+
+        <img
+          src="/images/client-01.png"
+          alt="Mitra PUSTEKINDO"
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-02.png"
+          alt="Mitra PUSTEKINDO"
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-03.png"
+          alt="Mitra PUSTEKINDO"
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-04.png"
+          alt="Mitra PUSTEKINDO"
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-05.png"
+          alt="Mitra PUSTEKINDO"
+          className="partner-logo"
+        />
+
+      </div>
+
+
+      {/* =====================
+          GROUP DUPLIKAT
+          SUPAYA LOOP MULUS
+      ====================== */}
+      <div
+        className="partner-logo-group"
+        aria-hidden="true"
+      >
+
+        <img
+          src="/images/client-01.png"
+          alt=""
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-02.png"
+          alt=""
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-03.png"
+          alt=""
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-04.png"
+          alt=""
+          className="partner-logo"
+        />
+
+        <img
+          src="/images/client-05.png"
+          alt=""
+          className="partner-logo"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
         {/* =====================================================
             BOTTOM SOLUTIONS
