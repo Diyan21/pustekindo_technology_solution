@@ -124,7 +124,10 @@ export const CTA: React.FC = () => {
             items-start
           "
         >
-          {/* LEFT */}
+          {/* =================================================
+              LEFT
+          ================================================= */}
+
           <div>
             <div
               className="
@@ -393,7 +396,6 @@ export const CTA: React.FC = () => {
               </p>
             </div>
 
-            {/* WHATSAPP */}
             <a
               id="big-cta-whatsapp"
               href={ctaWaLink}
@@ -436,7 +438,6 @@ export const CTA: React.FC = () => {
               />
             </a>
 
-            {/* PHONE */}
             <a
               id="big-cta-phone"
               href={`tel:${COMPANY_INFO.phone.replace(
@@ -468,10 +469,10 @@ export const CTA: React.FC = () => {
               {COMPANY_INFO.phone}
             </a>
 
-            {/* CHECKLIST */}
             <div className="mt-6 space-y-3">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+
                 <span className="text-sm text-[#587064]">
                   Konsultasi kebutuhan sistem
                 </span>
@@ -479,6 +480,7 @@ export const CTA: React.FC = () => {
 
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+
                 <span className="text-sm text-[#587064]">
                   Survei dan analisis lokasi
                 </span>
@@ -486,6 +488,7 @@ export const CTA: React.FC = () => {
 
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+
                 <span className="text-sm text-[#587064]">
                   Rekomendasi perangkat & instalasi
                 </span>
@@ -495,7 +498,7 @@ export const CTA: React.FC = () => {
         </div>
 
         {/* =====================================================
-            PROJECT MARQUEE
+            PROJECT EXPERIENCE
         ===================================================== */}
 
         <div
@@ -554,40 +557,68 @@ export const CTA: React.FC = () => {
             </p>
           </div>
 
-          {/* RUNNING LOGO */}
-          <div className="client-marquee mt-10">
-            <div className="client-marquee-track">
-              <div className="client-marquee-group">
-                {projectLogos.map((client, index) => (
-                  <div
-                    key={`group-1-${index}`}
-                    className="client-logo-card"
-                  >
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="client-logo-image"
-                    />
-                  </div>
-                ))}
-              </div>
+          {/* =================================================
+              RUNNING LOGOS LANDSCAPE
+          ================================================= */}
 
-              <div
-                className="client-marquee-group"
-                aria-hidden="true"
-              >
-                {projectLogos.map((client, index) => (
-                  <div
-                    key={`group-2-${index}`}
-                    className="client-logo-card"
-                  >
-                    <img
-                      src={client.logo}
-                      alt=""
-                      className="client-logo-image"
-                    />
-                  </div>
-                ))}
+          <div className="mt-10 w-full overflow-hidden">
+            <div className="client-marquee">
+              <div className="client-marquee-track">
+
+                {/* SET 1 */}
+                <div className="client-marquee-set">
+                  {projectLogos.map((client, index) => (
+                    <div
+                      key={`client-a-${index}`}
+                      className="client-logo-card"
+                    >
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className="client-logo-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* SET 2 */}
+                <div
+                  className="client-marquee-set"
+                  aria-hidden="true"
+                >
+                  {projectLogos.map((client, index) => (
+                    <div
+                      key={`client-b-${index}`}
+                      className="client-logo-card"
+                    >
+                      <img
+                        src={client.logo}
+                        alt=""
+                        className="client-logo-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* SET 3 */}
+                <div
+                  className="client-marquee-set"
+                  aria-hidden="true"
+                >
+                  {projectLogos.map((client, index) => (
+                    <div
+                      key={`client-c-${index}`}
+                      className="client-logo-card"
+                    >
+                      <img
+                        src={client.logo}
+                        alt=""
+                        className="client-logo-image"
+                      />
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>
