@@ -22,27 +22,23 @@ export const CTA: React.FC = () => {
   const projectLogos = [
     {
       name: 'Project 01',
-      logo: '/images/clients/client-01.png'
+      logo: '/images/client-01.png'
     },
     {
       name: 'Project 02',
-      logo: '/images/clients/client-02.png'
+      logo: '/images/client-02.png'
     },
     {
       name: 'Project 03',
-      logo: '/images/clients/client-03.png'
+      logo: '/images/client-03.png'
     },
     {
       name: 'Project 04',
-      logo: '/images/clients/client-04.png'
+      logo: '/images/client-04.png'
     },
     {
       name: 'Project 05',
-      logo: '/images/clients/client-05.png'
-    },
-    {
-      name: 'Project 06',
-      logo: '/images/clients/client-06.png'
+      logo: '/images/client-05.png'
     }
   ];
 
@@ -52,105 +48,69 @@ export const CTA: React.FC = () => {
       className="
         relative
         overflow-hidden
-
+        bg-[#f8faf9]
         py-20
-        lg:py-28
-
-        bg-gradient-to-br
-        from-[#052e26]
-        via-[#08664f]
-        to-[#b7efd2]
+        lg:py-24
       "
     >
       {/* =====================================================
-          BACKGROUND
+          BACKGROUND DECORATION
       ===================================================== */}
 
       <div className="absolute inset-0 pointer-events-none">
-        {/* glow kanan */}
+        {/* soft green glow */}
         <div
           className="
             absolute
-            -top-40
-            -right-28
+            -top-48
+            right-[-120px]
 
-            w-[700px]
-            h-[700px]
+            w-[620px]
+            h-[620px]
 
             rounded-full
 
-            bg-emerald-300/25
+            bg-emerald-100/50
 
             blur-[150px]
           "
         />
 
-        {/* glow kiri */}
+        {/* soft lower glow */}
         <div
           className="
             absolute
-            -bottom-52
-            -left-36
+            -bottom-56
+            -left-40
 
-            w-[580px]
-            h-[580px]
+            w-[560px]
+            h-[560px]
 
             rounded-full
 
-            bg-green-100/30
+            bg-green-100/40
 
             blur-[145px]
           "
         />
 
-        {/* grain / texture */}
+        {/* tiny dot pattern */}
         <div
           className="
             absolute
             inset-0
 
-            opacity-[0.16]
+            opacity-[0.12]
 
-            bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.28)_1px,transparent_1.5px)]
-            [background-size:14px_14px]
-          "
-        />
-
-        {/* dark shade */}
-        <div
-          className="
-            absolute
-            inset-y-0
-            left-0
-
-            w-[58%]
-
-            bg-gradient-to-r
-            from-black/20
-            via-black/5
-            to-transparent
-          "
-        />
-
-        {/* bottom shade */}
-        <div
-          className="
-            absolute
-            inset-x-0
-            bottom-0
-
-            h-48
-
-            bg-gradient-to-t
-            from-black/15
-            to-transparent
+            bg-[radial-gradient(#6ba98d_1px,transparent_1px)]
+            [background-size:22px_22px]
           "
         />
       </div>
 
 
       {/* =====================================================
-          CONTENT
+          MAIN CONTAINER
       ===================================================== */}
 
       <div
@@ -182,8 +142,12 @@ export const CTA: React.FC = () => {
             items-start
           "
         >
-          {/* LEFT */}
+          {/* =================================================
+              LEFT CONTENT
+          ================================================= */}
+
           <div>
+            {/* Badge */}
             <div
               className="
                 inline-flex
@@ -195,45 +159,44 @@ export const CTA: React.FC = () => {
 
                 rounded-full
 
-                bg-white/10
-
                 border
-                border-white/15
+                border-emerald-200
 
-                backdrop-blur-md
-
-                text-emerald-100
+                bg-emerald-50
 
                 text-[11px]
                 sm:text-xs
 
                 font-extrabold
                 uppercase
-                tracking-[0.16em]
+                tracking-[0.14em]
+
+                text-emerald-700
               "
             >
-              <Sparkles className="w-4 h-4 text-emerald-300" />
+              <Sparkles className="w-4 h-4" />
 
               Konsultasi Sistem Keamanan
             </div>
 
 
+            {/* Heading */}
             <h2
               className="
                 mt-6
 
+                max-w-4xl
+
                 text-4xl
                 sm:text-5xl
-                lg:text-[58px]
+                lg:text-[56px]
 
                 font-black
 
-                tracking-[-0.03em]
-                leading-[1.02]
+                tracking-[-0.035em]
+                leading-[1.03]
 
-                text-white
-
-                max-w-4xl
+                text-[#102a20]
               "
             >
               Sistem Keamanan yang Tepat
@@ -243,13 +206,7 @@ export const CTA: React.FC = () => {
                   block
                   mt-2
 
-                  text-transparent
-                  bg-clip-text
-
-                  bg-gradient-to-r
-                  from-emerald-300
-                  via-green-200
-                  to-white
+                  text-emerald-600
                 "
               >
                 Dimulai dari Perencanaan yang Tepat.
@@ -257,6 +214,7 @@ export const CTA: React.FC = () => {
             </h2>
 
 
+            {/* Description */}
             <p
               className="
                 mt-7
@@ -268,16 +226,17 @@ export const CTA: React.FC = () => {
 
                 leading-8
 
-                text-emerald-50/85
+                text-slate-600
               "
             >
-              <strong className="text-white font-extrabold">
+              <strong className="font-extrabold text-[#102a20]">
                 {COMPANY_INFO.name} {COMPANY_INFO.subName}
               </strong>{' '}
               membantu kebutuhan CCTV, surveillance system, jaringan,
-              access control, dan solusi keamanan berbasis IT untuk
-              rumah, kantor, toko, gudang, maupun area bisnis.
+              access control, dan solusi keamanan berbasis IT untuk rumah,
+              kantor, toko, gudang, maupun area bisnis.
             </p>
+
 
             <p
               className="
@@ -290,7 +249,7 @@ export const CTA: React.FC = () => {
 
                 leading-7
 
-                text-emerald-100/70
+                text-slate-500
               "
             >
               Kami menangani proses mulai dari konsultasi awal, survei
@@ -300,37 +259,34 @@ export const CTA: React.FC = () => {
             </p>
 
 
-            {/* =========================================
+            {/* =================================================
                 BENEFITS
-            ========================================== */}
+            ================================================= */}
 
             <div
               className="
-                mt-12
+                mt-11
 
                 grid
                 grid-cols-1
                 sm:grid-cols-2
 
                 gap-x-10
-                gap-y-9
+                gap-y-8
 
                 max-w-4xl
               "
             >
+              {/* 1 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
-                    w-12
-                    h-12
+                    w-11
+                    h-11
 
-                    rounded-2xl
+                    rounded-xl
 
-                    bg-gradient-to-br
-                    from-emerald-300
-                    to-emerald-500
-
-                    shadow-[0_8px_24px_rgba(16,185,129,0.30)]
+                    bg-emerald-100
 
                     flex
                     items-center
@@ -339,11 +295,17 @@ export const CTA: React.FC = () => {
                     shrink-0
                   "
                 >
-                  <ShieldCheck className="w-6 h-6 text-[#063c30]" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-700" />
                 </div>
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">
+                  <h3
+                    className="
+                      text-base
+                      font-extrabold
+                      text-[#102a20]
+                    "
+                  >
                     Produk Berkualitas
                   </h3>
 
@@ -354,30 +316,27 @@ export const CTA: React.FC = () => {
                       text-sm
                       leading-6
 
-                      text-emerald-100/70
+                      text-slate-500
                     "
                   >
-                    Pemilihan perangkat disesuaikan dengan kebutuhan
-                    penggunaan agar sistem stabil, efektif, dan dapat
-                    diandalkan.
+                    Perangkat dipilih sesuai kebutuhan agar sistem stabil,
+                    efektif, dan dapat diandalkan dalam penggunaan
+                    sehari-hari.
                   </p>
                 </div>
               </div>
 
 
+              {/* 2 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
-                    w-12
-                    h-12
+                    w-11
+                    h-11
 
-                    rounded-2xl
+                    rounded-xl
 
-                    bg-gradient-to-br
-                    from-green-200
-                    to-emerald-400
-
-                    shadow-[0_8px_24px_rgba(16,185,129,0.26)]
+                    bg-emerald-100
 
                     flex
                     items-center
@@ -386,11 +345,17 @@ export const CTA: React.FC = () => {
                     shrink-0
                   "
                 >
-                  <Wrench className="w-6 h-6 text-[#063c30]" />
+                  <Wrench className="w-5 h-5 text-emerald-700" />
                 </div>
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">
+                  <h3
+                    className="
+                      text-base
+                      font-extrabold
+                      text-[#102a20]
+                    "
+                  >
                     Teknisi Berpengalaman
                   </h3>
 
@@ -401,30 +366,26 @@ export const CTA: React.FC = () => {
                       text-sm
                       leading-6
 
-                      text-emerald-100/70
+                      text-slate-500
                     "
                   >
                     Instalasi, konfigurasi, dan pengujian dilakukan secara
-                    terstruktur oleh tenaga teknis yang memahami kebutuhan
-                    lapangan.
+                    terstruktur sesuai kebutuhan lokasi.
                   </p>
                 </div>
               </div>
 
 
+              {/* 3 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
-                    w-12
-                    h-12
+                    w-11
+                    h-11
 
-                    rounded-2xl
+                    rounded-xl
 
-                    bg-gradient-to-br
-                    from-emerald-200
-                    to-green-400
-
-                    shadow-[0_8px_24px_rgba(16,185,129,0.24)]
+                    bg-emerald-100
 
                     flex
                     items-center
@@ -433,11 +394,17 @@ export const CTA: React.FC = () => {
                     shrink-0
                   "
                 >
-                  <MapPin className="w-6 h-6 text-[#063c30]" />
+                  <MapPin className="w-5 h-5 text-emerald-700" />
                 </div>
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">
+                  <h3
+                    className="
+                      text-base
+                      font-extrabold
+                      text-[#102a20]
+                    "
+                  >
                     Survei & Perencanaan
                   </h3>
 
@@ -448,30 +415,27 @@ export const CTA: React.FC = () => {
                       text-sm
                       leading-6
 
-                      text-emerald-100/70
+                      text-slate-500
                     "
                   >
-                    Posisi kamera, jalur kabel, kebutuhan jaringan, dan
-                    perangkat dirancang berdasarkan kondisi serta
-                    karakteristik lokasi.
+                    Posisi kamera, jalur kabel, jaringan, dan perangkat
+                    dirancang berdasarkan kondisi serta karakteristik
+                    lokasi.
                   </p>
                 </div>
               </div>
 
 
+              {/* 4 */}
               <div className="flex items-start gap-4">
                 <div
                   className="
-                    w-12
-                    h-12
+                    w-11
+                    h-11
 
-                    rounded-2xl
+                    rounded-xl
 
-                    bg-gradient-to-br
-                    from-lime-200
-                    to-emerald-400
-
-                    shadow-[0_8px_24px_rgba(16,185,129,0.24)]
+                    bg-emerald-100
 
                     flex
                     items-center
@@ -480,11 +444,17 @@ export const CTA: React.FC = () => {
                     shrink-0
                   "
                 >
-                  <BadgeCheck className="w-6 h-6 text-[#063c30]" />
+                  <BadgeCheck className="w-5 h-5 text-emerald-700" />
                 </div>
 
                 <div>
-                  <h3 className="text-base sm:text-lg font-extrabold text-white">
+                  <h3
+                    className="
+                      text-base
+                      font-extrabold
+                      text-[#102a20]
+                    "
+                  >
                     Dukungan Setelah Instalasi
                   </h3>
 
@@ -495,10 +465,10 @@ export const CTA: React.FC = () => {
                       text-sm
                       leading-6
 
-                      text-emerald-100/70
+                      text-slate-500
                     "
                   >
-                    Tim kami siap membantu pengecekan, pengembangan, maupun
+                    Tim kami siap membantu pengecekan, pengembangan, dan
                     penyesuaian sistem sesuai kebutuhan operasional.
                   </p>
                 </div>
@@ -511,14 +481,13 @@ export const CTA: React.FC = () => {
               RIGHT CONTACT
           ================================================= */}
 
-          <div className="lg:sticky lg:top-28">
+          <div className="lg:pt-5">
             <div
               className="
-                border-l
-                border-white/20
+                border-l-2
+                border-emerald-400
 
                 pl-6
-                lg:pl-7
               "
             >
               <p
@@ -528,9 +497,9 @@ export const CTA: React.FC = () => {
 
                   font-extrabold
                   uppercase
-                  tracking-[0.16em]
+                  tracking-[0.15em]
 
-                  text-emerald-200
+                  text-emerald-700
                 "
               >
                 Mulai Konsultasi
@@ -548,7 +517,7 @@ export const CTA: React.FC = () => {
                   tracking-tight
                   leading-tight
 
-                  text-white
+                  text-[#102a20]
                 "
               >
                 Ceritakan kebutuhan lokasi Anda.
@@ -559,10 +528,9 @@ export const CTA: React.FC = () => {
                   mt-4
 
                   text-sm
-
                   leading-6
 
-                  text-emerald-100/70
+                  text-slate-500
                 "
               >
                 Sampaikan jenis lokasi, area yang ingin dipantau, atau
@@ -572,7 +540,7 @@ export const CTA: React.FC = () => {
             </div>
 
 
-            {/* WhatsApp 3D */}
+            {/* WhatsApp */}
             <a
               id="big-cta-whatsapp"
               href={ctaWaLink}
@@ -580,8 +548,6 @@ export const CTA: React.FC = () => {
               rel="noopener noreferrer"
               className="
                 group
-                relative
-                overflow-hidden
 
                 mt-8
 
@@ -596,100 +562,30 @@ export const CTA: React.FC = () => {
                 px-6
                 py-4
 
-                rounded-2xl
+                rounded-xl
 
-                bg-gradient-to-br
-                from-[#064e3b]
-                via-[#10b981]
-                to-[#6ee7b7]
-
-                border
-                border-emerald-200/30
+                bg-emerald-600
+                hover:bg-emerald-700
 
                 text-white
                 text-sm
                 font-extrabold
 
-                shadow-[0_8px_0_#064e3b,0_16px_35px_rgba(16,185,129,0.32)]
+                shadow-[0_8px_20px_rgba(5,150,105,0.20)]
 
-                hover:-translate-y-1
-
-                hover:shadow-[0_10px_0_#064e3b,0_22px_45px_rgba(16,185,129,0.40)]
-
-                active:translate-y-[3px]
-
-                active:shadow-[0_4px_0_#064e3b,0_10px_25px_rgba(16,185,129,0.28)]
+                hover:-translate-y-0.5
+                hover:shadow-[0_12px_30px_rgba(5,150,105,0.28)]
 
                 transition-all
                 duration-200
               "
             >
-              <span
-                className="
-                  absolute
-                  inset-0
+              <MessageSquare className="w-5 h-5" />
 
-                  opacity-30
-
-                  bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.5)_0_1px,transparent_1.5px)]
-                  [background-size:8px_8px]
-
-                  pointer-events-none
-                "
-              />
-
-              <span
-                className="
-                  absolute
-                  inset-x-0
-                  top-0
-
-                  h-[45%]
-
-                  bg-gradient-to-b
-                  from-white/25
-                  to-transparent
-
-                  pointer-events-none
-                "
-              />
-
-              <span
-                className="
-                  absolute
-                  -left-[55%]
-                  top-0
-
-                  h-full
-                  w-[40%]
-
-                  skew-x-[-22deg]
-
-                  bg-gradient-to-r
-                  from-transparent
-                  via-white/25
-                  to-transparent
-
-                  group-hover:left-[125%]
-
-                  transition-all
-                  duration-700
-
-                  pointer-events-none
-                "
-              />
-
-              <MessageSquare className="relative z-10 w-5 h-5" />
-
-              <span className="relative z-10">
-                Konsultasi via WhatsApp
-              </span>
+              Konsultasi via WhatsApp
 
               <ArrowRight
                 className="
-                  relative
-                  z-10
-
                   w-4
                   h-4
 
@@ -709,7 +605,7 @@ export const CTA: React.FC = () => {
                 ''
               )}`}
               className="
-                mt-5
+                mt-3
 
                 w-full
 
@@ -725,23 +621,22 @@ export const CTA: React.FC = () => {
                 rounded-xl
 
                 border
-                border-white/20
+                border-emerald-200
 
-                bg-white/10
-                backdrop-blur-md
+                bg-white
 
                 text-sm
                 font-bold
 
-                text-white
+                text-[#102a20]
 
-                hover:bg-white/15
-                hover:border-white/30
+                hover:bg-emerald-50
+                hover:border-emerald-300
 
                 transition-all
               "
             >
-              <PhoneCall className="w-4 h-4 text-emerald-300" />
+              <PhoneCall className="w-4 h-4 text-emerald-600" />
 
               {COMPANY_INFO.phone}
             </a>
@@ -750,30 +645,30 @@ export const CTA: React.FC = () => {
             {/* checklist */}
             <div
               className="
-                mt-7
+                mt-6
                 space-y-3
               "
             >
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
 
-                <span className="text-sm text-emerald-50/80">
+                <span className="text-sm text-slate-500">
                   Konsultasi kebutuhan sistem
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
 
-                <span className="text-sm text-emerald-50/80">
+                <span className="text-sm text-slate-500">
                   Survei dan analisis lokasi
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
 
-                <span className="text-sm text-emerald-50/80">
+                <span className="text-sm text-slate-500">
                   Rekomendasi perangkat & instalasi
                 </span>
               </div>
@@ -783,18 +678,19 @@ export const CTA: React.FC = () => {
 
 
         {/* =====================================================
-            PROJECT LOGOS / MARQUEE
+            PROJECT LOGO MARQUEE
         ===================================================== */}
 
         <div
           className="
             mt-20
-            pt-10
+            pt-12
 
             border-t
-            border-white/15
+            border-slate-200
           "
         >
+          {/* Heading */}
           <div className="text-center">
             <div
               className="
@@ -807,9 +703,9 @@ export const CTA: React.FC = () => {
 
                 font-extrabold
                 uppercase
-                tracking-[0.18em]
+                tracking-[0.16em]
 
-                text-emerald-200
+                text-emerald-700
               "
             >
               <ShieldCheck className="w-4 h-4" />
@@ -825,9 +721,10 @@ export const CTA: React.FC = () => {
                 sm:text-3xl
 
                 font-black
+
                 tracking-tight
 
-                text-white
+                text-[#102a20]
               "
             >
               Pengalaman Proyek PUSTEKINDO
@@ -837,28 +734,32 @@ export const CTA: React.FC = () => {
               className="
                 mt-2
 
-                mx-auto
-
                 max-w-2xl
+                mx-auto
 
                 text-sm
                 sm:text-base
 
                 leading-7
 
-                text-emerald-100/65
+                text-slate-500
               "
             >
               Pengalaman implementasi sistem keamanan dan teknologi untuk
-              berbagai kebutuhan perusahaan, institusi, properti, dan area
+              berbagai perusahaan, institusi, properti, dan kebutuhan area
               komersial.
             </p>
           </div>
 
 
-          {/* MARQUEE */}
+          {/* =================================================
+              MARQUEE AREA
+          ================================================= */}
+
           <div
             className="
+              project-marquee-wrapper
+
               relative
 
               mt-10
@@ -866,7 +767,7 @@ export const CTA: React.FC = () => {
               overflow-hidden
             "
           >
-            {/* fade left */}
+            {/* left fade */}
             <div
               className="
                 absolute
@@ -874,20 +775,20 @@ export const CTA: React.FC = () => {
                 top-0
                 bottom-0
 
-                w-20
-                sm:w-32
-
                 z-20
 
+                w-14
+                sm:w-28
+
                 bg-gradient-to-r
-                from-[#07503f]
+                from-[#f8faf9]
                 to-transparent
 
                 pointer-events-none
               "
             />
 
-            {/* fade right */}
+            {/* right fade */}
             <div
               className="
                 absolute
@@ -895,13 +796,13 @@ export const CTA: React.FC = () => {
                 top-0
                 bottom-0
 
-                w-20
-                sm:w-32
-
                 z-20
 
+                w-14
+                sm:w-28
+
                 bg-gradient-to-l
-                from-[#8ed9b4]/70
+                from-[#f8faf9]
                 to-transparent
 
                 pointer-events-none
@@ -909,76 +810,65 @@ export const CTA: React.FC = () => {
             />
 
 
-            <div
-              className="
-                flex
-                w-max
-
-                animate-[projectMarquee_28s_linear_infinite]
-
-                hover:[animation-play-state:paused]
-              "
-            >
-              {[...projectLogos, ...projectLogos].map(
+            {/* TRACK */}
+            <div className="project-marquee-track">
+              {[...projectLogos, ...projectLogos, ...projectLogos].map(
                 (client, index) => (
                   <div
                     key={`${client.name}-${index}`}
                     className="
+                      project-logo-item
+
                       group
 
                       flex
                       items-center
                       justify-center
 
-                      w-[160px]
-                      sm:w-[190px]
+                      w-[165px]
+                      sm:w-[195px]
 
                       h-[90px]
                       sm:h-[105px]
 
                       mx-2.5
-                      sm:mx-3
 
                       rounded-2xl
 
-                      bg-white/95
+                      bg-white
 
                       border
-                      border-white/30
+                      border-slate-200
 
-                      shadow-[0_10px_30px_rgba(0,0,0,0.10)]
+                      shadow-[0_8px_25px_rgba(15,23,42,0.07)]
 
                       transition-all
                       duration-300
 
                       hover:-translate-y-1
+                      hover:border-emerald-200
 
-                      hover:bg-white
-
-                      hover:shadow-[0_15px_35px_rgba(0,0,0,0.16)]
+                      hover:shadow-[0_14px_35px_rgba(15,23,42,0.10)]
                     "
                   >
                     <img
                       src={client.logo}
                       alt={client.name}
-                      loading="lazy"
+                      loading="eager"
                       className="
-                        max-w-[115px]
-                        sm:max-w-[135px]
+                        max-w-[120px]
+                        sm:max-w-[145px]
 
-                        max-h-[55px]
-                        sm:max-h-[65px]
+                        max-h-[58px]
+                        sm:max-h-[68px]
 
                         w-auto
                         h-auto
 
                         object-contain
 
-                        opacity-80
+                        opacity-90
 
-                        grayscale
-
-                        group-hover:grayscale-0
                         group-hover:opacity-100
                         group-hover:scale-105
 
@@ -1000,11 +890,11 @@ export const CTA: React.FC = () => {
 
         <div
           className="
-            mt-16
+            mt-14
             pt-8
 
             border-t
-            border-white/15
+            border-slate-200
 
             flex
             flex-col
@@ -1024,9 +914,9 @@ export const CTA: React.FC = () => {
 
                 font-extrabold
                 uppercase
-                tracking-[0.16em]
+                tracking-[0.15em]
 
-                text-emerald-200
+                text-emerald-700
               "
             >
               Solusi Terintegrasi
@@ -1041,7 +931,7 @@ export const CTA: React.FC = () => {
 
                 font-extrabold
 
-                text-white
+                text-[#102a20]
               "
             >
               Satu sistem, dirancang sesuai kebutuhan lokasi.
@@ -1051,13 +941,12 @@ export const CTA: React.FC = () => {
               className="
                 mt-2
 
-                text-sm
+                max-w-2xl
 
+                text-sm
                 leading-6
 
-                text-emerald-100/65
-
-                max-w-2xl
+                text-slate-500
               "
             >
               Solusi dapat disesuaikan untuk rumah, kantor, toko, gudang,
@@ -1079,26 +968,26 @@ export const CTA: React.FC = () => {
 
               font-extrabold
 
-              text-white
+              text-[#102a20]
             "
           >
             <span className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-300" />
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               CCTV
             </span>
 
             <span className="flex items-center gap-2">
-              <BadgeCheck className="w-4 h-4 text-emerald-300" />
+              <BadgeCheck className="w-4 h-4 text-emerald-600" />
               Access Control
             </span>
 
             <span className="flex items-center gap-2">
-              <Network className="w-4 h-4 text-emerald-300" />
+              <Network className="w-4 h-4 text-emerald-600" />
               Networking
             </span>
 
             <span className="flex items-center gap-2">
-              <Wrench className="w-4 h-4 text-emerald-300" />
+              <Wrench className="w-4 h-4 text-emerald-600" />
               IT Solution
             </span>
           </div>
