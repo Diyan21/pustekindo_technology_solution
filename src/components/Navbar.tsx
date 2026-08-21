@@ -261,26 +261,20 @@ export const Navbar: React.FC = () => {
      NAVIGATION
   ===================================================== */
 
-  const handleNavClick = (
-    href: string
-  ) => {
+  const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
     setOpenDesktopMenu(null);
     setOpenMobileMenu(null);
     setSearchOpen(false);
     setSearchQuery('');
 
+    /* =====================================================
+       CCTV BRAND
+    ===================================================== */
 
-    /* CCTV BRAND */
-
-    if (
-      href.startsWith('#brand-')
-    ) {
+    if (href.startsWith('#brand-')) {
       const brandId =
-        href.replace(
-          '#brand-',
-          ''
-        );
+        href.replace('#brand-', '');
 
       window.dispatchEvent(
         new CustomEvent(
@@ -301,13 +295,39 @@ export const Navbar: React.FC = () => {
           behavior: 'smooth',
           block: 'start'
         });
+      } else {
+        window.dispatchEvent(
+          new CustomEvent(
+            'open-extra-section',
+            {
+              detail: '#harga-paket'
+            }
+          )
+        );
+
+        setTimeout(() => {
+          document
+            .querySelector(
+              '#harga-paket'
+            )
+            ?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+        }, 150);
       }
+
+      setActiveSection(
+        'harga-paket'
+      );
 
       return;
     }
 
 
-    /* EXISTING SECTION */
+    /* =====================================================
+       SECTION SUDAH ADA
+    ===================================================== */
 
     const target =
       document.querySelector(
@@ -328,7 +348,9 @@ export const Navbar: React.FC = () => {
     }
 
 
-    /* SECTION BELUM DIRENDER */
+    /* =====================================================
+       SECTION BELUM DIRENDER
+    ===================================================== */
 
     window.dispatchEvent(
       new CustomEvent(
@@ -342,6 +364,24 @@ export const Navbar: React.FC = () => {
     setActiveSection(
       href.replace('#', '')
     );
+
+    /*
+     * Tunggu React selesai render section,
+     * lalu cari target dan scroll.
+     */
+    setTimeout(() => {
+      const renderedTarget =
+        document.querySelector(
+          href
+        );
+
+      if (renderedTarget) {
+        renderedTarget.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 150);
   };
 
 
